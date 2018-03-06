@@ -1,13 +1,16 @@
-const path = require("path");
-const router = require("express").Router();
-const apiRoutes = require("./api");
-
 // API Routes
-router.use("/api", apiRoutes);
+var db = require("../models");
 
-// If no API routes are hit, send the React app
-router.use((req, res) =>
-  res.sendFile(path.join(__dirname, "../client/build/index.html"))
-);
+module.exports = function (app) {
 
-module.exports = router;
+  app.post("/api/Registry", function (req, res) {
+    var initObj = {
+      firstName: voter.firstName,
+      lastName: voter.lastName,
+      VRN: voter.VRN,
+    };
+    db.Registry.create(initObj).then(function (regVoter) {
+      res.json(regVoter);
+    });
+  });
+}
