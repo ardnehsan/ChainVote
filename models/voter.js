@@ -22,7 +22,7 @@ module.exports = function (sequelize, DataTypes) {
         isRegistered: {
             type: DataTypes.BOOLEAN,
             defaultValue: false
-        },
+        }
 
         // // len is a validation that checks that our Voter is between 1 and 140 characters
         //     validate: {
