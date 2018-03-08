@@ -1,12 +1,12 @@
 const db = require("../models");
 
-//Defining methods for BlockChain
+//Defining methods for VoteChain.BlockChain
 module.exports = {
   findAll: function(req, res){
-    db.BlockChain
+    db.VoteChain.BlockChain
     .find(req.query)
     .sort({date: -1})
-    .then(dbBlockChain => res.json(dbBlockChain))
+    .then(dbVoteChainBlockChain => res.json(dbVoteChainBlockChain))
     .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
@@ -17,9 +17,9 @@ module.exports = {
       previousHash: req.body.previousHash,
       hash: req.body.hash
     };
-    db.BlockChain
+    db.VoteChain.BlockChain
       .create(blockChain)
-      .then(dbBlockChain => res.json(dbBlockChain))
+      .then(dbVoteChainBlockChain => res.json(dbVoteChainBlockChain))
       .catch(err => res.status(422).json(err));
   }
   create: function(req, res){
