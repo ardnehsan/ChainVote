@@ -5,6 +5,8 @@ class Header extends Component {
         return (
             <div>
                 Header
+                <h2> header goes here
+                </h2>    
             </div>
         );
     }
