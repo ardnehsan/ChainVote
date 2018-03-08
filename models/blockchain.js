@@ -7,7 +7,6 @@ const blockChainSchema = new Schema ({
   data: {type: String, require: true},
   previousHash: {type: String, require: true},
   hash: {type: String, require: true}
-
 });
 
 const BlockChain = mongoose.model("BlockChain", blockChainSchema);
