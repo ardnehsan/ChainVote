@@ -9,8 +9,8 @@ const blockChainSchema = new Schema ({
   hash: {type: String, require: true}
 });
 
-const BlockChain = mongoose.model("BlockChain", BlockChainSchema);
+const BlockChain = mongoose.model("BlockChain", blockChainSchema);
 
 module.exports = BlockChain;
-//
+//delete
 // db.VoteChain.insert({"index": "1", "data":"yes","previousHash": "33388", "hash": "333"});
