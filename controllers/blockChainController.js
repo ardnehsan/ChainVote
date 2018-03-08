@@ -1,7 +1,6 @@
-const db = require("../models/blockChain2");
+const db = require("../models/");
 
-//methods for BlockChain
-
+//Defining methods for BlockChain
 module.exports = {
   findAll: function(req, res){
     db.BlockChain
