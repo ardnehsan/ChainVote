@@ -9,3 +9,7 @@ const blockChainSchema = new Schema ({
   hash: {type: String, require: true}
 
 });
+
+const BlockChain = mongoose.model("BlockChain", blockChainSchema);
+
+module.exports = BlockChain;
