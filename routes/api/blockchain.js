@@ -3,8 +3,7 @@ const blockChainController = require ("../../controllers/blockChainController");
 
 // Matches with "/api/blockchain"
 router.route("/")
-.get(blockChainController.findAll);
-.post(blockChainController.create);
-
+	.get(blockChainController.findAll)
+	.post(blockChainController.create);
 
 module.exports = router;
