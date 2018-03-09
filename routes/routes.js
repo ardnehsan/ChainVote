@@ -15,15 +15,14 @@ module.exports = function (app) {
   });
 
   //query on frontend api/Registry/?firstName='Bob'&lastName='Bobby'
-  app.get("/api/Registry/:firstName&:lastName", function(req, res) {
+  app.get("/api/Registry/:firstName&:lastName", function (req, res) {
     db.Voter.findAll({
       where: {
         firstName: req.params.firstName,
         lastName: req.params.lastName
       }
-    }).then(function(regVoter) {
+    }).then(function (regVoter) {
       res.json(regVoter);
     });
   });
-  
 };

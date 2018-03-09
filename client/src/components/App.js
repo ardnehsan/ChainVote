@@ -1,3 +1,7 @@
+// ===================================================================
+// App.js IS RESPOSIBLE FOR THE INITIAL VIEW LAYER SETUP =============
+// ===================================================================
+
 import React from 'react';
 // BrowserRouter = IT TELLS REACT ROUTER HOW TO BEHAVE. IT LOOKS AT THE CURRENT URL AND CHANGE THE SET OF COMPONENTS VISIBLE ON THE SCREEN.
 // Route = IS A REACT COMPONENT THAT IS USED TO SETUP A RULE BETWEEN A ROUTE AND A SET OF COMPONENTS VISIBLE ON THE SCREEN.
@@ -12,7 +16,7 @@ const Report = () => <h2>Report</h2>
 
 const App = () => {
     return (
-        <div>
+        <div className="container">
             {/* REACT COMPONENT */}
             <BrowserRouter>
                 {/* COLLECTION OF ROUTES */}
