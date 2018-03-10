@@ -12,7 +12,6 @@ module.exports = {
   create: function(req, res) {
     const blockChain = {
       index: req.body.index,
-      timestamp: req.body.timestamp,
       data: req.body.data,
       previousHash: req.body.previousHash,
       hash: req.body.hash

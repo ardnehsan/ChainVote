@@ -3,7 +3,10 @@ import React from 'react';
 // Route = IS A REACT COMPONENT THAT IS USED TO SETUP A RULE BETWEEN A ROUTE AND A SET OF COMPONENTS VISIBLE ON THE SCREEN.
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import Header from './Header';
+import Home from "./pages/Home";
+import Nav from "./components/Nav";
+
+import Header from './components/Header';
 const Landing = () => <h2>Landing</h2>
 const Login = () => <h2>Login</h2>
 const CampaingNew = () => <h2>CampaingNew</h2>
@@ -18,7 +21,7 @@ const App = () => {
                 {/* COLLECTION OF ROUTES */}
                 <div>
                     <Header />
-                    <Route exact path="/" component={Landing} />
+                    <Route exact path="/" component={Home} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/campaing" component={CampaingNew} />
                     <Route exact path="/vote" component={Vote} />
