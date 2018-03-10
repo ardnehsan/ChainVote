@@ -17,13 +17,14 @@
     "sequelize-cli": "^4.0.0"
   },
   "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "server": "nodemon server.js",
-    "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
-  },
+    "scripts": {
+      "server": "node server.js",
+      "client": "cd client && npm run start",
+      "start": "./node_modules/.bin/concurrently \"./node_modules/.bin/nodemon\" \"npm run client\"",
+      "build": "cd client && npm run build",
+      "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ardnehsan/ChainVote.git"
