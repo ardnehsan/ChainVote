@@ -1,6 +1,6 @@
-// ===================================================================
-// App.js IS RESPOSIBLE FOR THE INITIAL VIEW LAYER SETUP =============
-// ===================================================================
+// ==================================================================
+// App.js IS RESPOSIBLE FOR THE INITIAL VIEW LAYER SETUP ============
+// ==================================================================
 
 import React from 'react';
 // BrowserRouter = IT TELLS REACT ROUTER HOW TO BEHAVE. IT LOOKS AT THE CURRENT URL AND CHANGE THE SET OF COMPONENTS VISIBLE ON THE SCREEN.
@@ -13,6 +13,7 @@ const Login = () => <h2>Login</h2>
 const CampaingNew = () => <h2>CampaingNew</h2>
 const Vote = () => <h2>Vote</h2>
 const Report = () => <h2>Report</h2>
+const About = () => <h2>About</h2>
 
 const App = () => {
     return (
@@ -24,11 +25,16 @@ const App = () => {
                     <Header />
                     <Route exact path="/" component={Landing} />
                     <Route exact path="/login" component={Login} />
+                    <Route exact path="/about" component={About} />
                     <Route exact path="/campaing" component={CampaingNew} />
                     <Route exact path="/vote" component={Vote} />
-                    <Route exact path="/campaing/report" component={Report} />
+                    <Route exact path="/campaing/history" component={Report} />
                 </div>
             </BrowserRouter>
+
+            <div>
+                
+            </div>
         </div>
     );
 };

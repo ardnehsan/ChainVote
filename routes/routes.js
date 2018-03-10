@@ -26,3 +26,9 @@ module.exports = function (app) {
     });
   });
 };
+
+
+// ROUTE TO HELP WITH REACT AND REDUX TO KNOW WHEN A USER IS LOGED IN WHAT TO DISPLAY ============
+// app.get('/api/current_user', (req, res) => {
+//   res.send(req.user);
+// });

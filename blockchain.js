@@ -66,10 +66,10 @@ class Blockchain {
 let voterCoin = new Blockchain();
 
 //adding some test blocks
-voterCoin.addBlock(new Block(1, "01/02/2018", {amount : 4}));
-voterCoin.addBlock(new Block(2, "01/03/2018", {amount : 6}));
-voterCoin.addBlock(new Block(3, "01/04/2018", {amount : 5}));
-voterCoin.addBlock(new Block(4, "01/05/2018", {amount : 10}));
+voterCoin.addBlock(new Block(1, "01/02/2018", {vote : 2, voter : "tester"}));
+voterCoin.addBlock(new Block(2, "01/03/2018", {vote : 1, voter : "tester2"}));
+voterCoin.addBlock(new Block(3, "01/04/2018", {vote : 2, voter : "tester3"}));
+voterCoin.addBlock(new Block(4, "01/05/2018", {vote : 1, voter : "tester4"}));
 
 //checking the blockchain contents and validity
 console.log(JSON.stringify(voterCoin, null, 4));
@@ -77,7 +77,7 @@ console.log('Is blockchain valid? ' + voterCoin.isChainValid());
 
 
 //attempts at sabotaging the blockchain (have at it! I tried to break it)
-voterCoin.chain[1].data = {amount : 100};
+voterCoin.chain[1].data = { vote: 1, voter: "tester"};
 for (let i = 1; i < voterCoin.chain.length; i++) {
 voterCoin.chain[i].hash = voterCoin.chain[i].calculateHash();
 voterCoin.chain[i].previousHash = voterCoin.chain[i-1].hash;
