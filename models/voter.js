@@ -13,3 +13,5 @@ const voterSchema = new Schema ({
 const Voter = mongoose.model("Voter", voterSchema);
 
 module.exports = Voter;
+
+// db.VoteChain.insert({"index": "1", "data":"yes","previousHash": "33388", "hash": "333"});
