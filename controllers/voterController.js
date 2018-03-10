@@ -24,6 +24,9 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   }
 };
+
+//add users to Voter Table in votechain DB.
+
 // db.Voter.insert({"firstName": "Lysandnie", "lastName": "Jacques", "email": "LJacques@gmail.com", "VRN": "00000", "isRegistered": "true"})
 // db.Voter.insert({"firstName": "David", "lastName": "Morales", "email": "dmorales@gmail.com", "VRN": "00001", "isRegistered": "true"})
 // db.Voter.insert({"firstName": "Matthew", "lastName": "LLoyd", "email": "Mlloyd@gmail.com", "VRN": "00002", "isRegistered": "true"})
