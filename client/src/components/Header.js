@@ -31,7 +31,6 @@ class Header extends React.Component {
     return (
       <div>
         <Navbar color="info" light expand="md">
-          <img src={logo} className="App-logo" alt="logo" />
           <NavbarBrand href="/">reactstrap</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
