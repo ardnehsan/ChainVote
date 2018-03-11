@@ -3,6 +3,13 @@ import React from 'react';
 // Route = IS A REACT COMPONENT THAT IS USED TO SETUP A RULE BETWEEN A ROUTE AND A SET OF COMPONENTS VISIBLE ON THE SCREEN.
 import { BrowserRouter, Route } from 'react-router-dom';
 
+import Header from './Header';
+import LoginForm from './LoginForm';
+import Registration from './Registration';
+
+import { Card, Button, CardTitle, CardText } from 'reactstrap';
+
+
 import Home from "./pages/Home";
 import Nav from "./components/Nav";
 
@@ -13,9 +20,16 @@ const CampaingNew = () => <h2>CampaingNew</h2>
 const Vote = () => <h2>Vote</h2>
 const Report = () => <h2>Report</h2>
 
+const styles = {
+    button: {
+        background: "red"
+    }
+};
+
+
 const App = () => {
     return (
-        <div>
+        <div className="container">
             {/* REACT COMPONENT */}
             <BrowserRouter>
                 {/* COLLECTION OF ROUTES */}
@@ -26,9 +40,23 @@ const App = () => {
                     <Route exact path="/campaing" component={CampaingNew} />
                     <Route exact path="/vote" component={Vote} />
                     <Route exact path="/campaing/report" component={Report} />
+
+    
                 </div>
             </BrowserRouter>
+        
+            <div>
+            <Card body outline color="secondary">
+
+        <CardTitle className="text-center">Cast your Vote!</CardTitle>
+        <CardText className="text-center">Let your voice be heard!</CardText>
+         <LoginForm/>
+        <Registration/>
+             </Card>   
         </div>
+
+        </div>
+      
     );
 };
 
