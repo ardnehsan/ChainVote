@@ -10,6 +10,10 @@ import Registration from './Registration';
 import { Card, Button, CardTitle, CardText } from 'reactstrap';
 
 
+import Home from "./pages/Home";
+import Nav from "./components/Nav";
+
+import Header from './components/Header';
 const Landing = () => <h2>Landing</h2>
 const Login = () => <h2>Login</h2>
 const CampaingNew = () => <h2>CampaingNew</h2>

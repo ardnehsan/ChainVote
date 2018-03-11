@@ -1,33 +1,17 @@
-module.exports = function (sequelize, DataTypes) {
-    var Voter = sequelize.define("Voter", {
-        firstName: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        lastName: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        email: {
-            type: DataTypes.STRING,
-            defaultValue: null
-        },
-        password: {
-            type: DataTypes.STRING,
-            defaultValue: null
-        },
-        VRN : {
-            type: DataTypes.INTEGER,
-        },
-        isRegistered: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: false
-        }
+const mongoose = require ("mongoose");
+const Schema = mongoose.Schema;
 
-        // // len is a validation that checks that our Voter is between 1 and 140 characters
-        //     validate: {
-        //     len: [1, 140]
-        // }
-    });
-    return Voter;
-};
+const voterSchema = new Schema ({
+  firstName: {type: String, required: true},
+  lastName: {type: String, required: true},
+  email: {type: String, required: true},
+  password: {type: String, required: true},
+  VRN: {type: Number, required: true},
+  isRegistered: {type: Boolean, require: true}
+});
+
+const Voter = mongoose.model("Voter", voterSchema);
+
+module.exports = Voter;
+
+// db.VoteChain.insert({"index": "1", "data":"yes","previousHash": "33388", "hash": "333"});
