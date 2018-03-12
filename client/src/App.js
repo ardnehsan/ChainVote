@@ -10,7 +10,6 @@ import Home from "./pages/Home";
 import Landing from "./pages/Landing";
 import History from "./pages/History";
 // import Nav from "./components/Nav";
-
 import Header from './components/Header';
 const Login = () => <h2>Login</h2>
 const CampaingNew = () => <h2>CampaingNew</h2>

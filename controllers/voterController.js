@@ -1,16 +1,16 @@
 const db = require("../models");
 
-//Defining methods for VoteChain.Voter
+//Defining methods for Voter
 module.exports = {
   findAll: function(req, res){
-    db.VoteChain.Voter
+    db.Voter
     .find(req.query)
     .sort({date: -1})
-    .then(dbVoteChainVoter => res.json(dbVoteChainVoter))
+    .then(dbVoter => res.json(dbVoter))
     .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    const voter = {
+    let voter = {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
@@ -18,9 +18,9 @@ module.exports = {
       VRN: req.body.VRN,
       isRegistered: req.body.isRegistered
     };
-    db.VoteChain.Voter
+    db.Voter
       .create(voter)
-      .then(dbVoteChainVoter => res.json(dbVoteChainVoter))
+      .then(dbVoter => res.json(dbVoter))
       .catch(err => res.status(422).json(err));
   }
 };
