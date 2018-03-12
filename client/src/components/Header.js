@@ -36,9 +36,7 @@ class Header extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/login">
-                  Login
-                </NavLink>
+                <NavLink href="/login">Login</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
@@ -46,15 +44,16 @@ class Header extends React.Component {
                 </DropdownToggle>
                 <DropdownMenu>
                   <DropdownItem>
-                    <NavLink href="https://github.com/ardnehsan/ChainVote" target="_blank">
+                    <NavLink
+                      href="https://github.com/ardnehsan/ChainVote"
+                      target="_blank"
+                    >
                       Github Repo
                     </NavLink>
                   </DropdownItem>
                   <DropdownItem>
-                    <NavLink href="/about">
-                      Developers
-                    </NavLink>
-                  </DropdownItem>                 
+                    <NavLink href="/about">Developers</NavLink>
+                  </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
