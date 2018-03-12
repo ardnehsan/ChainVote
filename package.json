@@ -12,19 +12,20 @@
     "express": "^4.16.2",
     "mongoose": "^5.0.9",
     "mysql2": "^1.5.2",
+    "nodemon": "^1.17.1",
     "request": "^2.83.0",
     "sequelize": "^4.35.1",
     "sequelize-cli": "^4.0.0"
   },
   "devDependencies": {},
-    "scripts": {
-      "server": "node server.js",
-      "client": "cd client && npm run start",
-      "start": "concurrently \"./node_modules/bin/nodemon\" \"npm run client\"",
-      "build": "cd client && npm run build",
-      "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
+  "scripts": {
+    "server": "node server.js",
+    "client": "cd client && npm run start",
+    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "build": "cd client && npm run build",
+    "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ardnehsan/ChainVote.git"

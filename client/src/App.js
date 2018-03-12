@@ -4,10 +4,10 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import Home from "./pages/Home";
+import Landing from "./pages/Landing";
 import Nav from "./components/Nav";
 
 import Header from './components/Header';
-const Landing = () => <h2>Landing</h2>
 const Login = () => <h2>Login</h2>
 const CampaingNew = () => <h2>CampaingNew</h2>
 const Vote = () => <h2>Vote</h2>
