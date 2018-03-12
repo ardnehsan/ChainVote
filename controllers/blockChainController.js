@@ -21,4 +21,10 @@ module.exports = {
       .then(dbBlockChain => res.json(dbBlockChain))
       .catch(err => res.status(422).json(err));
   }
+  create: function(req, res){
+    db.BlockChain
+    .create(blockchain)
+    .then(dbBlockChain => res.json(dbBlockChain))
+    .catch(err => res.status(422).json(err));
+  }
 };

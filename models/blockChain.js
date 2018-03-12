@@ -12,3 +12,5 @@ const blockChainSchema = new Schema ({
 const BlockChain = mongoose.model("BlockChain", blockChainSchema);
 
 module.exports = BlockChain;
+//delete
+// db.VoteChain.insert({"index": "1", "data":"yes","previousHash": "33388", "hash": "333"});
