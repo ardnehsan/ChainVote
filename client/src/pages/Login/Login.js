@@ -5,14 +5,19 @@ import LoginForm from '../../components/LoginForm';
 import Registration from '../../components/Registration';
 
 
-class Vote extends Component {
+class Login extends Component {
 render() {
   return(
           <div>
-       
+          <Card body outline color="secondary">
+        <CardTitle className="text-center">Cast your Vote!</CardTitle>
+        <CardText className="text-center">Let your voice be heard!</CardText>
+        <LoginForm/>
+        <Registration/>
+          </Card>   
         </div>
         )
     }
   }
 
-export default Vote;
+export default Login;

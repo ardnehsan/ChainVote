@@ -7,20 +7,17 @@ import React from 'react';
 // Route = IS A REACT COMPONENT THAT IS USED TO SETUP A RULE BETWEEN A ROUTE AND A SET OF COMPONENTS VISIBLE ON THE SCREEN.
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import LoginForm from './components/LoginForm/LoginForm';
-import Registration from './components/Registration/Registration';
+import Header from './components/Header';
 
-import { Card, Button, CardTitle, CardText } from 'reactstrap';
+import Nav from "./components/Nav";
+//inporting diffferent pages 
 
-// import Home from "./pages/Home";
-// import Nav from "./components/Nav";
-import Header from './components/Header/Header';
-const Landing = () => <h2>Landing</h2>
-const Login = () => <h2>Login</h2>
-const CampaignNew = () => <h2>CampaignNew</h2>
-const Vote = () => <h2>Vote</h2>
-const Report = () => <h2>Report</h2>
-const About = () => <h2>About</h2>
+import Login from "./pages/Login";
+import Vote from "./pages/Vote";
+import History from "./pages/History";
+import Campaign from "./pages/Campaign";
+import Report from "./pages/Report";
+
 
 const styles = {
     button: {
@@ -37,26 +34,16 @@ const App = () => {
                 {/* COLLECTION OF ROUTES */}
                 <div>
                     <Header />
-                    <Route exact path="/" component={Landing} />
+                    <Route exact path="/" component={Login} />
                     <Route exact path="/login" component={Login} />
-                    <Route exact path="/about" component={About} />
-                    <Route exact path="/campaign" component={CampaignNew} />
+                    <Route exact path="/campaign" component={Campaign} />
                     <Route exact path="/vote" component={Vote} />
-                    <Route exact path="/campaign/report" component={Report} />
-
-    
+                    <Route exact path="/report" component={Report} />
+                    <Route exact path="/history" component={History} />
                 </div>
             </BrowserRouter>
         
-            <div>
-            <Card body outline color="secondary">
-
-        <CardTitle className="text-center">Cast your Vote!</CardTitle>
-        <CardText className="text-center">Let your voice be heard!</CardText>
-         <LoginForm/>
-        <Registration/>
-             </Card>   
-        </div>
+          
 
         </div>
       
