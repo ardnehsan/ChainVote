@@ -18,7 +18,8 @@
     "react-scripts": "1.1.1",
     "reactstrap": "^5.0.0-beta.2",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "yarn": "^1.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
