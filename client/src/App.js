@@ -3,9 +3,9 @@ import React from 'react';
 // Route = IS A REACT COMPONENT THAT IS USED TO SETUP A RULE BETWEEN A ROUTE AND A SET OF COMPONENTS VISIBLE ON THE SCREEN.
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import Header from './Header';
-import LoginForm from './LoginForm';
-import Registration from './Registration';
+import Header from './components/Header';
+import LoginForm from './components/LoginForm';
+import Registration from './components/Registration';
 
 import { Card, Button, CardTitle, CardText } from 'reactstrap';
 
@@ -13,7 +13,7 @@ import { Card, Button, CardTitle, CardText } from 'reactstrap';
 import Home from "./pages/Home";
 import Nav from "./components/Nav";
 
-import Header from './components/Header';
+
 const Landing = () => <h2>Landing</h2>
 const Login = () => <h2>Login</h2>
 const CampaingNew = () => <h2>CampaingNew</h2>
@@ -41,10 +41,10 @@ const App = () => {
                     <Route exact path="/vote" component={Vote} />
                     <Route exact path="/campaing/report" component={Report} />
 
-    
+
                 </div>
             </BrowserRouter>
-        
+
             <div>
             <Card body outline color="secondary">
 
@@ -52,11 +52,11 @@ const App = () => {
         <CardText className="text-center">Let your voice be heard!</CardText>
          <LoginForm/>
         <Registration/>
-             </Card>   
+             </Card>
         </div>
 
         </div>
-      
+
     );
 };
 
