@@ -7,6 +7,7 @@ import LoginForm from './components/LoginForm';
 import Registration from './components/Registration';
 
 //inporting diffferent pages
+
 import { Card, Button, CardTitle, CardText } from 'reactstrap';
 import Home from "./pages/Home";
 import Nav from "./components/Nav";
