@@ -79,8 +79,8 @@ console.log('Is blockchain valid? ' + voterCoin.isChainValid());
 //attempts at sabotaging the blockchain (have at it! I tried to break it)
 voterCoin.chain[1].data = { vote: 1, voter: "tester"};
 for (let i = 1; i < voterCoin.chain.length; i++) {
-voterCoin.chain[i].hash = voterCoin.chain[i].calculateHash();
-voterCoin.chain[i].previousHash = voterCoin.chain[i-1].hash;
+    voterCoin.chain[i].hash = voterCoin.chain[i].calculateHash();
+    voterCoin.chain[i].previousHash = voterCoin.chain[i-1].hash;
 };
 
 
