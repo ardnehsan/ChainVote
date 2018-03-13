@@ -2,21 +2,20 @@ const db = require("../models");
 
 //Defining methods for Voter
 module.exports = {
-<<<<<<< HEAD
+
   findAll: function(req, res){
     db.Voter
     .find(req.query)
     .sort({date: -1})
     .then(dbVoteChainVoter => res.json(dbVoteChainVoter))
     .catch(err => res.status(422).json(err));
-=======
+
   findAll: function(req, res) {
     db.Voter
       .find(req.query)
       .sort({date: -1})
       .then(dbVoter => res.json(dbVoter))
       .catch(err => res.status(422).json(err));
->>>>>>> e5030e039f810fd948a7e701c8672564bfda8eb0
   },
   create: function(req, res) {
     let voter = {
@@ -24,7 +23,6 @@ module.exports = {
       lastName: req.body.lastName,
       email: req.body.email,
       password: req.body.password,
-      VRN: req.body.VRN,
       isRegistered: req.body.isRegistered
     };
     db.Voter
