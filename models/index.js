@@ -1,3 +1,4 @@
 module.exports = {
-  BlockChain: require("./blockChain")
+  BlockChain: require("./blockChain"),
+  Voter: require("./voter")
 };
