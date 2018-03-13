@@ -3,8 +3,8 @@ import React from 'react';
 // Route = IS A REACT COMPONENT THAT IS USED TO SETUP A RULE BETWEEN A ROUTE AND A SET OF COMPONENTS VISIBLE ON THE SCREEN.
 import { BrowserRouter, Route } from 'react-router-dom';
 //inporting diffferent pages 
-import LoginForm from '.components/LoginForm';
-import Registration from '.components/Registration';
+import LoginForm from './components/LoginForm';
+import Registration from './components/Registration';
 import { Card, Button, CardTitle, CardText } from 'reactstrap';
 import Home from "./pages/Home";
 import Landing from "./pages/Landing";
