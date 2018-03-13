@@ -4,12 +4,15 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import Header from './components/Header';
-import Login from "./pages/Login";
+
 import Nav from "./components/Nav";
 //inporting diffferent pages 
 
-import Landing from "./pages/Landing";
+import Login from "./pages/Login";
+import Vote from "./pages/Vote";
 import History from "./pages/History";
+import Campaign from "./pages/Campaign";
+import Report from "./pages/Report";
 
 
 const styles = {
@@ -29,17 +32,17 @@ const App = () => {
                     <Header />
                     <Route exact path="/" component={Login} />
                     <Route exact path="/login" component={Login} />
-                    <Route exact path="/campaing" component={CampaingNew} />
+                    <Route exact path="/campaign" component={Campaign} />
                     <Route exact path="/vote" component={Vote} />
-                    <Route exact path="/campaing/report" component={Report} />
+                    <Route exact path="/report" component={Report} />
                     <Route exact path="/history" component={History} />
                 </div>
             </BrowserRouter>
-        
-          
+
+
 
         </div>
-      
+
     );
 };
 
