@@ -9,7 +9,7 @@ module.exports = {
     .sort({date: -1})
     .then(dbVoteChainVoter => res.json(dbVoteChainVoter))
     .catch(err => res.status(422).json(err));
-
+  },
   findAll: function(req, res) {
     db.Voter
       .find(req.query)
