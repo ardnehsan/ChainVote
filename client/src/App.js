@@ -2,17 +2,9 @@ import React from 'react';
 // BrowserRouter = IT TELLS REACT ROUTER HOW TO BEHAVE. IT LOOKS AT THE CURRENT URL AND CHANGE THE SET OF COMPONENTS VISIBLE ON THE SCREEN.
 // Route = IS A REACT COMPONENT THAT IS USED TO SETUP A RULE BETWEEN A ROUTE AND A SET OF COMPONENTS VISIBLE ON THE SCREEN.
 import { BrowserRouter, Route } from 'react-router-dom';
-<<<<<<< HEAD
-
-// import Header from './Header';
-import LoginForm from './components/LoginForm';
-import Registration from './components/Registration';
-
-=======
 //inporting diffferent pages 
 import LoginForm from './components/LoginForm';
 import Registration from './components/Registration';
->>>>>>> 6cef596e4d9647de9d9c4857ce6627fe36e3396a
 import { Card, Button, CardTitle, CardText } from 'reactstrap';
 import Home from "./pages/Home";
 import Landing from "./pages/Landing";
