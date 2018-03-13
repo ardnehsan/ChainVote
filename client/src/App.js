@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Login from "./pages/Login";
 import Nav from "./components/Nav";
 //inporting diffferent pages 
+
 import Landing from "./pages/Landing";
 import History from "./pages/History";
 

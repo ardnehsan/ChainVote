@@ -20,11 +20,7 @@ app.use(routes);
 mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/votechain",
-  {
-    useMongoClient: true
-  }
-);
+  process.env.MONGODB_URI || "mongodb://localhost/votechain");
 
 // Start the API server
 app.listen(PORT, () =>
