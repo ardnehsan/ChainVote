@@ -6,10 +6,10 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Login from "./pages/Login";
 import Nav from "./components/Nav";
+//inporting diffferent pages 
+import Landing from "./pages/Landing";
+import History from "./pages/History";
 
-const CampaingNew = () => <h2>CampaingNew</h2>
-const Vote = () => <h2>Vote</h2>
-const Report = () => <h2>Report</h2>
 
 const styles = {
     button: {
@@ -31,8 +31,7 @@ const App = () => {
                     <Route exact path="/campaing" component={CampaingNew} />
                     <Route exact path="/vote" component={Vote} />
                     <Route exact path="/campaing/report" component={Report} />
-
-    
+                    <Route exact path="/history" component={History} />
                 </div>
             </BrowserRouter>
         
