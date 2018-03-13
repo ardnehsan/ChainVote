@@ -2,24 +2,20 @@ const db = require("../models");
 
 //Defining methods for Voter
 module.exports = {
-  findAll: function(req, res) {
+  findByName: function(req, res) {
     db.Voter
-      .find(req.query)
-      .sort({date: -1})
+      .find({ firstName: req.params.firstName, lastName: req.params.lastName })
       .then(dbVoter => res.json(dbVoter))
       .catch(err => res.status(422).json(err));
   },
-  create: function(req, res) {
+  update: function(req, res) {
     let voter = {
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
       email: req.body.email,
       password: req.body.password,
-      VRN: req.body.VRN,
-      isRegistered: req.body.isRegistered
+      isRegistered: true
     };
     db.Voter
-      .create(voter)
+      .findOneAndUpdate({ firstName: req.params.firstName, lastName: req.params.lastName }, voter)
       .then(dbVoter => res.json(dbVoter))
       .catch(err => res.status(422).json(err));
   }
@@ -27,7 +23,7 @@ module.exports = {
 
 //add users to Voter Table in votechain DB.
 
-// db.Voter.insert({"firstName": "Lysandnie", "lastName": "Jacques", "email": "LJacques@gmail.com", "VRN": "00000", "isRegistered": "true"})
+// db.Voter.insert({"firstName": "Lysandnie", "lastName": "Jacques", "email": "LJacques@gmail.com", isRegistered": "false"})
 // db.Voter.insert({"firstName": "David", "lastName": "Morales", "email": "dmorales@gmail.com", "VRN": "00001", "isRegistered": "true"})
 // db.Voter.insert({"firstName": "Matthew", "lastName": "LLoyd", "email": "Mlloyd@gmail.com", "VRN": "00002", "isRegistered": "true"})
 // db.Voter.insert({"firstName": "Michael", "lastName": "Nguyen", "email": "MNguyen@gmail.com", "VRN": "00003", "isRegistered": "true"})
