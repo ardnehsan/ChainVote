@@ -8,7 +8,7 @@ import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 import { List } from "../../components/List";
 
-class Landing extends Component {
+class Campaign extends Component {
   state = {
     articles: [],
     q: "",
@@ -106,4 +106,4 @@ class Landing extends Component {
   }
 }
 
-export default Landing;
+export default Campaign;
