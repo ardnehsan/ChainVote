@@ -26,20 +26,29 @@ class Registration extends Component {
           <ModalHeader toggle={this.toggle}>Registration</ModalHeader>
           <ModalBody>
                     <Form>
+                    <FormGroup row>
+                    <Label for="firstName" sm={2}>firstName</Label>
+                    <Col sm={10}>
+                      <Input type="firstName" name="firstName" id="firstName" placeholder="John" />
+                    </Col>
+                  </FormGroup>
+                  <FormGroup row>
+                    <Label for="lastName" sm={2}>lastName</Label>
+                    <Col sm={10}>
+                      <Input type="lastName" name="lastName" id="lastName" placeholder="Snow" />
+                    </Col>
+                  </FormGroup>
                   <FormGroup row>
                     <Label for="exampleEmail" sm={2}>Email</Label>
                     <Col sm={10}>
-                      <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
+                      <Input type="email" name="email" id="exampleEmail" placeholder="JohnSnow@something.com" />
                     </Col>
                   </FormGroup>
                   <FormGroup row>
                     <Label for="examplePassword" sm={2}>Password</Label>
                     <Col sm={10}>
-                      <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
+                      <Input type="password" name="password" id="examplePassword" placeholder="" />
                     </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                      
                   </FormGroup>
                   </Form>
           </ModalBody>
