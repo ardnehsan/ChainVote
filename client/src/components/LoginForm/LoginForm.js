@@ -28,17 +28,14 @@ class LoginForm extends Component {
                   <FormGroup row>
                     <Label for="exampleEmail" sm={2}>Email</Label>
                     <Col sm={10}>
-                      <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
+                      <Input type="email" name="email" id="exampleEmail" placeholder="John" />
                     </Col>
                   </FormGroup>
                   <FormGroup row>
                     <Label for="examplePassword" sm={2}>Password</Label>
                     <Col sm={10}>
-                      <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
+                      <Input type="password" name="password" id="examplePassword" placeholder="Snow" />
                     </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                      <Button>Submit</Button>
                   </FormGroup>
                   </Form>
           </ModalBody>
