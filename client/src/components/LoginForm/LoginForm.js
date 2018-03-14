@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 import {Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import {
+  Nav,
+  Navbar,
+  NavbarBrand,
+  NavItem,
+  NavLink
+} from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 class LoginForm extends Component {
   
@@ -40,7 +48,7 @@ class LoginForm extends Component {
                   </Form>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Login</Button>{' '}
+            <Button color="primary"><Link to="/campaign" eventName="onTouchTap">Login</Link></Button>{' '}
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>

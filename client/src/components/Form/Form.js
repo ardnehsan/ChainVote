@@ -4,7 +4,7 @@ const Form = props => (
   <form>
     <div className="form-group">
       <h4>
-        <strong>Topic</strong>
+        <strong>Campaign:</strong>
       </h4>
       <input
         className="form-control"
@@ -15,24 +15,13 @@ const Form = props => (
         required
       />
       <h4>
-        <strong>Start Year</strong>
+        <strong>Members:</strong>
       </h4>
       <input
         className="form-control"
         type="number"
         value={props.start_year}
         name="start_year"
-        onChange={props.handleInputChange}
-        required
-      />
-      <h4>
-        <strong>End Year</strong>
-      </h4>
-      <input
-        className="form-control"
-        type="number"
-        value={props.end_year}
-        name="end_year"
         onChange={props.handleInputChange}
         required
       />
@@ -43,7 +32,7 @@ const Form = props => (
         type="submit"
         className="btn btn-lg btn-danger"
       >
-        Submit
+        Vote
       </button>
     </div>
   </form>

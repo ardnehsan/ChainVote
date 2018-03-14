@@ -14,7 +14,7 @@ class Campaign extends Component {
     q: "",
     start_year: "",
     end_year: "",
-    message: "Search For Articles To Begin!"
+    message: ""
   };
 
   handleInputChange = event => {
@@ -34,7 +34,7 @@ class Campaign extends Component {
         this.setState({
           articles: res.data,
           message: !res.data.length
-            ? "No New Articles Found, Try a Different Query"
+            ? "No Campaigns available"
             : ""
         })
       )
@@ -58,15 +58,15 @@ class Campaign extends Component {
           <Col size="md-12">
             <Jumbotron>
               <h1 className="text-center">
-                <strong>(ReactJS) New York Times Article Scrubber</strong>
+                <strong>Current Campaign</strong>
               </h1>
               <h2 className="text-center">
-                Search for and save articles of interest.
+                Democracy at its Finest
               </h2>
             </Jumbotron>
           </Col>
           <Col size="md-12">
-            <Panel title="Query" icon="newspaper-o">
+            <Panel title="Campaigns" icon="newspaper-o">
               <Form
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
@@ -79,7 +79,7 @@ class Campaign extends Component {
         </Row>
         <Row>
           <Col size="md-12">
-            <Panel title="Results">
+            <Panel title="New Campaign">
               {this.state.articles.length ? (
                 <List>
                   {this.state.articles.map(article => (
