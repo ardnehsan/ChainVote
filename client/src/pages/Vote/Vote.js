@@ -8,7 +8,8 @@ import Registration from '../../components/Registration';
 class Vote extends Component {
 render() {
   return(
-          <div>
+    
+        <div>
        
         </div>
         )

@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 import {Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import {
+  Nav,
+  Navbar,
+  NavbarBrand,
+  NavItem,
+  NavLink
+} from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 class LoginForm extends Component {
   
@@ -28,22 +36,19 @@ class LoginForm extends Component {
                   <FormGroup row>
                     <Label for="exampleEmail" sm={2}>Email</Label>
                     <Col sm={10}>
-                      <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
+                      <Input type="email" name="email" id="exampleEmail" placeholder="John" />
                     </Col>
                   </FormGroup>
                   <FormGroup row>
                     <Label for="examplePassword" sm={2}>Password</Label>
                     <Col sm={10}>
-                      <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
+                      <Input type="password" name="password" id="examplePassword" placeholder="Snow" />
                     </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                      <Button>Submit</Button>
                   </FormGroup>
                   </Form>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Login</Button>{' '}
+            <Button color="primary"><Link to="/campaign" eventName="onTouchTap">Login</Link></Button>{' '}
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>
