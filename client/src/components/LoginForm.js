@@ -1,8 +1,22 @@
 import React, { Component } from 'react';
 import {Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import Landing from "../pages/Landing";
 
+//import './l'
 class LoginForm extends Component {
-  
+  goTo(route){
+    //goes to landing page
+    this.props.history.replace(`/${Landing}`)
+  }
+//auth to login
+login() {
+  this.props.auth.login();
+}
+//auth or logout
+logout(){
+  this.props.auth.logout();
+}
+//
   constructor(props) {
     super(props);
     this.state = {
@@ -18,6 +32,10 @@ class LoginForm extends Component {
     });
   }
     render(){
+
+      //added line to authenticte
+      const { isAuthenticated } = this.props.auth;
+      //
         return (
         <div>
         <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}Login</Button>
@@ -43,8 +61,8 @@ class LoginForm extends Component {
                   </Form>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Login</Button>{' '}
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+            {!isAuthenticated() && (<Button color="primary" onClick={this.toggle}>Login</Button>)}
+            {isAuthenticated() && (<Button color="secondary" onClick={this.toggle}>Cancel</Button>)}
           </ModalFooter>
         </Modal>
         </div>
