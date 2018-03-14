@@ -1,5 +1,4 @@
-"react";
-import ''
+import React, { Component } from "react";
 import {
   Col,
   Button,
@@ -31,7 +30,7 @@ class Registration extends Component {
   render() {
     return (
       <div>
-        <Button color="danger" onClick={this.toggle}>
+        <Button color="secondary" onClick={this.toggle}>
           {this.props.buttonLabel}Registration
         </Button>
         <Modal
@@ -43,44 +42,47 @@ class Registration extends Component {
           <ModalBody>
             <Form>
               <FormGroup row>
-                <Label for="exampleEmail" sm={2}>
+                <Label for="email" sm={2}>
                   Email
                 </Label>
                 <Col sm={10}>
                   <Input
                     type="email"
                     name="email"
-                    id="email"
+                    id="exampleEmail"
                     placeholder="email"
                   />
                 </Col>
               </FormGroup>
               <FormGroup row>
-                <Label for="examplePassword" sm={2}>
+                <Label for="password" sm={2}>
                   Password
                 </Label>
                 <Col sm={10}>
                   <Input
                     type="password"
                     name="password"
-                    id="password"
-                    placeholder="password"
+                    id="examplePassword"
+                    placeholder="password placeholder"
                   />
                 </Col>
               </FormGroup>
-              <FormGroup row>
-                <Label for="examplePassword" sm={2}>
-                  Confirm Password
+              <FormGroup row />
+
+               <FormGroup row>
+                <Label for="password" sm={2}>
+                  Repeat Password
                 </Label>
                 <Col sm={10}>
                   <Input
                     type="password"
                     name="password"
-                    id="confirm_password"
-                    placeholder="confirm password"
+                    id="examplePassword"
+                    placeholder="repeat password"
                   />
                 </Col>
               </FormGroup>
+              <FormGroup row />
             </Form>
           </ModalBody>
           <ModalFooter>
