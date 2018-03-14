@@ -6,7 +6,6 @@ const voterSchema = new Schema ({
   lastName: {type: String, required: true},
   email: {type: String, required: true},
   password: {type: String, required: true},
-  VRN: {type: Number, required: true},
   isRegistered: {type: Boolean, require: true}
 });
 
