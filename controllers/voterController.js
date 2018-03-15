@@ -9,15 +9,42 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
+    let password = "";
+
+    // let password = makeHash(req.body.password);
     let voter = {
       email: req.body.email,
-      password: req.body.password,
+      password: password,
       isRegistered: true
     };
     db.Voter
       .findOneAndUpdate({ firstName: req.params.firstName, lastName: req.params.lastName }, voter)
       .then(dbVoter => res.json(dbVoter))
       .catch(err => res.status(422).json(err));
+  },
+  login: function(req, res) {
+    let password = "";
+    let dbPassword = "";
+
+    // let password = makeHash(req.body.password);
+
+    db.Voter
+      .find({email: req.params.email})
+      .then(dbVoter => res.json(dbVoter))
+      .catch(err => res.status(422).json(err));
+
+    // let dbPassword = makeHash();
+    
+    if(password === dbPassword) {
+      let voter = {
+        email: req.params.email,
+        password: password
+      };
+      db.Voter
+        .find(voter)
+        .then(dbVoter => res.json(dbVoter))
+        .catch(err => res.status(422).json(err));
+    };
   }
 };
 
