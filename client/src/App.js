@@ -13,6 +13,7 @@ import Vote from "./pages/Vote";
 import History from "./pages/History";
 import Campaign from "./pages/Campaign";
 import Report from "./pages/Report";
+import Landing from "./pages/Landing";
 
 
 const styles = {
@@ -36,6 +37,7 @@ const App = () => {
                     <Route exact path="/vote" component={Vote} />
                     <Route exact path="/report" component={Report} />
                     <Route exact path="/history" component={History} />
+                    <Route exact path="/landing" component={Landing} />
                 </div>
             </BrowserRouter>
         
