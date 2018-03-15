@@ -8,7 +8,7 @@ import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 import { List } from "../../components/List";
 
-class History extends Component {
+class Landing extends Component {
   state = {
     articles: [],
     q: "",
@@ -41,15 +41,15 @@ class History extends Component {
       .catch(err => console.log(err));
   };
 
-  handleFormSubmit = event => {
-    event.preventDefault();
-    this.getArticles();
-  };
+//   handleFormSubmit = event => {
+//     event.preventDefault();
+//     this.getArticles();
+//   };
 
-  handleArticleSave = id => {
-    const article = this.state.articles.find(article => article._id === id);
-    API.saveArticle(article).then(res => this.getArticles());
-  };
+//   handleArticleSave = id => {
+//     const article = this.state.articles.find(article => article._id === id);
+//     API.saveArticle(article).then(res => this.getArticles());
+//   };
 
   render() {
     return (
@@ -58,27 +58,24 @@ class History extends Component {
           <Col size="md-12">
             <Jumbotron>
               <h1 className="text-center">
-                <strong>History page content</strong>
+                <strong>Voting application to help users and save time</strong>
               </h1>
               <h2 className="text-center">
-                need links from votes
+               Create a voting toll here
               </h2>
             </Jumbotron>
           </Col>
           <Col size="md-12">
-            <Panel title="previous-Votes" icon="newspaper-o">
-            <h1> links from old votes goes here</h1>
-              {/* <Form
-                // handleInputChange={this.handleInputChange}
-                // handleFormSubmit={this.handleFormSubmit}
-                // q={this.state.q}
-                // start_year={this.state.start_year}
-                // end_year={this.state.end_year}
-              /> */}
+            <Panel title="Vote Form" icon="newspaper-o">
+              <Form
+                handleInputChange={this.handleInputChange}
+                handleFormSubmit={this.handleFormSubmit}
+                q={this.state.q}
+              />
             </Panel>
           </Col>
         </Row>
-        {/* <Row>
+        <Row>
           <Col size="md-12">
             <Panel title="Results">
               {this.state.articles.length ? (
@@ -100,11 +97,11 @@ class History extends Component {
               )}
             </Panel>
           </Col>
-        </Row> */}
+        </Row>
         <Footer />
       </Container>
     );
   }
 }
 
-export default History;
+export default Landing;
