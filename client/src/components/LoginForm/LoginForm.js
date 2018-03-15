@@ -8,17 +8,50 @@ import {
   NavLink
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import API from "../../utils/API";
 
 class LoginForm extends Component {
   
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modal: false,
+      message: "",
+      email: "",
+      password: ""
     };
 
     this.toggle = this.toggle.bind(this);
   }
+
+  handleInputChange (event) {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleFormSubmit(event) {
+    event.preventDefault();
+    this.login();
+  }
+
+  login() {
+    API.login({
+      email: this.state.email,
+      password: this.state.password
+    })
+      .then(res =>
+        this.setState({
+          message: !res.data.length
+            ? "No New Articles Found, Try a Different Query"
+            : ""
+        })
+        //if success API.login()
+        //if login success redirect page
+      )
+      .catch(err => console.log(err));
+  };
 
   toggle() {
     this.setState({
@@ -34,21 +67,21 @@ class LoginForm extends Component {
           <ModalBody>
                     <Form>
                   <FormGroup row>
-                    <Label for="exampleEmail" sm={2}>Email</Label>
+                    <Label for="email" sm={2}>Email</Label>
                     <Col sm={10}>
-                      <Input type="email" name="email" id="exampleEmail" placeholder="John" />
+                      <Input type="email" name="email" id="email" placeholder="John" value={this.props.email} onChange={this.props.handleInputChange} required />
                     </Col>
                   </FormGroup>
                   <FormGroup row>
-                    <Label for="examplePassword" sm={2}>Password</Label>
+                    <Label for="password" sm={2}>Password</Label>
                     <Col sm={10}>
-                      <Input type="password" name="password" id="examplePassword" placeholder="Snow" />
+                      <Input type="password" name="password" id="password" placeholder="Snow" value={this.props.password} onChange={this.props.handleInputChange} required />
                     </Col>
                   </FormGroup>
                   </Form>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary"><Link to="/campaign" eventName="onTouchTap">Login</Link></Button>{' '}
+            <Button color="primary" onClick={this.props.handleFormSubmit}>Login</Button>{' '}
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>
