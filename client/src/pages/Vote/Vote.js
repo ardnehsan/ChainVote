@@ -28,6 +28,7 @@ getList(){
 
 render() {
   return(
+    
         <div>
        
         <h3 className="text-center">ELECTION </h3>
