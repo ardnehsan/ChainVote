@@ -14,7 +14,7 @@
     "mongoose": "^5.0.9",
     "mysql2": "^1.5.2",
     "nodemon": "^1.17.1",
-    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
     "request": "^2.83.0",
     "sequelize": "^4.35.1",
     "sequelize-cli": "^4.0.0"
