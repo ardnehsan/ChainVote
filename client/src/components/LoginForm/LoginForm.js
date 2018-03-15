@@ -25,6 +25,8 @@ class LoginForm extends Component {
       modal: !this.state.modal
     });
   }
+
+  
     render(){
         return (
         <div>
