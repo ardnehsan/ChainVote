@@ -1,16 +1,25 @@
-import React, { Component } from 'react';
-import {Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import {
+  Col,
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
   Nav,
   Navbar,
   NavbarBrand,
   NavItem,
   NavLink
-} from 'reactstrap';
-import { Link } from 'react-router-dom';
+} from "reactstrap";
+import styles from './loginForm.css';
 
 class LoginForm extends Component {
-  
   constructor(props) {
     super(props);
     this.state = {
@@ -50,12 +59,12 @@ class LoginForm extends Component {
                   </Form>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary"><Link to="/campaign" eventName="onTouchTap">Login</Link></Button>{' '}
+            <Button color="primary"><Link to="/vote" eventName="onTouchTap">Login</Link></Button>{' '}
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>
-        </div>
-        );
-      }
-    }
+      </div>
+    );
+  }
+}
 export default LoginForm;
