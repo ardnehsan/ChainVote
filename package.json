@@ -18,7 +18,9 @@
     "sequelize": "^4.35.1",
     "sequelize-cli": "^4.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "webpack": "^4.1.1"
+  },
   "scripts": {
     "server": "node server.js",
     "client": "cd client && npm run start",
