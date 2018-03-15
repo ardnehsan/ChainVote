@@ -4,7 +4,7 @@ import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 //components
 import Header from './components/Header';
-import Nav from "./components/Nav";
+// import Nav from "./components/Nav";
 
 //inporting diffferent pages 
 import Login from "./pages/Login";
@@ -13,6 +13,7 @@ import History from "./pages/History";
 import Campaign from "./pages/Campaign";
 import Report from "./pages/Report";
 import Landing from "./pages/Landing";
+// IMPORT PAGES ====================================
 
 
 const styles = {
@@ -21,12 +22,7 @@ const styles = {
     }
 };
 
-// IMPORT PAGES ====================================
-import Login from "./pages/Login/Login";
-import Vote from "./pages/Vote/Vote";
-import Record from "./pages/History/History";
-import Campaign from "./pages/Campaign/Campaign";
-import Report from "./pages/Report/Report";
+
 
 const App = () => {
     return (
@@ -46,8 +42,6 @@ const App = () => {
                 </div>
             </BrowserRouter>
         </div>
-      </BrowserRouter>
-    </div>
   );
 };
 
