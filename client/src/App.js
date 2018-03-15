@@ -1,13 +1,12 @@
-import React from 'react';
+import React from "react";
 // BrowserRouter = IT TELLS REACT ROUTER HOW TO BEHAVE. IT LOOKS AT THE CURRENT URL AND CHANGE THE SET OF COMPONENTS VISIBLE ON THE SCREEN.
 // Route = IS A REACT COMPONENT THAT IS USED TO SETUP A RULE BETWEEN A ROUTE AND A SET OF COMPONENTS VISIBLE ON THE SCREEN.
-import { BrowserRouter, Route } from 'react-router-dom';
-
+import { BrowserRouter, Route } from "react-router-dom";
+//components
 import Header from './components/Header';
-
 import Nav from "./components/Nav";
-//inporting diffferent pages 
 
+//inporting diffferent pages 
 import Login from "./pages/Login";
 import Vote from "./pages/Vote";
 import History from "./pages/History";
@@ -22,6 +21,12 @@ const styles = {
     }
 };
 
+// IMPORT PAGES ====================================
+import Login from "./pages/Login/Login";
+import Vote from "./pages/Vote/Vote";
+import Record from "./pages/History/History";
+import Campaign from "./pages/Campaign/Campaign";
+import Report from "./pages/Report/Report";
 
 const App = () => {
     return (
@@ -40,12 +45,10 @@ const App = () => {
                     <Route exact path="/landing" component={Landing} />
                 </div>
             </BrowserRouter>
-        
-          
-
         </div>
-      
-    );
+      </BrowserRouter>
+    </div>
+  );
 };
 
 export default App;
