@@ -1,6 +1,16 @@
-import React, { Component } from 'react';
-import {Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import {
+  Col,
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
   Nav,
   Navbar,
   NavbarBrand,
@@ -11,7 +21,6 @@ import { Link } from 'react-router-dom';
 import API from "../../utils/API";
 
 class LoginForm extends Component {
-  
   constructor(props) {
     super(props);
     this.state = {
@@ -58,11 +67,18 @@ class LoginForm extends Component {
       modal: !this.state.modal
     });
   }
-    render(){
-        return (
-        <div>
-        <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}Login</Button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+
+  render() {
+    return (
+      <div className='container'>
+        <Button color="primary" onClick={this.toggle}>
+          {this.props.buttonLabel}Login
+        </Button>
+        <Modal
+          isOpen={this.state.modal}
+          toggle={this.toggle}
+          className={this.props.className}
+        >
           <ModalHeader toggle={this.toggle}>Login</ModalHeader>
           <ModalBody>
                     <Form>
@@ -85,8 +101,8 @@ class LoginForm extends Component {
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>
-        </div>
-        );
-      }
-    }
+      </div>
+    );
+  }
+}
 export default LoginForm;

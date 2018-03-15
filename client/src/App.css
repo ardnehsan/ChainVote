@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Carrois+Gothic+SC|Didact+Gothic|Julius+Sans+One|Rajdhani|Roboto|Titillium+Web'); */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url("./img/mainBackground.jpg");
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Didact Gothic', sans-serif;
+    font-family: 'Julius Sans One', sans-serif;
+    font-family: 'Carrois Gothic SC', sans-serif;
+}

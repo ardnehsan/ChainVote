@@ -3,7 +3,6 @@ import {Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBod
 import API from "../../utils/API";
 
 class Registration extends Component {
-  
   constructor(props) {
     super(props);
     this.state = {
@@ -51,12 +50,18 @@ class Registration extends Component {
       modal: !this.state.modal
     });
   }
-    render(){
-        return (
-        <div>
-             <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}Registration</Button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle}>Registration</ModalHeader>
+  render() {
+    return (
+      <div>
+        <Button color="secondary" onClick={this.toggle}>
+          {this.props.buttonLabel}Registration
+        </Button>
+        <Modal
+          isOpen={this.state.modal}
+          toggle={this.toggle}
+          className={this.props.className}
+        >
+          <ModalHeader toggle={this.toggle}>Register</ModalHeader>
           <ModalBody>
                     <Form>
                     <FormGroup row>
@@ -90,8 +95,8 @@ class Registration extends Component {
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>
-        </div>
-        );
-      }
-    }
+      </div>
+    );
+  }
+}
 export default Registration;
