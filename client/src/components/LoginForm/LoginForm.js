@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import {
   Col,
   Button,
@@ -9,7 +10,12 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
-  ModalFooter
+  ModalFooter,
+  Nav,
+  Navbar,
+  NavbarBrand,
+  NavItem,
+  NavLink
 } from "reactstrap";
 import styles from './loginForm.css';
 
@@ -42,42 +48,24 @@ class LoginForm extends Component {
         >
           <ModalHeader toggle={this.toggle}>Login</ModalHeader>
           <ModalBody>
-            <Form>
-              <FormGroup row>
-                <Label for="exampleEmail" sm={2}>
-                  Email
-                </Label>
-                <Col sm={10}>
-                  <Input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="email"
-                  />
-                </Col>
-              </FormGroup>
-              <FormGroup row>
-                <Label for="examplePassword" sm={2}>
-                  Password
-                </Label>
-                <Col sm={10}>
-                  <Input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="password"
-                  />
-                </Col>
-              </FormGroup>
-            </Form>
+                    <Form>
+                  <FormGroup row>
+                    <Label for="exampleEmail" sm={2}>Email</Label>
+                    <Col sm={10}>
+                      <Input type="email" name="email" id="exampleEmail" placeholder="John" />
+                    </Col>
+                  </FormGroup>
+                  <FormGroup row>
+                    <Label for="examplePassword" sm={2}>Password</Label>
+                    <Col sm={10}>
+                      <Input type="password" name="password" id="examplePassword" placeholder="Snow" />
+                    </Col>
+                  </FormGroup>
+                  </Form>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>
-              Login
-            </Button>{" "}
-            <Button color="secondary" onClick={this.toggle}>
-              Cancel
-            </Button>
+            <Button color="primary"><Link to="/campaign" eventName="onTouchTap">Login</Link></Button>{' '}
+            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>
       </div>

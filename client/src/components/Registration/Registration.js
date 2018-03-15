@@ -40,50 +40,32 @@ class Registration extends Component {
         >
           <ModalHeader toggle={this.toggle}>Register</ModalHeader>
           <ModalBody>
-            <Form>
-              <FormGroup row>
-                <Label for="email" sm={2}>
-                  Email
-                </Label>
-                <Col sm={10}>
-                  <Input
-                    type="email"
-                    name="email"
-                    id="exampleEmail"
-                    placeholder="email"
-                  />
-                </Col>
-              </FormGroup>
-              <FormGroup row>
-                <Label for="password" sm={2}>
-                  Password
-                </Label>
-                <Col sm={10}>
-                  <Input
-                    type="password"
-                    name="password"
-                    id="examplePassword"
-                    placeholder="password placeholder"
-                  />
-                </Col>
-              </FormGroup>
-              <FormGroup row />
-
-               <FormGroup row>
-                <Label for="password" sm={2}>
-                  Repeat Password
-                </Label>
-                <Col sm={10}>
-                  <Input
-                    type="password"
-                    name="password"
-                    id="examplePassword"
-                    placeholder="repeat password"
-                  />
-                </Col>
-              </FormGroup>
-              <FormGroup row />
-            </Form>
+                    <Form>
+                    <FormGroup row>
+                    <Label for="firstName" sm={2}>firstName</Label>
+                    <Col sm={10}>
+                      <Input type="firstName" name="firstName" id="firstName" placeholder="John" />
+                    </Col>
+                  </FormGroup>
+                  <FormGroup row>
+                    <Label for="lastName" sm={2}>lastName</Label>
+                    <Col sm={10}>
+                      <Input type="lastName" name="lastName" id="lastName" placeholder="Snow" />
+                    </Col>
+                  </FormGroup>
+                  <FormGroup row>
+                    <Label for="exampleEmail" sm={2}>Email</Label>
+                    <Col sm={10}>
+                      <Input type="email" name="email" id="exampleEmail" placeholder="JohnSnow@something.com" />
+                    </Col>
+                  </FormGroup>
+                  <FormGroup row>
+                    <Label for="examplePassword" sm={2}>Password</Label>
+                    <Col sm={10}>
+                      <Input type="password" name="password" id="examplePassword" placeholder="" />
+                    </Col>
+                  </FormGroup>
+                  </Form>
           </ModalBody>
           <ModalFooter>
             <Button color="primary" onClick={this.toggle}>
