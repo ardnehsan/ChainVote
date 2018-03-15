@@ -6,11 +6,21 @@ import Registration from '../../components/Registration';
 
 
 class Vote extends Component {
+
+countVotes = () => {
+  API.getVotes({
+
+  })
+}
+
+
+
+
 render() {
   return(
-    
+
         <div>
-       
+
         </div>
         )
     }
