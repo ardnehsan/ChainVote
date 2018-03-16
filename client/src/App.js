@@ -16,11 +16,11 @@ import Landing from "./pages/Landing";
 // IMPORT PAGES ====================================
 
 
-const styles = {
-    button: {
-        background: "red"
-    }
-};
+// const styles = {
+//     button: {
+//         background: "red"
+//     }
+// };
 
 
 

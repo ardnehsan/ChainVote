@@ -69,7 +69,7 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div className='container'>
+      <div className= "container">
         {/* <Button color="primary" onClick={this.toggle}>
           {this.props.buttonLabel}Login
         </Button> */}

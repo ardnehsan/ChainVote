@@ -32,7 +32,7 @@ export default class Header extends React.Component {
     return (
       <div className='header'>
         <Navbar color="faded" light expand="md">
-          <NavbarBrand href="/" style={{color:'#CCCFD3'}} className="Logo">ChainVote</NavbarBrand>
+          <NavbarBrand href="/" style={{color:'#CCCFD3'}} className="Logo">Chain Vote</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
