@@ -16,7 +16,6 @@ import {
   NavItem,
   NavLink
 } from 'reactstrap';
-import { Link } from 'react-router-dom';
 import API from "../../utils/API";
 
 class LoginForm extends Component {
@@ -67,14 +66,19 @@ class LoginForm extends Component {
     });
   }
 
-  
-    render(){
-        return (
-        <div>
-        <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}Login</Button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle}>Login</ModalHeader>
-          <ModalBody>
+  render() {
+    return (
+      <div className='container'>
+        {/* <Button color="primary" onClick={this.toggle}>
+          {this.props.buttonLabel}Login
+        </Button> */}
+        {/* <Modal
+          isOpen={this.state.modal}
+          toggle={this.toggle}
+          className={this.props.className}
+        > */}
+          {/* <ModalHeader toggle={this.toggle}>Login</ModalHeader>
+          <ModalBody> */}
                     <Form>
                   <FormGroup row>
                     <Label for="email" sm={2}>Email</Label>
@@ -89,12 +93,12 @@ class LoginForm extends Component {
                     </Col>
                   </FormGroup>
                   </Form>
-          </ModalBody>
-          <ModalFooter>
+          {/* </ModalBody>
+          <ModalFooter> */}
             <Button color="primary" onClick={this.props.handleFormSubmit}>Login</Button>{' '}
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-          </ModalFooter>
-        </Modal>
+            {/* <Button color="secondary" onClick={this.toggle}>Cancel</Button> */}
+          {/* </ModalFooter>
+        </Modal> */}
       </div>
     );
   }

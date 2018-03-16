@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 
-class History extends Component {
+class Landing extends Component {
   state = {
     articles: [],
     q: "",
@@ -34,23 +34,23 @@ class History extends Component {
       .catch(err => console.log(err));
   };
 
-  handleFormSubmit = event => {
-    event.preventDefault();
-    this.getArticles();
-  };
+//   handleFormSubmit = event => {
+//     event.preventDefault();
+//     this.getArticles();
+//   };
 
-  handleArticleSave = id => {
-    const article = this.state.articles.find(article => article._id === id);
-    API.saveArticle(article).then(res => this.getArticles());
-  };
+//   handleArticleSave = id => {
+//     const article = this.state.articles.find(article => article._id === id);
+//     API.saveArticle(article).then(res => this.getArticles());
+//   };
 
   render() {
     return (
       <div>
-        <h1>History</h1>
-      </div>
+        <h1>Landing</h1>
+        </div>
     );
   }
 }
 
-export default History;
+export default Landing;
