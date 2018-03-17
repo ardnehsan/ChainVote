@@ -5,18 +5,8 @@ import {
   Form,
   FormGroup,
   Label,
-  Input,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Nav,
-  Navbar,
-  NavbarBrand,
-  NavItem,
-  NavLink
+  Input
 } from 'reactstrap';
-import API from "../../utils/API";
 
 class LoginForm extends Component {
   render() {
