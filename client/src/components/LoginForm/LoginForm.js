@@ -95,7 +95,7 @@ class LoginForm extends Component {
                   </Form>
           {/* </ModalBody>
           <ModalFooter> */}
-            <Button color="primary" onClick={this.props.handleFormSubmit}>Login</Button>{' '}
+            <Button color="primary" onClick={this.handleFormSubmit}>Login</Button>{' '}
             {/* <Button color="secondary" onClick={this.toggle}>Cancel</Button> */}
           {/* </ModalFooter>
         </Modal> */}
