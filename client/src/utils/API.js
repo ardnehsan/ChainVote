@@ -22,6 +22,7 @@ export default {
   },
   // Save voter
   saveBlockChain: function(vote) {
+    console.log(vote);
     return axios.post("/api/blockChain", vote);
   }
 };
