@@ -72,8 +72,8 @@ class Login extends Component {
     })
       .then(res =>
         {
-        //if success API.login()
         //if login success redirect page
+        //else try again
         })
       .catch(err => console.log(err));
   };
@@ -90,16 +90,15 @@ class Login extends Component {
       lastName: this.state.lastName
     })
       .then(res => {
-      //depending on the Registered answer, we either update DB
+        //depending on the Registered answer, we either update DB
         if (res === true) {
           API.register({
             email: this.state.email,
             password: SHA256(concealer).toString()
           });
-            //add a page redirect here
+        //add a page redirect here or say success!
 
-
-      //or kickback the user    
+        //or kickback the user    
         } else {
           //swap this alert for a better notification
           alert("Unable to Register! Perhaps you're ineligible or have already registered");

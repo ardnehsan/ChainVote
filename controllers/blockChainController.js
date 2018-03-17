@@ -10,16 +10,24 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    const blockChain = {
-      index: req.body.index,
+    let blockChain = {
       voter: req.body.voter,
       vote: req.body.vote,
-      previousHash: req.body.previousHash,
+      previousHash: "",
       hash: req.body.hash
     };
+
     db.BlockChain
-      .create(blockChain)
-      .then(dbBlockChain => res.json(dbBlockChain))
+      .findOne(req.query)
+      .sort({_id: -1})
+      .then(dbBlockChain => {
+        blockChain.previousHash = dbBlockChain.hash;
+         db.BlockChain
+           .create(blockChain)
+           .then(dbBlockChain1 => res.json(dbBlockChain1))
+           .catch(err => res.status(422).json(err));
+      })
       .catch(err => res.status(422).json(err));
+
   }
 };
