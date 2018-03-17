@@ -4,8 +4,8 @@ const db = require("../models");
 module.exports = {
   login: function (req, res) {
     console.log(req.query);
-    console.log("email param: " + req.params.email);
-    console.log("password param: " + req.params.password);
+    console.log("email param: " + req.query.email);
+    console.log("password param: " + req.query.password);
 
     let password = "";
     let dbPassword = "";
@@ -13,7 +13,7 @@ module.exports = {
     // let password = makeHash(req.body.password);
 
     db.Voter
-      .find({ email: req.params.email })
+      .find({ email: req.query.email })
       .then(dbVoter => res.json(dbVoter))
       .catch(err => res.status(422).json(err));
 
@@ -36,6 +36,29 @@ module.exports = {
       .then(dbVoter => res.json(dbVoter))
       .catch(err => res.status(422).json(err));
   },
+  //FOR TESTING PURPOSES; DELETE AFTER=======================================================
+  findAll: function (req, res) {
+    db.Voter
+      .find({})
+      .then(dbVoter => res.json(dbVoter))
+      .catch(err => res.status(422).json(err));
+  },
+  createNew: function (req, res) {
+    console.log(req.body);
+    const citizen = {
+      email : req.body.email,
+      password : req.body.password,
+      firstName : req.body.firstName,
+      lastName : req.body.lastName,
+
+    };
+
+    db.Voter
+      .create({citizen})
+      .then(dbVoter => res.json(dbVoter))
+      .catch(err => res.status(422).json(err));
+  },
+  //========================================================================================
   update: function(req, res) {
     let password = "";
 
