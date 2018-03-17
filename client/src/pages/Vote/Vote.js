@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Card, Button, CardTitle, CardText } from 'reactstrap';
+import {Button,Jumbotron } from 'reactstrap';
 import Header from '../../components/Header';
-import { ListGroup, ListGroupItem } from 'reactstrap';
 import API from "../../utils/API";
 import {
   Nav,
@@ -11,58 +10,87 @@ import {
   NavLink
 } from 'reactstrap';
 
+//ISSUES
+// STILL CANNOT CAPTURE THE VALUE INPUT MADE BY THE USER
+// NEED TO INTEGRATE THE SESSION ID
+
+
 import { Link } from 'react-router-dom';
 
 
 class Vote extends Component {
+  
+  constructor(props){
+    super(props);
+    this.state = {
+      voter: "Nash",
+      value: "Chainvote"
+    };
 
-  state = {
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+
+  }
+
+    state = {
     voter: "",
-    vote: ""
-  };
+    vote: "",
+    total: []
+    };
 
+//need to name select input bar
+// add to state object
+// give an initial value
 
   getVotes = () =>{
-    API.getBlockchain({
-      voter: this.state.voter,
-      vote: this.state.vote
-    })
+    API.getBlockChain()
     .then(res =>
       this.setState({
-        voter: res.data,
-        vote: res.data
+        total: res.data
       })
     )
     .catch(err => console.log(err));
    };
 
 
-
-   handleFormSubmit = event => {
-    event.preventDefault();
-    this.getVotes();
-    alert('You chose: ' + this.state.value + 'as your favorite project');
+   handleInputChange = event =>{
+     this.setState({value: event.target.value});
    };
 
-   VoteSave = id => {
-    const vote = this.state.votes.find(vote => vote._id === id);
-    API.saveBlockChain(vote).then(res => this.getVotes());
-  };
+
+   handleFormSubmit = event => {
+    alert('You chose: ' + this.state.value + ' as your favorite project');
+   
+    event.preventDefault();
+    API.saveBlockChain({
+      voter: "Nash",
+      vote: this.state.value})
+        .then(res => this.getVotes())
+        .catch(err => console.log(err));
+   };
+
 
 render() {
   return(
         <div>
-        <h3 className="text-center">ELECTION </h3>
-        <form onSubmit={this.handleFormSubmit}>
+        <Jumbotron>
+        <h2 className="text-center">ELECTION </h2>
+        </Jumbotron>
+        <form className="text-center" onSubmit={this.handleFormSubmit}>
         <label>
-         Pick your favorite project: 
-          <select value={this.state.value} onChange={this.VoteSave}>
-            <option value="Eatneat">EatNeat</option>
-            <option value="Chainvote">ChainVote</option>
+         Pick your favorite project:    
+          <select value={this.state.value} name="vote" onChange={this.handleInputChange}>
+            <option value="Chainvote">Chain Vote</option>
+            <option value="Chores">Chores</option>
+            <option value="Eatneat">Eat Neat</option>
+            <option value="Helloworld">Hello World</option>
           </select>
         </label>
-        <input type="submit" value="Submit" />
+        <div className="text-center">
+        <Button color="danger" size="lg" input type="submit">Submit </Button>
+        </div>
       </form>
+     
         </div>
 
 
