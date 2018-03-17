@@ -33,6 +33,9 @@ export default class Header extends React.Component {
       <div className='header'>
         <Navbar color="faded" light expand="md">
           <NavbarBrand href="/" style={{color:'#CCCFD3'}} className="Logo">Chain Vote</NavbarBrand>
+          <img src='../img/LogoSingle.png' alt='ChainVote' height='42'/>
+          C:\Users\David\Desktop\ChainVote\client\src\img\LogoSingle.png
+          C:\Users\David\Desktop\ChainVote\client\src\components\Header\Header.js
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
