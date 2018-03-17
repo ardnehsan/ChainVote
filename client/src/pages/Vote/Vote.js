@@ -15,18 +15,16 @@ import { Link } from 'react-router-dom';
 
 
 class Vote extends Component {
-
-  state = {
+  
+    state = {
     voter: "",
     vote: ""
-  };
+    };
+
 
 
   getVotes = () =>{
-    API.getBlockchain({
-      voter: this.state.voter,
-      vote: this.state.vote
-    })
+    API.getBlockchain()
     .then(res =>
       this.setState({
         voter: res.data,
@@ -37,17 +35,26 @@ class Vote extends Component {
    };
 
 
+   handleInputChange = event =>{
+     const {name,value} = event.target;
+     this.setState({
+       [name]: value
+     });
+   };
+
 
    handleFormSubmit = event => {
     event.preventDefault();
-    this.getVotes();
-    alert('You chose: ' + this.state.value + 'as your favorite project');
-   };
+    if(this.state.vote && this.state.voter){
+    API.saveBlockChain({
+      vote: this.state.vote,
+      voter: this.state.voter})
+        .then(res => this.getVotes())
+        .catch(err => console.log(err));
+    }
 
-   VoteSave = id => {
-    const vote = this.state.votes.find(vote => vote._id === id);
-    API.saveBlockChain(vote).then(res => this.getVotes());
-  };
+    alert('You chose: ' + this.state.value + ' as your favorite project');
+   };
 
 render() {
   return(
@@ -56,9 +63,10 @@ render() {
         <form onSubmit={this.handleFormSubmit}>
         <label>
          Pick your favorite project: 
-          <select value={this.state.value} onChange={this.VoteSave}>
+          <select value={this.state.value} onChange={this.handleInputChange}>
             <option value="Eatneat">EatNeat</option>
             <option value="Chainvote">ChainVote</option>
+            <option value="Chores">Chores</option>
           </select>
         </label>
         <input type="submit" value="Submit" />
