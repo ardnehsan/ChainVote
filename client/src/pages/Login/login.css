@@ -1,0 +1,16 @@
+.loginBox {
+    color: midnightblue;
+}
+
+.title {
+    color: #101727;
+    font-size: 80px;
+    font-family: 'Rajdhani', sans-serif;  
+}
+
+.subtitle {
+    color: #101727;
+    font-weight: 900;
+    font-size: 30px;
+    font-family: 'Julius Sans One', sans-serif;
+}

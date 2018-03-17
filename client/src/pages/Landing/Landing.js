@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
 import Jumbotron from "../../components/Jumbotron";
 import Panel from "../../components/Panel";
 import Form from "../../components/Form";
@@ -7,6 +8,9 @@ import Footer from "../../components/Footer";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 import { List } from "../../components/List";
+=======
+import API from "../../utils/API";
+>>>>>>> f69550b1de00a03008a6bd9832e8e47cf7bf8b38
 
 class Landing extends Component {
   state = {
@@ -41,6 +45,7 @@ class Landing extends Component {
       .catch(err => console.log(err));
   };
 
+<<<<<<< HEAD
   handleFormSubmit = event => {
     event.preventDefault();
     this.getArticles();
@@ -102,8 +107,29 @@ class Landing extends Component {
         </Row>
         <Footer />
       </Container>
+=======
+//   handleFormSubmit = event => {
+//     event.preventDefault();
+//     this.getArticles();
+//   };
+
+//   handleArticleSave = id => {
+//     const article = this.state.articles.find(article => article._id === id);
+//     API.saveArticle(article).then(res => this.getArticles());
+//   };
+
+  render() {
+    return (
+      <div>
+        <h1>Landing</h1>
+        </div>
+>>>>>>> f69550b1de00a03008a6bd9832e8e47cf7bf8b38
     );
   }
 }
 
+<<<<<<< HEAD
 export default Landing;
+=======
+export default Landing;
+>>>>>>> f69550b1de00a03008a6bd9832e8e47cf7bf8b38

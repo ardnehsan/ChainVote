@@ -1,64 +1,69 @@
 import React, { Component } from 'react';
 import {Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-
+import API from "../../utils/API";
 
 class Registration extends Component {
-  
-  constructor(props) {
-    super(props);
-    this.state = {
-      modal: false
-    };
-
-    this.toggle = this.toggle.bind(this);
-  }
-
-  toggle() {
-    this.setState({
-      modal: !this.state.modal
-    });
-  }
-    render(){
-        return (
-        <div>
-             <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}Registration</Button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle}>Registration</ModalHeader>
+  render() {
+    const {
+      modal,
+      firstName,
+      lastName,
+      email,
+      password,
+      cpassword,
+      toggle,
+      handleFormRegister,
+      handleInputChange
+    } = this.props
+    return (
+      <div>
+        <Modal
+          isOpen={modal}
+          toggle={toggle}
+          className={this.props.className}
+        >
+          <ModalHeader toggle={toggle}>Register</ModalHeader>
           <ModalBody>
                     <Form>
                     <FormGroup row>
                     <Label for="firstName" sm={2}>firstName</Label>
                     <Col sm={10}>
-                      <Input type="firstName" name="firstName" id="firstName" placeholder="John" />
+                      <Input type="firstName" name="firstName" id="firstName" placeholder="John" value={firstName} onChange={handleInputChange} required />
                     </Col>
                   </FormGroup>
                   <FormGroup row>
                     <Label for="lastName" sm={2}>lastName</Label>
                     <Col sm={10}>
-                      <Input type="lastName" name="lastName" id="lastName" placeholder="Snow" />
+                      <Input type="lastName" name="lastName" id="lastName" placeholder="Snow" value={lastName} onChange={handleInputChange} required />
                     </Col>
                   </FormGroup>
                   <FormGroup row>
-                    <Label for="exampleEmail" sm={2}>Email</Label>
+                    <Label for="email" sm={2}>Email</Label>
                     <Col sm={10}>
-                      <Input type="email" name="email" id="exampleEmail" placeholder="JohnSnow@something.com" />
+                      <Input type="email" name="email" id="email" placeholder="JohnSnow@something.com" value={email} onChange={handleInputChange} required />
                     </Col>
                   </FormGroup>
                   <FormGroup row>
-                    <Label for="examplePassword" sm={2}>Password</Label>
+                    <Label for="password" sm={2}>Password</Label>
                     <Col sm={10}>
-                      <Input type="password" name="password" id="examplePassword" placeholder="" />
+                      <Input type="password" name="password" id="password" placeholder="" value={password} onChange={handleInputChange} required />
                     </Col>
                   </FormGroup>
+              <FormGroup row>
+                <Label for="cpassword" sm={2}>Confirm Password</Label>
+                <Col sm={10}>
+                  <Input type="cpassword" name="cpassword" id="cpassword" placeholder="" value={cpassword} onChange={handleInputChange} required />
+                </Col>
+              </FormGroup>
                   </Form>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Registration</Button>{''}
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+            <Button color="primary" onClick={handleFormRegister}>Register</Button>{''}
+            <Button color="secondary" onClick={toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>
-        </div>
-        );
-      }
-    }
+      </div>
+    );
+  }
+}
 export default Registration;
