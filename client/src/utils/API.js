@@ -1,17 +1,20 @@
 import axios from 'axios';
+import filterParams from "./filterParams";
+
 
 export default {
+  login: function (params) {
+    console.log(params);
+    return axios.get("api/voter/login", { params: filterParams(params) });
+  },
   // Get voter by firstname/lastname
-  getVoter: function(params) {
+  checkRegistry: function(params) {
+    console.log("route works");
     return axios.get("/api/voter/register/" + params);
   },
   // Save voter info
-  saveVoter: function(params) {
+  register: function(params) {
     return axios.post("/api/voter/register/" + params);
-  },
-  // Gets voter by email/password
-  login: function(params) {
-  	return axios.get("/api/voter/login" + params);
   },
   // Get block chain
   getBlockChain: function() {
