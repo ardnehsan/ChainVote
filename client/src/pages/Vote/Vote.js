@@ -22,7 +22,10 @@ class Vote extends Component {
   
   constructor(props){
     super(props);
-    this.state = {value: 'Chainvote'};
+    this.state = {
+      voter: "Nash",
+      value: "Chainvote"
+    };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -30,7 +33,7 @@ class Vote extends Component {
   }
 
     state = {
-    voter: "Nash",
+    voter: "",
     vote: "",
     total: []
     };
@@ -57,10 +60,10 @@ class Vote extends Component {
 
    handleFormSubmit = event => {
     alert('You chose: ' + this.state.value + ' as your favorite project');
-    console.log(this.state.value);
+   
     event.preventDefault();
     API.saveBlockChain({
-      voter: this.state.voter,
+      voter: "Nash",
       vote: this.state.value})
         .then(res => this.getVotes())
         .catch(err => console.log(err));
