@@ -55,7 +55,6 @@ module.exports = {
       password : req.body.password,
       firstName : req.body.firstName,
       lastName : req.body.lastName
-
     };
 
     db.Voter
@@ -65,16 +64,14 @@ module.exports = {
   },
   //========================================================================================
   update: function(req, res) {
-    let password = "";
-
-    // let password = makeHash(req.body.password);
+    let vpassword = SHA256(req.body.password).toString();
     let voter = {
       email: req.body.email,
-      password: password,
+      password: vpassword,
       isRegistered: true
     };
     db.Voter
-      .findOneAndUpdate({ firstName: req.params.firstName, lastName: req.params.lastName }, voter)
+      .findOneAndUpdate({ firstName: req.body.firstName, lastName: req.body.lastName }, voter)
       .then(dbVoter => res.json(dbVoter))
       .catch(err => res.status(422).json(err));
   }
