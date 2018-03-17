@@ -17,11 +17,33 @@ class Login extends Component {
       lastName: "",
       email: "",
       password: "",
-      cpassword: ""
+      cpassword: "",
+      showWarning: false
     };
 
     this.toggle = this.toggle.bind(this);
+    this.handleConfirmPass = this.handleConfirmPass.bind(this);
   }
+
+  handleConfirmPass = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    }, () => {this.checkPassword()});
+  };
+  
+  checkPassword = () => {
+    if (this.state.cpassword !== this.state.password) {
+      this.setState(prevState => ({
+        showWarning: false  
+      }));
+    } else {
+      this.setState(prevState => ({
+        showWarning: true
+      }));
+    }
+
+  };
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -57,13 +79,15 @@ class Login extends Component {
   };
 
   register = () => {
+//======remove this toggle later so it doesn't clear state
     this.toggle();
+//===================================================
     const concealer = SHA256(this.state.password).toString();
     
     //checks registry for the name & isRegistered bool
     API.checkRegistry({
       firstName: this.state.firstName,
-      lastName: this.state.lastName,
+      lastName: this.state.lastName
     })
       .then(res => {
       //depending on the Registered answer, we either update DB
@@ -123,6 +147,8 @@ class Login extends Component {
             toggle={this.toggle}
             handleFormRegister={this.handleFormRegister}
             handleInputChange={this.handleInputChange}
+            handleConfirmPass={this.handleConfirmPass}
+            showWarning={this.state.showWarning}
               />
         </Card>
       </div>

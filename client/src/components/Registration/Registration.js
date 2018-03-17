@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import {Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import API from "../../utils/API";
 
+
 class Registration extends Component {
+
   render() {
     const {
       modal,
@@ -13,8 +15,22 @@ class Registration extends Component {
       cpassword,
       toggle,
       handleFormRegister,
-      handleInputChange
+      handleInputChange,
+      showWarning,
+      handleConfirmPass
     } = this.props
+    function WarningBanner() {
+      if (showWarning) {
+        return null
+      }
+
+      return (
+        <div className="warning" color="red">
+          Uh oh! This password doesn't match!
+        </div>
+      );
+    }
+
     return (
       <div>
         <Modal
@@ -26,13 +42,13 @@ class Registration extends Component {
           <ModalBody>
                     <Form>
                     <FormGroup row>
-                    <Label for="firstName" sm={2}>firstName</Label>
+                    <Label for="firstName" sm={2}>First Name</Label>
                     <Col sm={10}>
                       <Input type="firstName" name="firstName" id="firstName" placeholder="John" value={firstName} onChange={handleInputChange} required />
                     </Col>
                   </FormGroup>
                   <FormGroup row>
-                    <Label for="lastName" sm={2}>lastName</Label>
+                    <Label for="lastName" sm={2}>Last Name</Label>
                     <Col sm={10}>
                       <Input type="lastName" name="lastName" id="lastName" placeholder="Snow" value={lastName} onChange={handleInputChange} required />
                     </Col>
@@ -52,7 +68,12 @@ class Registration extends Component {
               <FormGroup row>
                 <Label for="cpassword" sm={2}>Confirm Password</Label>
                 <Col sm={10}>
-                  <Input type="cpassword" name="cpassword" id="cpassword" placeholder="" value={cpassword} onChange={handleInputChange} required />
+                  <Input type="password" name="cpassword" id="cpassword" 
+                  placeholder="" value={cpassword} onChange={handleConfirmPass} 
+                  required />
+                  <div>
+                    <WarningBanner warn={showWarning} />
+                  </div>
                 </Col>
               </FormGroup>
                   </Form>
