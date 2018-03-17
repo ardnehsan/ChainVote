@@ -7,6 +7,7 @@
     "axios": "^0.18.0",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
+    "chart.js": "^2.7.2",
     "concurrently": "^3.5.1",
     "connect-mongo": "^2.0.1",
     "cookie-parser": "^1.4.3",
@@ -17,6 +18,8 @@
     "mysql2": "^1.5.2",
     "nodemon": "^1.17.1",
     "path": "^0.12.7",
+    "react-chartjs": "^1.2.0",
+    "react-chartjs-2": "^2.7.0",
     "request": "^2.83.0",
     "sequelize": "^4.35.1",
     "sequelize-cli": "^4.0.0"

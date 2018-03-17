@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Button, CardTitle, CardText } from 'reactstrap';
+import { Card, Button, CardTitle, CardText, Jumbotron } from 'reactstrap';
 import Header from '../../components/Header';
 import { ListGroup, ListGroupItem } from 'reactstrap';
 import API from "../../utils/API";
@@ -10,6 +10,11 @@ import {
   NavItem,
   NavLink
 } from 'reactstrap';
+
+//ISSUES
+// STILL CANNOT CAPTURE THE VALUE INPUT MADE BY THE USER
+// NEED TO INTEGRATE THE SESSION ID
+
 
 import { Link } from 'react-router-dom';
 
@@ -56,21 +61,27 @@ class Vote extends Component {
     alert('You chose: ' + this.state.value + ' as your favorite project');
    };
 
+
 render() {
   return(
         <div>
-        <h3 className="text-center">ELECTION </h3>
-        <form onSubmit={this.handleFormSubmit}>
+        <Jumbotron>
+        <h2 className="text-center">ELECTION </h2>
+        </Jumbotron>
+        <form className="text-center" onSubmit={this.handleFormSubmit}>
         <label>
-         Pick your favorite project: 
+         Pick your favorite project:    
           <select value={this.state.value} onChange={this.handleInputChange}>
             <option value="Eatneat">EatNeat</option>
             <option value="Chainvote">ChainVote</option>
             <option value="Chores">Chores</option>
           </select>
         </label>
-        <input type="submit" value="Submit" />
+        <div className="text-center">
+        <Button color="danger" size="lg" input type="submit">Submit </Button>
+        </div>
       </form>
+     
         </div>
 
 
