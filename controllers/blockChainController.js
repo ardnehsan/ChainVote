@@ -10,6 +10,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
+    console.log(req.body);
     const blockChain = {
       index: req.body.index,
       voter: req.body.voter,

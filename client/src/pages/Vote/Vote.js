@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Card, Button, CardTitle, CardText, Jumbotron } from 'reactstrap';
+import {Button,Jumbotron } from 'reactstrap';
 import Header from '../../components/Header';
-import { ListGroup, ListGroupItem } from 'reactstrap';
 import API from "../../utils/API";
 import {
   Nav,
@@ -21,19 +20,30 @@ import { Link } from 'react-router-dom';
 
 class Vote extends Component {
   
+  constructor(props){
+    super(props);
+    this.state = {value: 'Chainvote'};
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+
+  }
+
     state = {
-    voter: "",
-    vote: ""
+    voter: "Nash",
+    vote: "",
+    total: []
     };
 
-
+//need to name select input bar
+// add to state object
+// give an initial value
 
   getVotes = () =>{
-    API.getBlockchain()
+    API.getBlockChain()
     .then(res =>
       this.setState({
-        voter: res.data,
-        vote: res.data
+        total: res.data
       })
     )
     .catch(err => console.log(err));
@@ -41,24 +51,19 @@ class Vote extends Component {
 
 
    handleInputChange = event =>{
-     const {name,value} = event.target;
-     this.setState({
-       [name]: value
-     });
+     this.setState({value: event.target.value});
    };
 
 
    handleFormSubmit = event => {
+    alert('You chose: ' + this.state.value + ' as your favorite project');
+    console.log(this.state.value);
     event.preventDefault();
-    if(this.state.vote && this.state.voter){
     API.saveBlockChain({
-      vote: this.state.vote,
-      voter: this.state.voter})
+      voter: this.state.voter,
+      vote: this.state.value})
         .then(res => this.getVotes())
         .catch(err => console.log(err));
-    }
-
-    alert('You chose: ' + this.state.value + ' as your favorite project');
    };
 
 
@@ -71,10 +76,11 @@ render() {
         <form className="text-center" onSubmit={this.handleFormSubmit}>
         <label>
          Pick your favorite project:    
-          <select value={this.state.value} onChange={this.handleInputChange}>
-            <option value="Eatneat">EatNeat</option>
-            <option value="Chainvote">ChainVote</option>
+          <select value={this.state.value} name="vote" onChange={this.handleInputChange}>
+            <option value="Chainvote">Chain Vote</option>
             <option value="Chores">Chores</option>
+            <option value="Eatneat">Eat Neat</option>
+            <option value="Helloworld">Hello World</option>
           </select>
         </label>
         <div className="text-center">
