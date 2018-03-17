@@ -28,6 +28,5 @@ module.exports = {
            .catch(err => res.status(422).json(err));
       })
       .catch(err => res.status(422).json(err));
-
   }
 };
