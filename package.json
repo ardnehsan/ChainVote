@@ -4,11 +4,8 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
-<<<<<<< HEAD
     "auth0-js": "^9.3.3",
-=======
     "axios": "^0.18.0",
->>>>>>> f69550b1de00a03008a6bd9832e8e47cf7bf8b38
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "concurrently": "^3.5.1",

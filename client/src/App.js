@@ -4,6 +4,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 //components
 import Header from './components/Header';
+import Footer from './components/Footer';
 // import Nav from "./components/Nav";
 
 // IMPORT PAGES ====================================
@@ -41,6 +42,7 @@ const App = () => {
 							<Route exact path="/landing" component={Landing} />
 							<Route component={Four04} />
 						</Switch>
+						<Footer />
 				</div>
 			</BrowserRouter>
 		</div>

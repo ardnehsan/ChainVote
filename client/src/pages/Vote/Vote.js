@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 import React, { Component } from "react";
 import { Card, Button, CardTitle, CardText } from 'reactstrap';
 import Header from '../../components/Header';
@@ -57,7 +56,7 @@ render() {
         <h3 className="text-center">ELECTION </h3>
         <form onSubmit={this.handleFormSubmit}>
         <label>
-         Pick your favorite project: 
+         Pick your favorite project:
           <select value={this.state.value} onChange={this.VoteSave}>
             <option value="Eatneat">EatNeat</option>
             <option value="Chainvote">ChainVote</option>
@@ -73,4 +72,3 @@ render() {
   }
 
 export default Vote;
->>>>>>> f69550b1de00a03008a6bd9832e8e47cf7bf8b38
