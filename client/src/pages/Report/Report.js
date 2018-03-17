@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Card, Button, CardTitle, CardText } from 'reactstrap';
-import LoginForm from '../../components/LoginForm';
-import Registration from '../../components/Registration';
+// import { Card, Button, CardTitle, CardText } from 'reactstrap';
+// import LoginForm from '../../components/LoginForm';
+// import Registration from '../../components/Registration';
 
 
 class Report extends Component {

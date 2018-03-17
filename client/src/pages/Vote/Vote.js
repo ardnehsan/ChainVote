@@ -1,17 +1,17 @@
 import React, { Component } from "react";
-import { Card, Button, CardTitle, CardText } from 'reactstrap';
-import Header from '../../components/Header';
-import { ListGroup, ListGroupItem } from 'reactstrap';
+// import { Card, Button, CardTitle, CardText } from 'reactstrap';
+// import Header from '../../components/Header';
+// import { ListGroup, ListGroupItem } from 'reactstrap';
 import API from "../../utils/API";
-import {
-  Nav,
-  Navbar,
-  NavbarBrand,
-  NavItem,
-  NavLink
-} from 'reactstrap';
+// import {
+//   Nav,
+//   Navbar,
+//   NavbarBrand,
+//   NavItem,
+//   NavLink
+// } from 'reactstrap';
 
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 
 class Vote extends Component {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import API from "../../utils/API";
+// import API from "../../utils/API";
 
 
 class Registration extends Component {

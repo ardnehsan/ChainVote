@@ -14,14 +14,14 @@ export default {
   },
   // Save voter info
   register: function(params) {
-    return axios.post("/api/voter/register/" + params);
+    return axios.put("/api/voter/register", { params: filterParams(params) });
   },
   // Get block chain
   getBlockChain: function() {
     return axios.get("/api/blockChain");
   },
   // Save voter
-  saveBlockChain: function() {
-    return axios.post("/api/blockChain");
+  saveBlockChain: function(params) {
+    return axios.post("/api/blockChain", { params: filterParams(params) });
   }
 };

@@ -6,6 +6,7 @@ const blockChainSchema = new Schema ({
   timestamp: {type: Date, default: Date.now, required: true},
   voter: {type: String, require: true},
   vote: {type: String, require: true},
+  
   previousHash: {type: String, require: true},
   hash: {type: String, require: true}
 });
