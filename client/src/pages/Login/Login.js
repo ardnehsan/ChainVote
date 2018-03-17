@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import { Card, CardImg, Button, CardTitle, CardText } from "reactstrap";
 import LoginForm from "../../components/LoginForm";
 import Registration from "../../components/Registration";
-import styles from './login.css';
+import styles from "./login.css";
 import API from "../../utils/API";
 //imports hashing function
-const SHA256 = require('crypto-js/sha256');
-
+const SHA256 = require("crypto-js/sha256");
 
 class Login extends Component {
   constructor(props) {
@@ -27,22 +26,26 @@ class Login extends Component {
 
   handleConfirmPass = event => {
     const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    }, () => {this.checkPassword()});
+    this.setState(
+      {
+        [name]: value
+      },
+      () => {
+        this.checkPassword();
+      }
+    );
   };
-  
+
   checkPassword = () => {
     if (this.state.cpassword !== this.state.password) {
       this.setState(prevState => ({
-        showWarning: false  
+        showWarning: false
       }));
     } else {
       this.setState(prevState => ({
         showWarning: true
       }));
     }
-
   };
 
   handleInputChange = event => {
@@ -55,11 +58,11 @@ class Login extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     this.login();
-  }
+  };
   handleFormRegister = event => {
     event.preventDefault();
     this.register();
-  }
+  };
 
   login = () => {
     //conceals the password from us
@@ -70,40 +73,39 @@ class Login extends Component {
       //conceals the password from others
       password: SHA256(concealer).toString()
     })
-      .then(res =>
-        {
+      .then(res => {
         //if success API.login()
         //if login success redirect page
-        })
+      })
       .catch(err => console.log(err));
   };
 
   register = () => {
-//======remove this toggle later so it doesn't clear state
+    //======remove this toggle later so it doesn't clear state
     this.toggle();
-//===================================================
+    //===================================================
     const concealer = SHA256(this.state.password).toString();
-    
+
     //checks registry for the name & isRegistered bool
     API.checkRegistry({
       firstName: this.state.firstName,
       lastName: this.state.lastName
     })
       .then(res => {
-      //depending on the Registered answer, we either update DB
+        //depending on the Registered answer, we either update DB
         if (res === true) {
           API.register({
             email: this.state.email,
             password: SHA256(concealer).toString()
           });
-            //add a page redirect here
+          //add a page redirect here
 
-
-      //or kickback the user    
+          //or kickback the user
         } else {
           //swap this alert for a better notification
-          alert("Unable to Register! Perhaps you're ineligible or have already registered");
-          
+          alert(
+            "Unable to Register! Perhaps you're ineligible or have already registered"
+          );
         }
       })
       .catch(err => console.log(err));
@@ -117,18 +119,18 @@ class Login extends Component {
       lastName: "",
       email: "",
       password: "",
-      cpassword: ""  
+      cpassword: ""
     });
-
   }
-    
 
   render() {
     return (
       <div className="loginBox">
-      <Card body outline color="primary">
+        <Card body outline color="primary">
           <CardTitle className="text-center title">CAST YOUR VOTE!</CardTitle>
-          <CardText className="text-center subtitle">Let your voice be heard!</CardText>
+          <CardText className="text-center subtitle">
+            Let your voice be heard!
+          </CardText>
           <LoginForm
             toggle={this.toggle}
             handleInputChange={this.handleInputChange}
@@ -148,7 +150,7 @@ class Login extends Component {
             handleInputChange={this.handleInputChange}
             handleConfirmPass={this.handleConfirmPass}
             showWarning={this.state.showWarning}
-              />
+          />
         </Card>
       </div>
     );
