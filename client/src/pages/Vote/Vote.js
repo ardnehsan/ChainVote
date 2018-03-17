@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import {Button,Jumbotron } from 'reactstrap';
 import Header from '../../components/Header';
 import API from "../../utils/API";
-import {
-  Nav,
-  Navbar,
-  NavbarBrand,
-  NavItem,
-  NavLink
-} from 'reactstrap';
+// import {
+//   Nav,
+//   Navbar,
+//   NavbarBrand,
+//   NavItem,
+//   NavLink
+// } from 'reactstrap';
 
 //ISSUES
 // STILL CANNOT CAPTURE THE VALUE INPUT MADE BY THE USER
