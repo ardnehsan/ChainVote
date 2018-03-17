@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const blockChainSchema = new Schema ({
   index: {type: Number},
-  timestamp: {type: Date, default: Date.nowe},
+  timestamp: {type: Date, default: Date.now},
   voter: {type: String, require: true},
   vote: {type: String, require: true},
   previousHash: {type: String},
