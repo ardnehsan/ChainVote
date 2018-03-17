@@ -21,7 +21,7 @@ export default {
     return axios.get("/api/blockChain");
   },
   // Save voter
-  saveBlockChain: function() {
-    return axios.post("/api/blockChain");
+  saveBlockChain: function(vote) {
+    return axios.post("/api/blockChain", vote);
   }
 };
