@@ -14,9 +14,10 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'client/build/')));
 
 app.get('*', function (req, res) {
-  const index = path.join(__dirname, 'build', 'index.html');
+  const index = path.join(__dirname, 'client/build', 'index.html');
   res.sendFile(index);
 });
+
 
 // Add routes, both API and view
 app.use(routes);
@@ -25,7 +26,7 @@ app.use(routes);
 mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/votechain");
+  process.env.MONGODB_URI || "mongodb://localhost/VoteChain");
 
 // Start the API server
 app.listen(PORT, () =>
