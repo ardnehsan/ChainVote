@@ -33,18 +33,6 @@ class Login extends Component {
     }, () => {this.checkPassword()});
   };
   
-  checkPassword = () => {
-    if (this.state.cpassword !== this.state.password) {
-      this.setState(prevState => ({
-        showWarning: false  
-      }));
-    } else {
-      this.setState(prevState => ({
-        showWarning: true
-      }));
-    }
-
-  };
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -56,10 +44,6 @@ class Login extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     this.login();
-  }
-  handleFormRegister = event => {
-    event.preventDefault();
-    this.register();
   }
 
   login = () => {
@@ -74,7 +58,8 @@ class Login extends Component {
       .then(res => {
           // console.log(res)
           if(res.data === true) {
-            alert("Success")
+            this.props.history.push('/landing');
+            // alert("Success")
           } 
           else {
             alert("Please register or use the correct username and password")
@@ -83,35 +68,6 @@ class Login extends Component {
       .catch(err => console.log(err));
   };
 
-  register = () => {
-//======remove this toggle later so it doesn't clear state
-    this.toggle();
-//===================================================
-    const concealer = SHA256(this.state.password).toString();
-    
-    //checks registry for the name & isRegistered bool
-    API.checkRegistry({
-      firstName: this.state.firstName,
-      lastName: this.state.lastName
-    })
-      .then(res => {
-        //depending on the Registered answer, we either update DB
-        if (res === true) {
-          API.register({
-            email: this.state.email,
-            password: SHA256(concealer).toString()
-          });
-        //add a page redirect here or say success!
-
-        //or kickback the user    
-        } else {
-          //swap this alert for a better notification
-          alert("Unable to Register! Perhaps you're ineligible or have already registered");
-          
-        }
-      })
-      .catch(err => console.log(err));
-  };
 
   //modal logic to pop up and dismiss
   toggle() {
