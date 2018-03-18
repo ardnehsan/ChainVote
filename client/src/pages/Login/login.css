@@ -21,6 +21,7 @@
 .cards:hover { 
     background-color: #FF611D;
 }  
+
 .cards:active {
     color: #FF611D;;
 }
