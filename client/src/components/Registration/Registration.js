@@ -156,7 +156,7 @@ class Registration extends Component {
                     type="email"
                     name="email"
                     id="email"
-                    placeholder="JohnSnow@something.com"
+                    placeholder="JohnSnow@example.com"
                     value={this.state.email}
                     onChange={this.handleInputChange}
                     required
@@ -172,7 +172,7 @@ class Registration extends Component {
                     type="password"
                     name="password"
                     id="password"
-                    placeholder=""
+                    placeholder="Password"
                     value={this.state.password}
                     onChange={this.handleInputChange}
                     required
@@ -188,7 +188,7 @@ class Registration extends Component {
                     type="password"
                     name="cpassword"
                     id="cpassword"
-                    placeholder=""
+                    placeholder="Confirm Password"
                     value={this.state.cpassword}
                     onChange={this.handleInputChange}
                     required

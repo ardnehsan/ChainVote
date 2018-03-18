@@ -13,7 +13,7 @@ import History from "./pages/History";
 import Landing from "./pages/Landing";
 import About from "./pages/About";
 import Four04 from "./pages/Four04";
-// import Footer from "./components/Footer";
+import styles from "./App.css"
 
 const App = () => {
   return (

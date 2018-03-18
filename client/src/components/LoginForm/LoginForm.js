@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Col, Button, Form, FormGroup, Label, Input } from "reactstrap";
+import styles from "./loginForm.css";
 
 class LoginForm extends Component {
   render() {
@@ -35,7 +36,7 @@ class LoginForm extends Component {
                 type="email"
                 name="email"
                 id="email"
-                placeholder="John"
+                placeholder="JohnSnow@example.com"
                 value={email}
                 onChange={handleInputChange}
                 required
@@ -51,7 +52,7 @@ class LoginForm extends Component {
                 type="password"
                 name="password"
                 id="password"
-                placeholder="Snow"
+                placeholder="Password"
                 value={password}
                 onChange={handleInputChange}
                 required
