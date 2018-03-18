@@ -75,7 +75,7 @@ module.exports = {
         };
       };
     db.BlockChain
-      .create(new Block(timestamp, "Genesis Block", "0000000000"))
+      .create(new Block(timestamp, "Genesis Block", "Genesis Block"))
       .then(dbBlockChain1 => res.json(dbBlockChain1))
       .catch(err => res.status(422).json(err));
   }
