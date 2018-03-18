@@ -9,8 +9,8 @@ import styles from "./History.css";
 export default class History extends React.Component {
   render() {
     return (
-      <Table className="historyTable" dark>
-        <thead>
+      <Table bordered>
+        <thead className="historyTable">
           <tr>
             <th>Ballots</th>
             <th>Previous Block</th>
@@ -18,7 +18,7 @@ export default class History extends React.Component {
             <th>Vote</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="historyTable">
           <tr>
             <th scope="row">32he2e2he</th>
             <td>0</td>
