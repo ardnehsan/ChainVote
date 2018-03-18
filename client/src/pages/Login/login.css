@@ -14,3 +14,13 @@
     font-size: 30px;
     font-family: 'Julius Sans One', sans-serif;
 }
+.cards:visited {
+    color: #FF611D;;
+}  
+
+.cards:hover { 
+    background-color: #FF611D;
+}  
+.cards:active {
+    color: #FF611D;;
+}
