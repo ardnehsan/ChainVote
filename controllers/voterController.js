@@ -44,9 +44,9 @@ module.exports = {
       .then(dbVoter => {
         console.log(dbVoter);
         if (dbVoter === null) { 
-          return res.json(dbVoter);
-        } else {
           return false;
+        } else {
+          return res.json(dbVoter);
         }
         //bdea3eb189822ec26fb752c97e3c2b50fd87326af90d8ca01c5bf67d7b8d1a67
       })
