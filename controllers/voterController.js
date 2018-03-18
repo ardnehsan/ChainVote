@@ -12,10 +12,6 @@ module.exports = {
 
     // let password = makeHash(req.body.password);
 
-    db.Voter
-      .find({ email: req.query.email })
-      .then(dbVoter => res.json(dbVoter))
-      .catch(err => res.status(422).json(err));
 
     // let dbPassword = makeHash();
 
@@ -77,7 +73,7 @@ module.exports = {
 
 //add users to Voter Table in votechain DB.
 
-// db.Voter.insert({"firstName": "Lysandnie", "lastName": "Jacques", "email": "LJacques@gmail.com", "password": "", isRegistered": "false"})
+// db.Voter.insert({"firstName": "Lysnandie", "lastName": "Jacques", "email": "LJacques@gmail.com", "password": "", "isRegistered": true})
 // db.Voter.insert({"firstName": "David", "lastName": "Morales", "email": "dmorales@gmail.com", "password": "", "isRegistered": true})
 // db.Voter.insert({"firstName": "Matthew", "lastName": "Lloyd", "email": "MLloyd@gmail.com", "password": "tester", "isRegistered": true})
 // db.Voter.insert({"firstName": "Michael", "lastName": "Nguyen", "email": "MNguyen@gmail.com", "password": "", "isRegistered": true})

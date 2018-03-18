@@ -20,8 +20,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-// Add routes, both API and view
-app.use(routes);
+
 
 // Serve up static assets
 app.use(express.static(path.join(__dirname, 'client/build/')));
@@ -55,26 +54,35 @@ app.use(session({
 
 //Start persisent session for user
 app.use(function(req, res, next) {
-  req.session.email;
+  req.session.firstName;
   req.session.save();
 });
 
 //persisent login
-app.use(session({
-  secret: 'secret',
-  saveUninitialized: true,
-  resave: true,
-  store: new MongoStore({
-    mongooseConnection: db
-  })
-}))
+// app.use(session({
+//   secret: 'secret',
+//   saveUninitialized: true,
+//   resave: true,
+//   store: new MongoStore({
+//     mongooseConnection: db
+//   })
+// }))
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/src/index.html');
-  if (req.session.email == undefined) {
-    console.log("User not in sesison yet");
+  if (req.session.firstName == undefined) {
+    console.log("User not in session yet");
   } else {
-    console.log("Email from session: " + req.session.email);
+    console.log("Name from session: " + req.session.firstName);
   }
+});
+
+//save user
+app.post('/firstName', function(req, res){
+  console.log("First name set to" + req.body.firstName);
+  req.session.firstName = req.body.firstName;
+  req.session.save();
+  console.log("Session value" + req.session.firstName);
+  res.end();
 });
 // Start the API server
 app.listen(PORT, () =>
