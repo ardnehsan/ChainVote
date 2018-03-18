@@ -3,11 +3,11 @@ import { Button, Jumbotron } from "reactstrap";
 import Header from "../../components/Header";
 import API from "../../utils/API";
 import {
-  Nav,
-  Navbar,
-  NavbarBrand,
-  NavItem,
-  NavLink,
+  // Nav,
+  // Navbar,
+  // NavbarBrand,
+  // NavItem,
+  // NavLink,
   Card,
   CardImg,
   CardTitle,
@@ -17,7 +17,7 @@ import {
   CardBody,
   FormGroup,
   Label,
-  Input,
+  Input
 } from "reactstrap";
 
 //ISSUES
@@ -29,14 +29,17 @@ import { Link } from "react-router-dom";
 class Vote extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: "Chainvote" };
+    this.state = {
+      voter: "Nash",
+      value: "Chainvote"
+    };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
   state = {
-    voter: "Nash",
+    voter: "",
     vote: "",
     total: []
   };
@@ -61,29 +64,15 @@ class Vote extends Component {
 
   handleFormSubmit = event => {
     alert("You chose: " + this.state.value + " as your favorite project");
-    console.log(this.state.value);
+
     event.preventDefault();
     API.saveBlockChain({
-      voter: this.state.voter,
+      voter: "Nash",
       vote: this.state.value
     })
       .then(res => this.getVotes())
       .catch(err => console.log(err));
   };
-  // var Link = React.createClass({
-  //   getInitialState: function(){
-  //     return {hover: false}
-  //   },
-  //   toggleHover: function(){
-  //     this.setState({hover: !this.state.hover})
-  //   },
-  //   render: function() {
-  //     var linkStyle;
-  //     if (this.state.hover) {
-  //       linkStyle = {backgroundColor: 'red'}
-  //     } else {
-  //       linkStyle = {backgroundColor: 'blue'}
-  //     };
 
   render() {
     return (
@@ -109,7 +98,11 @@ class Vote extends Component {
           </label> */}
           <FormGroup>
             <CardDeck className="TopDeck">
-              <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
+              <Card
+                body
+                inverse
+                style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
+              >
                 <CardImg
                   top
                   width="100%"
@@ -133,7 +126,11 @@ class Vote extends Component {
                 />
               </Card>
 
-              <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
+              <Card
+                body
+                inverse
+                style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
+              >
                 <CardImg
                   top
                   width="100%"
@@ -154,7 +151,11 @@ class Vote extends Component {
                 </CardBody>
               </Card>
 
-              <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
+              <Card
+                body
+                inverse
+                style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
+              >
                 <CardImg
                   top
                   width="100%"
@@ -164,11 +165,12 @@ class Vote extends Component {
                 <CardBody>
                   <CardTitle>Eat Neat</CardTitle>
                   <CardSubtitle>
-                    Eat Neat! Eat healthy and delicious with the app that provokes taste buds.
+                    Eat Neat! Eat healthy and delicious with the app that
+                    provokes taste buds.
                   </CardSubtitle>
                   <CardText>
                     This is a wider card with supporting text below as a natural
-                    lead-in to additional content. 
+                    lead-in to additional content.
                   </CardText>
                   <Button>Button</Button>
                 </CardBody>
@@ -177,7 +179,11 @@ class Vote extends Component {
             {/*  ========================================================================================================== */}
             {/*  ========================================================================================================== */}
             <CardDeck className="bottomDeck">
-            <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
+              <Card
+                body
+                inverse
+                style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
+              >
                 <CardImg
                   top
                   width="100%"
@@ -195,7 +201,11 @@ class Vote extends Component {
                 </CardBody>
               </Card>
 
-              <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
+              <Card
+                body
+                inverse
+                style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
+              >
                 <CardImg
                   top
                   width="100%"
@@ -213,7 +223,11 @@ class Vote extends Component {
                 </CardBody>
               </Card>
 
-              <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
+              <Card
+                body
+                inverse
+                style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
+              >
                 <CardImg
                   top
                   width="100%"
@@ -222,10 +236,12 @@ class Vote extends Component {
                 />
                 <CardBody>
                   <CardTitle>Vibez</CardTitle>
-                  <CardSubtitle>Make friends with the same music taste</CardSubtitle>
+                  <CardSubtitle>
+                    Make friends with the same music taste
+                  </CardSubtitle>
                   <CardText>
                     This is a wider card with supporting text below as a natural
-                    lead-in to additional content. 
+                    lead-in to additional content.
                   </CardText>
                   <Button>Button</Button>
                 </CardBody>

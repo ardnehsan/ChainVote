@@ -12,14 +12,15 @@ router
 	
 // Matches with "/api/voter/register/firstname&lastname"
 router
-	.route("/register/:firstName&:lastName")
-	.get(voterController.findByName)
-	.post(voterController.update);
+	.route("/register")
+	.get(voterController.checkRegistry)
+	.put(voterController.Register)
+	.post(voterController.createNew)
 
 //               /api/voter/login/?email=MLloyd@gmail.com&password=tester	
 // Matches with "/api/voter/login/email&password"
 router
-	.route("/login/")
+	.route("/login")
 	.get(voterController.login)
 
 module.exports = router;

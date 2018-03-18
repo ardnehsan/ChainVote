@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Card, CardImg, Button, CardTitle, CardText } from "reactstrap";
+import { Card, CardImg, CardTitle, CardText } from "reactstrap";
 import LoginForm from "../../components/LoginForm";
 import Registration from "../../components/Registration";
 import styles from "./login.css";
 import API from "../../utils/API";
+import { Link, Router } from "react-router-dom";
 //imports hashing function
 const SHA256 = require("crypto-js/sha256");
 
@@ -36,18 +37,6 @@ class Login extends Component {
     );
   };
 
-  checkPassword = () => {
-    if (this.state.cpassword !== this.state.password) {
-      this.setState(prevState => ({
-        showWarning: false
-      }));
-    } else {
-      this.setState(prevState => ({
-        showWarning: true
-      }));
-    }
-  };
-
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -58,10 +47,6 @@ class Login extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     this.login();
-  };
-  handleFormRegister = event => {
-    event.preventDefault();
-    this.register();
   };
 
   login = () => {
@@ -74,38 +59,12 @@ class Login extends Component {
       password: SHA256(concealer).toString()
     })
       .then(res => {
-        //if success API.login()
-        //if login success redirect page
-      })
-      .catch(err => console.log(err));
-  };
-
-  register = () => {
-    //======remove this toggle later so it doesn't clear state
-    this.toggle();
-    //===================================================
-    const concealer = SHA256(this.state.password).toString();
-
-    //checks registry for the name & isRegistered bool
-    API.checkRegistry({
-      firstName: this.state.firstName,
-      lastName: this.state.lastName
-    })
-      .then(res => {
-        //depending on the Registered answer, we either update DB
-        if (res === true) {
-          API.register({
-            email: this.state.email,
-            password: SHA256(concealer).toString()
-          });
-          //add a page redirect here
-
-          //or kickback the user
+        // console.log(res)
+        if (res.data === true) {
+          this.props.history.push("/landing");
+          // alert("Success")
         } else {
-          //swap this alert for a better notification
-          alert(
-            "Unable to Register! Perhaps you're ineligible or have already registered"
-          );
+          alert("Please register or use the correct username and password");
         }
       })
       .catch(err => console.log(err));

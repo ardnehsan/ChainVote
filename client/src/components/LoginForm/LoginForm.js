@@ -1,22 +1,5 @@
 import React, { Component } from "react";
-import {
-  Col,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Nav,
-  Navbar,
-  NavbarBrand,
-  NavItem,
-  NavLink
-} from "reactstrap";
-import API from "../../utils/API";
+import { Col, Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 class LoginForm extends Component {
   render() {
@@ -25,8 +8,20 @@ class LoginForm extends Component {
       password,
       toggle,
       handleFormSubmit,
-      handleInputChange
+      handleInputChange,
+      showWarning
     } = this.props;
+
+    function WarningBanner() {
+      if (showWarning) {
+        return (
+          <div className="warning" color="red">
+            Uh oh! This password doesn't match!
+          </div>
+        );
+      }
+      return null;
+    }
 
     return (
       <div className="container">
@@ -61,6 +56,7 @@ class LoginForm extends Component {
                 onChange={handleInputChange}
                 required
               />
+              <WarningBanner warn={showWarning} />
             </Col>
           </FormGroup>
         </Form>

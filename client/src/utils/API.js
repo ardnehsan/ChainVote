@@ -14,7 +14,7 @@ export default {
   },
   // Save voter info
   register: function(params) {
-    return axios.post("/api/voter/register/" + params);
+    return axios.put("/api/voter/register", { params: filterParams(params) });
   },
   // Get block chain
   getBlockChain: function() {
@@ -22,6 +22,7 @@ export default {
   },
   // Save voter
   saveBlockChain: function(vote) {
+    console.log(vote);
     return axios.post("/api/blockChain", vote);
   }
 };
