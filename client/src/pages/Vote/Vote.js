@@ -112,7 +112,6 @@ class Vote extends Component {
                   <Button>Vote</Button>
                 </CardBody>
                 
-                
               </Card>
 
               <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
