@@ -15,9 +15,22 @@ class LoginForm extends Component {
       password, 
       toggle, 
       handleFormSubmit, 
-      handleInputChange
+      handleInputChange,
+      showWarning
     } = this.props;
 
+    function WarningBanner() {
+      if (showWarning) {
+
+        return (
+          <div className="warning" color="red">
+            Uh oh! This password doesn't match!
+        </div>
+        );
+        
+      }
+      return null
+    }
 
     return (
       <div className='container'>
@@ -48,6 +61,7 @@ class LoginForm extends Component {
                 onChange={handleInputChange} 
                 required
                />
+              <WarningBanner warn={showWarning} />
             </Col>
           </FormGroup>
       </Form>

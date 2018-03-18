@@ -10,6 +10,10 @@ const PORT = process.env.PORT || 5000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 18fd7314d0a93d38a01e5b0cbd822f1e31c42401
 // Serve up static assets
 app.use(express.static(path.join(__dirname, 'client/build/')));
 

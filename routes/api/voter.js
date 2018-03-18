@@ -13,7 +13,8 @@ router
 // Matches with "/api/voter/register/firstname&lastname"
 router
 	.route("/register")
-	.put(voterController.update)
+	.get(voterController.checkRegistry)
+	.put(voterController.Register)
 	.post(voterController.createNew)
 
 //               /api/voter/login/?email=MLloyd@gmail.com&password=tester	
