@@ -85,7 +85,7 @@ class Login extends Component {
   render() {
     return (
       <div className="loginBox">
-        <Card body outline color="primary">
+        <Card body outline color="#101727">
           <CardTitle className="text-center title">CAST YOUR VOTE!</CardTitle>
           <CardText className="text-center subtitle">
             Let your voice be heard!

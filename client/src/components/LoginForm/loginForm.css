@@ -1,4 +1,13 @@
-.loginButton{
+.btn-primary {
     position: relative;
-    margin-bottom: 5px;
+    float: right;
+    margin-right: 10px;
+    width: 80px;
+    font-weight: 800;
+}
+
+.btn-secondary {
+    position: relative;
+    float: right;
+    width: 80px;
 }
