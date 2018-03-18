@@ -2,8 +2,7 @@ const mongoose = require ("mongoose");
 const Schema = mongoose.Schema;
 
 const blockChainSchema = new Schema ({
-  index: {type: Number},
-  timestamp: {type: Date, default: Date.now},
+  timestamp: {type: Date, default: Date.now, required: true},
   voter: {type: String, require: true},
   vote: {type: String, require: true},
   previousHash: {type: String},

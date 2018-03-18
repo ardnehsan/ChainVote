@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, CardImg, Button, CardTitle, CardText } from "reactstrap";
+import { Card, CardImg, CardTitle, CardText } from "reactstrap";
 import LoginForm from "../../components/LoginForm";
 import Registration from "../../components/Registration";
 import styles from './login.css';
@@ -73,12 +73,12 @@ class Login extends Component {
     })
       .then(res =>
         {
-          //if login success redirect page
-       if(res === true) {
-        <Link to="/landing"></Link>
-       }else {
-         alert `Please register or use the correct username and password`
-       }
+          if(res === true) {
+          //redirect page
+          } 
+          else {
+            alert `Please register or use the correct username and password`
+          }
         })
       .catch(err => console.log(err));
   };
@@ -95,16 +95,15 @@ class Login extends Component {
       lastName: this.state.lastName
     })
       .then(res => {
-      //depending on the Registered answer, we either update DB
+        //depending on the Registered answer, we either update DB
         if (res === true) {
           API.register({
             email: this.state.email,
             password: SHA256(concealer).toString()
           });
-            //add a page redirect here
+        //add a page redirect here or say success!
 
-
-      //or kickback the user    
+        //or kickback the user    
         } else {
           //swap this alert for a better notification
           alert("Unable to Register! Perhaps you're ineligible or have already registered");
