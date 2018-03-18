@@ -3,6 +3,7 @@ import React from "react";
 // Route = IS A REACT COMPONENT THAT IS USED TO SETUP A RULE BETWEEN A ROUTE AND A SET OF COMPONENTS VISIBLE ON THE SCREEN.
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 // IMPORT PAGES ====================================
 import Login from "./pages/Login";
@@ -33,7 +34,7 @@ const App = () => {
             <Route exact path="/about" component={About} />
             <Route component={Four04} />
           </Switch>
-          {/* <Footer /> */}
+          <Footer />
         </div>
       </BrowserRouter>
     </div>

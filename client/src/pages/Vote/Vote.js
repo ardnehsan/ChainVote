@@ -17,7 +17,7 @@ import {
   CardBody,
   FormGroup,
   Label,
-  Input
+  Input,
 } from "reactstrap";
 
 //ISSUES
@@ -70,6 +70,20 @@ class Vote extends Component {
       .then(res => this.getVotes())
       .catch(err => console.log(err));
   };
+  // var Link = React.createClass({
+  //   getInitialState: function(){
+  //     return {hover: false}
+  //   },
+  //   toggleHover: function(){
+  //     this.setState({hover: !this.state.hover})
+  //   },
+  //   render: function() {
+  //     var linkStyle;
+  //     if (this.state.hover) {
+  //       linkStyle = {backgroundColor: 'red'}
+  //     } else {
+  //       linkStyle = {backgroundColor: 'blue'}
+  //     };
 
   render() {
     return (

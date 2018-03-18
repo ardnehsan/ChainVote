@@ -1,32 +1,23 @@
-import React from 'react';
-import { Grid, Nav, NavItem } from 'react-bootstrap';
+import React from "react";
 
-function Footer(/*props*/) {
-  return (
-    <footer>
-      <Grid>
-        <Nav justified>
-          <NavItem
-            eventKey={1}>
-            Privacy policy
-          </NavItem>
-          <NavItem
-            eventKey={2}
-            title="Item">
-            Terms & Conditions
-          </NavItem>
-          <NavItem
-            eventKey={3}>
-            Some other professional link
-          </NavItem>
-        </Nav>
+const divStyle = {
+  borderTop: "#FF611D",
+  borderTStyle: "solid",
+  borderTopWidth: "8px",
+  position: "fixed",
+  left: 0,
+  bottom: 0,
+  backgroundColor: "#171f32",
+};
+const pStyle = {
+  color: "white",
+  textAlign: "center"
+};
 
-        <div className="text-center small copyright">
-          © RLM 2016
-        </div>
-      </Grid>
-    </footer>
-  );
-}
+const Footer = () => (
+  <div style={divStyle}>
+    <p style={pStyle}>Get started with inline style</p>
+  </div>
+);
 
 export default Footer;
