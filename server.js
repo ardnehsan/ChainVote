@@ -10,17 +10,16 @@ const PORT = process.env.PORT || 5000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// Add routes, both API and view
-app.use(routes);
-
 // Serve up static assets
 app.use(express.static(path.join(__dirname, 'client/build/')));
+
+// Add routes, both API and view
+app.use(routes);
 
 app.get('*', function (req, res) {
   const index = path.join(__dirname, 'client/build', 'index.html');
   res.sendFile(index);
 });
-
 
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
