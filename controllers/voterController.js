@@ -29,6 +29,32 @@ module.exports = {
     // let dbPassword = makeHash();
     // console.log(res.json(dbVoter));
   },
+  checkRegistry: function (req, res) {
+    // console.log(req.query);
+    // console.log("email param: " + req.query.email);
+    // console.log("password param: " + req.query.password);
+    let firstName = req.query.firstName;
+    let lastName = req.query.lastName;
+   
+    db.Voter
+      .findOne({ 
+        firstName: firstName,
+        lastName : lastName 
+      })
+      .then(dbVoter => {
+        console.log(dbVoter);
+        if (dbVoter === null) { 
+          return res.json(dbVoter);
+        } else {
+          return false;
+        }
+        //bdea3eb189822ec26fb752c97e3c2b50fd87326af90d8ca01c5bf67d7b8d1a67
+      })
+      .catch(err => res.status(422).json(err));
+
+    // let dbPassword = makeHash();
+
+  },
   //FOR TESTING PURPOSES; DELETE AFTER=======================================================
   findAll: function (req, res) {
     db.Voter
@@ -51,15 +77,21 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   //========================================================================================
-  update: function(req, res) {
-    let vpassword = SHA256(req.body.password).toString();
-    let voter = {
-      email: req.body.email,
+  Register: function(req, res) {
+    // console.log(req.body.params);
+    const vfirstName = req.body.params.firstName;
+    const vlastName = req.body.params.lastName;
+    const vemail = req.body.params.email;
+    const vpassword = req.body.params.password;
+
+    const voter = {
+      email: vemail,
       password: vpassword,
       isRegistered: true
     };
+    // console.log(voter);
     db.Voter
-      .findOneAndUpdate({ firstName: req.body.firstName, lastName: req.body.lastName }, voter)
+      .findOneAndUpdate({ firstName: vfirstName, lastName: vlastName }, voter)
       .then(dbVoter => res.json(dbVoter))
       .catch(err => res.status(422).json(err));
   }
