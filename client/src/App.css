@@ -7,7 +7,7 @@
 }
 
 body {
-    background: url("./img/mainBackground.jpg");
+    background: url("./mainBackground.jpg");
     background-size: cover;
     font-family: 'Roboto', sans-serif;
     font-family: 'Titillium Web', sans-serif;
@@ -15,4 +15,8 @@ body {
     font-family: 'Didact Gothic', sans-serif;
     font-family: 'Julius Sans One', sans-serif;
     font-family: 'Carrois Gothic SC', sans-serif;
+}
+
+.container{
+   /* background-color: orange; */
 }
