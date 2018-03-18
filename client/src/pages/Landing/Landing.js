@@ -28,7 +28,7 @@ class Landing extends Component {
         {/* REACT COMPONENT */}
           <div>
               {/* router links */}
-              <Link to="/history"><Button>History</Button></Link>
+              <Link to="/Report"><Button>History</Button></Link>
               <Link to="/vote"><Button>Vote</Button></Link>
               <h2>ChainVote is an application that allow users to create campaigns, and vote on other campaigns.
               ChainVote will help cut down time that it takes to count votes.</h2>
