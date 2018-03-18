@@ -94,7 +94,7 @@ class Vote extends Component {
             </select>
           </label> */}
           <FormGroup>
-            <CardDeck className="somethingelse">
+            <CardDeck>
               <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
                 <CardImg
                   top
@@ -111,7 +111,6 @@ class Vote extends Component {
                   </CardText>
                   <Button>Vote</Button>
                 </CardBody>
-                
               </Card>
 
               <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>

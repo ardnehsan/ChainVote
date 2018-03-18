@@ -25,3 +25,7 @@
 .cards:active {
     color: #FF611D;;
 }
+
+.historyTable {
+    background-color: midnightblue;
+}
