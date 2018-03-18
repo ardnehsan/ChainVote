@@ -2,12 +2,11 @@ import React, { Component } from "react";
 import { Card, CardImg, CardTitle, CardText } from "reactstrap";
 import LoginForm from "../../components/LoginForm";
 import Registration from "../../components/Registration";
-import styles from './login.css';
+import styles from "./login.css";
 import API from "../../utils/API";
-import { Link, Router } from 'react-router-dom';
+import { Link, Router } from "react-router-dom";
 //imports hashing function
-const SHA256 = require('crypto-js/sha256');
-
+const SHA256 = require("crypto-js/sha256");
 
 class Login extends Component {
   constructor(props) {
@@ -28,11 +27,15 @@ class Login extends Component {
 
   handleConfirmPass = event => {
     const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    }, () => {this.checkPassword()});
+    this.setState(
+      {
+        [name]: value
+      },
+      () => {
+        this.checkPassword();
+      }
+    );
   };
-  
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -44,7 +47,7 @@ class Login extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     this.login();
-  }
+  };
 
   login = () => {
     //conceals the password from us
@@ -56,18 +59,16 @@ class Login extends Component {
       password: SHA256(concealer).toString()
     })
       .then(res => {
-          // console.log(res)
-          if(res.data === true) {
-            this.props.history.push('/landing');
-            // alert("Success")
-          } 
-          else {
-            alert("Please register or use the correct username and password")
-          }
-        })
+        // console.log(res)
+        if (res.data === true) {
+          this.props.history.push("/landing");
+          // alert("Success")
+        } else {
+          alert("Please register or use the correct username and password");
+        }
+      })
       .catch(err => console.log(err));
   };
-
 
   //modal logic to pop up and dismiss
   toggle() {
@@ -77,19 +78,18 @@ class Login extends Component {
       lastName: "",
       email: "",
       password: "",
-      cpassword: ""  
+      cpassword: ""
     });
-
   }
-    
 
   render() {
     return (
       <div className="loginBox">
-      <Card body outline color="primary">
-      <CardImg top width="100%" src="https://statetechmagazine.com/sites/statetechmagazine.com/files/styles/cdw_hero/public/articles/election2016.jpg?itok=2hBFuJp6" alt="Card image cap" />
+        <Card body outline color="primary">
           <CardTitle className="text-center title">CAST YOUR VOTE!</CardTitle>
-          <CardText className="text-center subtitle">Let your voice be heard!</CardText>
+          <CardText className="text-center subtitle">
+            Let your voice be heard!
+          </CardText>
           <LoginForm
             toggle={this.toggle}
             handleInputChange={this.handleInputChange}
@@ -109,7 +109,7 @@ class Login extends Component {
             handleInputChange={this.handleInputChange}
             handleConfirmPass={this.handleConfirmPass}
             showWarning={this.state.showWarning}
-              />
+          />
         </Card>
       </div>
     );

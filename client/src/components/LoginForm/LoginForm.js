@@ -1,28 +1,28 @@
 import React, { Component } from "react";
-import {
-  Col,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input
-} from 'reactstrap';
+import { Col, Button, Form, FormGroup, Label, Input } from "reactstrap";
+import styles from "./loginForm.css";
 
 class LoginForm extends Component {
 
   render() {
     const {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 5f70e117844f552a8ccdff14fd15d96ab41077de
       email,
       password,
       toggle,
       handleFormSubmit,
+<<<<<<< HEAD
       handleInputChange
 =======
       email, 
       password, 
       toggle, 
       handleFormSubmit, 
+=======
+>>>>>>> 5f70e117844f552a8ccdff14fd15d96ab41077de
       handleInputChange,
       showWarning
 >>>>>>> 0b80add7cff91b398bf9e6b175a86194a08fbeb9
@@ -30,56 +30,71 @@ class LoginForm extends Component {
 
     function WarningBanner() {
       if (showWarning) {
-
         return (
           <div className="warning" color="red">
             Uh oh! This password doesn't match!
-        </div>
+          </div>
         );
-        
       }
-      return null
+      return null;
     }
 
 
     return (
-      <div className='container'>
+      <div className="container">
         <Form>
           <FormGroup row>
-            <Label for="email" sm={2}>Email</Label>
+            <Label for="email" sm={2}>
+              Email
+            </Label>
             <Col sm={10}>
               <Input
                 type="email"
                 name="email"
                 id="email"
+<<<<<<< HEAD
                 placeholder="John"
+=======
+                placeholder="JohnSnow@example.com"
+>>>>>>> 5f70e117844f552a8ccdff14fd15d96ab41077de
                 value={email}
                 onChange={handleInputChange}
                 required
-               />
+              />
             </Col>
           </FormGroup>
           <FormGroup row>
-            <Label for="password" sm={2}>Password</Label>
+            <Label for="password" sm={2}>
+              Password
+            </Label>
             <Col sm={10}>
               <Input
                 type="password"
                 name="password"
                 id="password"
+<<<<<<< HEAD
                 placeholder="Snow"
+=======
+                placeholder="Password"
+>>>>>>> 5f70e117844f552a8ccdff14fd15d96ab41077de
                 value={password}
                 onChange={handleInputChange}
                 required
-               />
+              />
               <WarningBanner warn={showWarning} />
             </Col>
           </FormGroup>
-      </Form>
-      <Button color="primary" onClick={handleFormSubmit}>Login</Button>{' '}
-      <Button color="secondary" onClick={toggle}>{this.props.buttonLabel}Registration</Button>
+        </Form>
+        <Button color="primary" onClick={handleFormSubmit}>
+          Login
+        </Button>{" "}
+        <Button color="secondary" onClick={toggle}>
+          {this.props.buttonLabel}Registration
+        </Button>
       </div>
     );
   }
+<<<<<<< HEAD
 // <<<<<<< HEAD
 //     render(){
 //         return (
@@ -111,4 +126,7 @@ class LoginForm extends Component {
 //         </div>
       
     }
+=======
+}
+>>>>>>> 5f70e117844f552a8ccdff14fd15d96ab41077de
 export default LoginForm;
