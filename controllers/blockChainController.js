@@ -52,7 +52,7 @@ module.exports = {
   },
   createGen: function (req, res) {
     console.log(req.body);
-    const timestamp = Date.now;
+    const timestamp = Date.now();
     const voter = req.body.voter;
     const vote = req.body.vote;
     const data = {
@@ -75,7 +75,7 @@ module.exports = {
         };
       };
     db.BlockChain
-      .create(new Block(timestamp, "Genesis Block", "0000"))
+      .create(new Block(timestamp, "Genesis Block", "0000000000"))
       .then(dbBlockChain1 => res.json(dbBlockChain1))
       .catch(err => res.status(422).json(err));
   }
