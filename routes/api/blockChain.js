@@ -6,4 +6,7 @@ router.route("/")
 	.get(blockChainController.findAll)
 	.post(blockChainController.create);
 
+router.route("/genesis")
+	.post(blockChainController.createGen);
+
 module.exports = router;

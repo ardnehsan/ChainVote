@@ -13,33 +13,21 @@ module.exports = {
     db.Voter
       .findOne({email : email})
       .then(dbVoter => {
-          // console.log("login password: " + qpass);
-          // console.log("Voter response: " + dbVoter);
           let voter = dbVoter;
           const vpass = SHA256(voter.password).toString();
-          // console.log(qpass);
-
+         
         if (vpass === qpass) {
           console.log('password good!')
-          // let voter = {
-          //   email: req.params.email,
-          //   password: password
-          // };
-          // db.Voter
-          //   .find(voter)
-          //   .then(dbVoter => res.json(dbVoter))
-          //   .catch(err => res.status(422).json(err));
+          return res.json(true);
         };
+        return res.json(false);
 
         //bdea3eb189822ec26fb752c97e3c2b50fd87326af90d8ca01c5bf67d7b8d1a67
-        
-
         })
       .catch(err => res.status(422).json(err));
 
     // let dbPassword = makeHash();
     // console.log(res.json(dbVoter));
-
   },
   //FOR TESTING PURPOSES; DELETE AFTER=======================================================
   findAll: function (req, res) {

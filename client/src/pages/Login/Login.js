@@ -71,13 +71,13 @@ class Login extends Component {
       //conceals the password from others
       password: SHA256(concealer).toString()
     })
-      .then(res =>
-        {
-          if(res === true) {
-          //redirect page
+      .then(res => {
+          // console.log(res)
+          if(res.data === true) {
+            alert("Success")
           } 
           else {
-            alert `Please register or use the correct username and password`
+            alert("Please register or use the correct username and password")
           }
         })
       .catch(err => console.log(err));
