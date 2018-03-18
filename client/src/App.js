@@ -16,11 +16,11 @@ import Report from "./pages/Report";
 import Landing from "./pages/Landing";
 import Four04 from "./pages/Four04";
 
-const styles = {
-    button: {
-        background: "red"
-    }
-};
+// const styles = {
+//     button: {
+//         background: "red"
+//     }
+// };
 
 
 

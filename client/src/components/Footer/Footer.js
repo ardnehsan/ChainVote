@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import {
   Collapse,
@@ -41,3 +42,6 @@ export default class Footer extends React.Component {
     );
   }
 }
+=======
+import React from "react";
+>>>>>>> 0b80add7cff91b398bf9e6b175a86194a08fbeb9

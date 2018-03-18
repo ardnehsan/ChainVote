@@ -5,30 +5,41 @@ import {
   Form,
   FormGroup,
   Label,
-  Input,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Nav,
-  Navbar,
-  NavbarBrand,
-  NavItem,
-  NavLink
+  Input
 } from 'reactstrap';
-import API from "../../utils/API";
 
 class LoginForm extends Component {
 
   render() {
     const {
+<<<<<<< HEAD
       email,
       password,
       toggle,
       handleFormSubmit,
       handleInputChange
+=======
+      email, 
+      password, 
+      toggle, 
+      handleFormSubmit, 
+      handleInputChange,
+      showWarning
+>>>>>>> 0b80add7cff91b398bf9e6b175a86194a08fbeb9
     } = this.props;
 
+    function WarningBanner() {
+      if (showWarning) {
+
+        return (
+          <div className="warning" color="red">
+            Uh oh! This password doesn't match!
+        </div>
+        );
+        
+      }
+      return null
+    }
 
 
     return (
@@ -60,6 +71,7 @@ class LoginForm extends Component {
                 onChange={handleInputChange}
                 required
                />
+              <WarningBanner warn={showWarning} />
             </Col>
           </FormGroup>
       </Form>
