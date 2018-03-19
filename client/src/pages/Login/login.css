@@ -28,7 +28,7 @@
     font-size: 20px;
     font-family: 'Julius Sans One', sans-serif;
 }
-<<<<<<< HEAD
+
 .cards:visited {
     color: #FF611D;;
 }  
@@ -44,7 +44,6 @@
 .historyTable {
     background-color: midnightblue;
 }
-=======
 
 @keyframes moveInRight {
     0% {
@@ -57,4 +56,3 @@
         transform: translate(0);
     }
 }
->>>>>>> e5fa8110c3ddc87750a57bc702308def03273a57

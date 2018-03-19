@@ -11,13 +11,15 @@ module.exports = {
       .then(dbVoter => {
           let voter = dbVoter;
           const vpass = SHA256(voter.password).toString();
-        if (vpass === qpass) {
-          // console.log('password good!')
-          return res.json(true);
-        };
-        return res.json(false);
+          if (vpass === qpass) {
+            // console.log('password good!')
+            return res.json(true);
+          }
+          else {
+            return res.json(false);
+          };
         })
-      .catch(err => res.status(422).json(err));
+      .catch(err => res.json(false));
   },
   checkRegistry: function (req, res) {
     let firstName = req.query.firstName;
@@ -29,14 +31,9 @@ module.exports = {
         lastName : lastName 
       })
       .then(dbVoter => {
-        // console.log(dbVoter);
-        if (dbVoter === null) { 
-          return false;
-        } else {
           return res.json(dbVoter);
-        }
       })
-      .catch(err => res.status(422).json(err));
+      .catch(err => res.json(dbVoter));
   },
   //FOR TESTING PURPOSES; DELETE AFTER=======================================================
   findAll: function (req, res) {
