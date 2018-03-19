@@ -26,7 +26,7 @@ class LoginForm extends Component {
 
     return (
       <div className="container">
-        <Form>
+        <Form className="loginForm">
           <FormGroup row>
             <Label for="email" sm={2}>
               Email
@@ -61,12 +61,12 @@ class LoginForm extends Component {
             </Col>
           </FormGroup>
         </Form>
-        <Button color="primary" onClick={handleFormSubmit}>
-          Login
-        </Button>{" "}
         <Button color="secondary" onClick={toggle}>
           {this.props.buttonLabel}Registration
         </Button>
+        <Button color="primary" onClick={handleFormSubmit}>
+          Login
+        </Button>{" "}
       </div>
     );
   }

@@ -1,4 +1,17 @@
-.loginButton{
+<<<<<<< HEAD
+.loginButton {
+=======
+.btn-primary {
+>>>>>>> e5fa8110c3ddc87750a57bc702308def03273a57
     position: relative;
-    margin-bottom: 5px;
+    float: right;
+    margin-right: 10px;
+    width: 80px;
+    font-weight: 800;
+}
+
+.btn-secondary {
+    position: relative;
+    float: right;
+    width: 80px;
 }
