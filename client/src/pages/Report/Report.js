@@ -35,8 +35,6 @@ class Report extends Component {
   
     
 render() {
-
-  
   const data = {
     labels: ['Chain Vote', 'Chores', 'Eat Neat', 'Hello World', 'Snippets', 'Vibez'],
     datasets: [
@@ -51,46 +49,8 @@ render() {
       }
     ]
   };
-  
-  return(
-    
-        <div>
-          
-         <h2 className="text-center">Election Results</h2>
-         <h4>count</h4>
-=======
-const data = {
-  labels: ["Project1", "Project2", "Project3", "Project4", "Project5"],
-  datasets: [
-    {
-      label: "Number of Votes",
-      backgroundColor: "red",
-      borderColor: "rgba(255,99,132,1)",
-      borderWidth: 1,
-      hoverBackgroundColor: "rgba(255,99,132,0.4)",
-      hoverBorderColor: "rgba(255,99,132,1)",
-      data: [6, 5, 8, 1, 7, 5, 4]
-    }
-  ]
-};
 
-class Report extends Component {
-  state = {
-    vote: ""
-  };
-
-  getCount = () => {
-    API.getBlockchain()
-      .then(res =>
-        this.setState({
-          vote: res.data
-        })
-      )
-      .catch(err => console.log(err));
-  };
-
-  render() {
-    return (
+  return (
       <div>
         <h2 className="text-center">Election Results</h2>
         <Bar
@@ -118,11 +78,7 @@ class Report extends Component {
         </div>
         </div>
         );
+      }
     }
-      </div>
-    );
-
-  }
-}
 
 export default Report;
