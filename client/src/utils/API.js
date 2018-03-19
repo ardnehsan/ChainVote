@@ -7,6 +7,9 @@ export default {
     // console.log(params);
     return axios.get("/api/voter/login", { params: filterParams(params) });
   },
+  getVoter: function (params) {
+    return axios.get("api/voter/", {params});
+  },
   // Get voter by firstname/lastname
   checkRegistry: function (params) {
     // console.log(params);

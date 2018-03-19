@@ -59,15 +59,26 @@ class Login extends Component {
       password: SHA256(concealer).toString()
     })
       .then(res => {
+
         console.log(res.data);
-        if (res.data === true) {
-          this.props.history.push("/landing");
-          // alert("Success")
-        } else {
+
+        if (res.data === false) {
           alert("Please register or use the correct username and password");
           this.setState({
-            password : "",
+            password: "",
           });
+        } else {
+           const authE = res.data.email;
+           const authL = true;
+            
+           localStorage.setItem("UAuthE", authE.toString());
+           localStorage.setItem("UAuthL", authL);
+          //  alert("Success!");
+           console.log(this.props);
+          this.props.history.push("/landing")
+
+          setTimeout(() => { window.location.reload(); }, 500);
+          
         }
       })
       .catch(err => console.log(err));

@@ -8,8 +8,15 @@ import "../History";
 import "./Landing.css"
 
 class Landing extends Component {
+
   render() {
-    return (
+    const {
+      email,
+      isLoggedIn
+    } = this.props;
+    console.log(this.props.email);
+    console.log(this.props.isLoggedIn);
+  return (
       <div className="container">
 
         <div className="content">
