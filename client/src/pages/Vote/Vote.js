@@ -25,6 +25,7 @@ import {
 // NEED TO INTEGRATE THE SESSION ID
 
 import { Link } from "react-router-dom";
+import styles from "./vote.css"
 
 class Vote extends Component {
   constructor(props) {
@@ -81,55 +82,42 @@ class Vote extends Component {
           <h2 className="text-center">Chris' Class</h2>
         </Jumbotron>
         <form className="text-center" onSubmit={this.handleFormSubmit}>
-          {/* <label>
-            Pick your favorite project:
-            <select
-              value={this.state.value}
-              name="vote"
-              onChange={this.handleInputChange}
-            >
-              <option value="Chainvote">Chain Vote</option>
-              <option value="Chores">Chores</option>
-              <option value="Eatneat">Eat Neat</option>
-              <option value="Eatneat">Hello World</option>
-              <option value="Eatneat">Snippets</option>
-              <option value="Helloworld">Vibez</option>
-            </select>
-          </label> */}
-          <FormGroup>
+          <FormGroup tag="fieldset" row>
             <CardDeck className="TopDeck">
+
+              {/* FIRST CANDIDATE =======================================================*/}
+              {/* =======================================================================*/}
               <Card
                 body
                 inverse
                 style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
+                onClick={this.select}
               >
                 <CardImg
                   top
                   width="100%"
-                  src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
-                  alt="Card image cap"
+                  height="100%"
+                  margin-left="auto"
+                  margin-right="auto"
                 />
                 <CardBody>
                   <CardTitle>Chain Vote</CardTitle>
                   <CardSubtitle>Block Chain Voting System</CardSubtitle>
-                  <CardText>
-                    A voting application built with block chain technology at
-                    it's core.
-                  </CardText>
+
+                  <Label check>
+                    <Input type="radio" name="radio2" />{' '}
+                  </Label>
                 </CardBody>
-                <Label for="exampleEmail">Email</Label>
-                <Input
-                  type=""
-                  name="email"
-                  id="exampleEmail"
-                  placeholder="with a placeholder"
-                />
               </Card>
 
+
+              {/* SECOND CANDIDATE =======================================================*/}
+              {/* =======================================================================*/}
               <Card
                 body
                 inverse
                 style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
+
               >
                 <CardImg
                   top
@@ -143,14 +131,15 @@ class Vote extends Component {
                     Need a way to track your chores? This is the application to
                     help you{" "}
                   </CardSubtitle>
-                  <CardText>
-                    This card has supporting text below as a natural lead-in to
-                    additional content.
-                  </CardText>
-                  <Button>Button</Button>
+                  <Label check>
+                    <Input type="radio" name="radio2" />{' '}
+                  </Label>
                 </CardBody>
               </Card>
 
+
+              {/* THIRD CANDIDATE =======================================================*/}
+              {/* =======================================================================*/}
               <Card
                 body
                 inverse
@@ -168,11 +157,9 @@ class Vote extends Component {
                     Eat Neat! Eat healthy and delicious with the app that
                     provokes taste buds.
                   </CardSubtitle>
-                  <CardText>
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content.
-                  </CardText>
-                  <Button>Button</Button>
+                  <Label check>
+                    <Input type="radio" name="radio2" />{' '}
+                  </Label>
                 </CardBody>
               </Card>
             </CardDeck>
@@ -193,11 +180,9 @@ class Vote extends Component {
                 <CardBody>
                   <CardTitle>Hello World</CardTitle>
                   <CardSubtitle>Travel to interesting places!</CardSubtitle>
-                  <CardText>
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content.
-                  </CardText>
-                  <Button>Button</Button>
+                  <Label check>
+                    <Input type="radio" name="radio2" />{' '}
+                  </Label>
                 </CardBody>
               </Card>
 
@@ -215,11 +200,9 @@ class Vote extends Component {
                 <CardBody>
                   <CardTitle>Snippets</CardTitle>
                   <CardSubtitle>Find the tutorial that you need</CardSubtitle>
-                  <CardText>
-                    This card has supporting text below as a natural lead-in to
-                    additional content.
-                  </CardText>
-                  <Button>Button</Button>
+                  <Label check>
+                    <Input type="radio" name="radio2" />{' '}
+                  </Label>
                 </CardBody>
               </Card>
 
@@ -239,17 +222,20 @@ class Vote extends Component {
                   <CardSubtitle>
                     Make friends with the same music taste
                   </CardSubtitle>
-                  <CardText>
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content.
-                  </CardText>
-                  <Button>Button</Button>
+
+                  <Label check>
+                    <Input type="radio" name="radio2" />{' '}
+                  </Label>
                 </CardBody>
               </Card>
             </CardDeck>
           </FormGroup>
+
+
+          {/* SUBMIT YOUR VOTE BUTTON ===============================================*/}
+          {/* =======================================================================*/}
           <div className="text-center">
-            <Button color="danger" size="lg" input type="submit">
+            <Button color="danger" size="lg" block input type="submit">
               Submit{" "}
             </Button>
           </div>
