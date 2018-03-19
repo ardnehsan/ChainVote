@@ -32,18 +32,15 @@ class Vote extends Component {
     super(props);
     this.state = {
       voter: "Nash",
-      value: "Chainvote"
+      value: "chainvote",
+      total:[],
+      notVoted: true
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
-  state = {
-    voter: "",
-    vote: "",
-    total: []
-  };
 
   //need to name select input bar
   // add to state object
@@ -51,47 +48,48 @@ class Vote extends Component {
 
   getVotes = () => {
     API.getBlockChain()
-      .then(res =>
+      .then(res =>{
+        console.log(res.data)
         this.setState({
           total: res.data
         })
+      }
       )
       .catch(err => console.log(err));
   };
 
   handleInputChange = event => {
     this.setState({ value: event.target.value });
+    console.log(this.state.value);
   };
 
   handleFormSubmit = event => {
     alert("You chose: " + this.state.value + " as your favorite project");
-
+    console.log(this.state.total);
     event.preventDefault();
     API.saveBlockChain({
       voter: "Nash",
-      vote: this.state.value
-    })
-      .then(res => this.getVotes())
-      .catch(err => console.log(err));
-  };
+      vote: this.state.value})
+        .then(res => this.getVotes())
+        .catch(err => console.log(err));
+   };
 
-  render() {
+
+render() {
+  
+  const voted = this.state.notVoted;
+
+    
     return (
+
       <div>
         <Jumbotron>
-          <h2 className="text-center">Chris' Class</h2>
+        <h2 className="text-center">Chris' Class</h2>
         </Jumbotron>
-        <form className="text-center" onSubmit={this.handleFormSubmit}>
-          <FormGroup tag="fieldset" row>
-            <CardDeck className="TopDeck">
-
-              {/* FIRST CANDIDATE =======================================================*/}
-              {/* =======================================================================*/}
-              <Card
-                body
-                inverse
-                style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
-              >
+        
+          <FormGroup>
+            <CardDeck>
+              <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
                 <CardImg
                   top
                   width="100%"
@@ -99,9 +97,14 @@ class Vote extends Component {
                   margin-left="auto"
                   margin-right="auto"
                 />
-                <CardBody>
+                <CardBody onClick={this.handleInputChange}>
                   <CardTitle>Chain Vote</CardTitle>
                   <CardSubtitle>Block Chain Voting System</CardSubtitle>
+                  <CardText>
+                    A voting application built with block chain technology at
+                    it's core.
+                  </CardText>
+                  <Button  value="chainvote" >Vote</Button>
                 </CardBody>
                 <Label check>
                   <Input type="radio" name="radio2" />{' '}
@@ -132,9 +135,7 @@ class Vote extends Component {
                     This card has supporting text below as a natural lead-in to
                     additional content.
                   </CardText>
-                  <Label check>
-                    <Input type="radio" name="radio2" />{' '}
-                  </Label>
+                  <Button value="chores" onClick={this.handleInputChange}>Vote</Button>
                 </CardBody>
               </Card>
 
@@ -162,36 +163,28 @@ class Vote extends Component {
                     This is a wider card with supporting text below as a natural
                     lead-in to additional content.
                   </CardText>
-                  <Label check>
-                    <Input type="radio" name="radio2" />{' '}
-                  </Label>
+                  <Button  value="eatneat" onClick={this.handleInputChange}>Vote</Button>
                 </CardBody>
               </Card>
             </CardDeck>
             {/*  ========================================================================================================== */}
             {/*  ========================================================================================================== */}
             <CardDeck className="bottomDeck">
-              <Card
-                body
-                inverse
-                style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
-              >
-                <CardImg
+            <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
+                <CardImg className="cards"
                   top
                   width="100%"
                   src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
                   alt="Card image cap"
                 />
-                <CardBody>
-                  <CardTitle>Hello World</CardTitle>
+                <CardBody  className="cards">
+                  <CardTitle value="helloworld">Hello World</CardTitle>
                   <CardSubtitle>Travel to interesting places!</CardSubtitle>
                   <CardText>
                     This is a wider card with supporting text below as a natural
                     lead-in to additional content.
                   </CardText>
-                  <Label check>
-                    <Input type="radio" name="radio2" />{' '}
-                  </Label>
+                  <Button value="helloworld" onClick={this.handleInputChange}>Vote</Button>
                 </CardBody>
               </Card>
 
@@ -206,16 +199,14 @@ class Vote extends Component {
                   src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
                   alt="Card image cap"
                 />
-                <CardBody>
-                  <CardTitle>Snippets</CardTitle>
+                <CardBody  className="cards">
+                  <CardTitle value="snippets">Snippets</CardTitle>
                   <CardSubtitle>Find the tutorial that you need</CardSubtitle>
                   <CardText>
                     This card has supporting text below as a natural lead-in to
                     additional content.
                   </CardText>
-                  <Label check>
-                    <Input type="radio" name="radio2" />{' '}
-                  </Label>
+                  <Button value="snippets" onClick={this.handleInputChange}>Vote</Button>
                 </CardBody>
               </Card>
 
@@ -230,18 +221,14 @@ class Vote extends Component {
                   src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
                   alt="Card image cap"
                 />
-                <CardBody>
-                  <CardTitle>Vibez</CardTitle>
-                  <CardSubtitle>
-                    Make friends with the same music taste
-                  </CardSubtitle>
+                <CardBody  className="cards">
+                  <CardTitle value="vibez">Vibez</CardTitle>
+                  <CardSubtitle>Make friends with the same music taste</CardSubtitle>
                   <CardText>
                     This is a wider card with supporting text below as a natural
                     lead-in to additional content.
                   </CardText>
-                  <Label check>
-                    <Input type="radio" name="radio2" />{' '}
-                  </Label>
+                  <Button value="vibez" onClick={this.handleInputChange}>Vote</Button>
                 </CardBody>
               </Card>
             </CardDeck>
@@ -251,11 +238,10 @@ class Vote extends Component {
           {/* SUBMIT YOUR VOTE BUTTON ===============================================*/}
           {/* =======================================================================*/}
           <div className="text-center">
-            <Button color="danger" size="lg" block input type="submit">
+            <Button color="danger" size="lg" block input type="submit" onClick={this.handleFormSubmit}>
               Submit{" "}
             </Button>
           </div>
-        </form>
       </div>
     );
   }
