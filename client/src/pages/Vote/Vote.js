@@ -3,7 +3,21 @@ import { Button, Jumbotron } from "reactstrap";
 import Header from "../../components/Header";
 import API from "../../utils/API";
 import {
-  NavLink
+  Nav,
+  Navbar,
+  NavbarBrand,
+  NavItem,
+  NavLink,
+  Card,
+  CardImg,
+  CardTitle,
+  CardText,
+  CardDeck,
+  CardSubtitle,
+  CardBody,
+  FormGroup,
+  Label,
+  Input
 } from 'reactstrap';
 
 //ISSUES
@@ -17,7 +31,8 @@ class Vote extends Component {
     super(props);
     this.state = {
       voter: "Nash",
-      value: "Chainvote",
+      value: "chainvote",
+      total:[],
       notVoted: true
     };
 
@@ -26,11 +41,6 @@ class Vote extends Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
-  state = {
-    voter: "Nash",
-    vote: "",
-    total: []
-  };
 
   //need to name select input bar
   // add to state object
@@ -38,26 +48,28 @@ class Vote extends Component {
 
   getVotes = () => {
     API.getBlockChain()
-      .then(res =>
+      .then(res =>{
+        console.log(res.data)
         this.setState({
           total: res.data
         })
+      }
       )
       .catch(err => console.log(err));
   };
 
   handleInputChange = event => {
     this.setState({ value: event.target.value });
+    console.log(this.state.value);
   };
 
   handleFormSubmit = event => {
     alert("You chose: " + this.state.value + " as your favorite project");
-    console.log(this.state.value);
+    console.log(this.state.total);
     event.preventDefault();
     API.saveBlockChain({
       voter: "Nash",
-      vote: this.state.value
-})
+      vote: this.state.value})
         .then(res => this.getVotes())
         .catch(err => console.log(err));
    };
@@ -88,7 +100,7 @@ render() {
                     A voting application built with block chain technology at
                     it's core.
                   </CardText>
-                  <Button>Vote</Button>
+                  <Button  value="chainvote" onClick={this.handleInputChange}>Vote</Button>
                 </CardBody>
               </Card>
 
@@ -110,7 +122,7 @@ render() {
                     This card has supporting text below as a natural lead-in to
                     additional content.
                   </CardText>
-                  <Button>Button</Button>
+                  <Button value="chores" onClick={this.handleInputChange}>Vote</Button>
                 </CardBody>
               </Card>
 
@@ -130,7 +142,7 @@ render() {
                     This is a wider card with supporting text below as a natural
                     lead-in to additional content. 
                   </CardText>
-                  <Button>Button</Button>
+                  <Button  value="eatneat" onClick={this.handleInputChange}>Vote</Button>
                 </CardBody>
               </Card>
             </CardDeck>
@@ -139,20 +151,20 @@ render() {
             {/*  ========================================================================================================== */}
             <CardDeck className="bottomDeck">
             <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
-                <CardImg classname="cards"
+                <CardImg className="cards"
                   top
                   width="100%"
                   src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
                   alt="Card image cap"
                 />
                 <CardBody  className="cards">
-                  <CardTitle>Hello World</CardTitle>
+                  <CardTitle value="helloworld">Hello World</CardTitle>
                   <CardSubtitle>Travel to interesting places!</CardSubtitle>
                   <CardText>
                     This is a wider card with supporting text below as a natural
                     lead-in to additional content.
                   </CardText>
-                  <Button>Button</Button>
+                  <Button value="helloworld" onClick={this.handleInputChange}>Vote</Button>
                 </CardBody>
               </Card>
 
@@ -164,13 +176,13 @@ render() {
                   alt="Card image cap"
                 />
                 <CardBody  className="cards">
-                  <CardTitle>Snippets</CardTitle>
+                  <CardTitle value="snippets">Snippets</CardTitle>
                   <CardSubtitle>Find the tutorial that you need</CardSubtitle>
                   <CardText>
                     This card has supporting text below as a natural lead-in to
                     additional content.
                   </CardText>
-                  <Button>Button</Button>
+                  <Button value="snippets" onClick={this.handleInputChange}>Vote</Button>
                 </CardBody>
               </Card>
 
@@ -182,19 +194,19 @@ render() {
                   alt="Card image cap"
                 />
                 <CardBody  className="cards">
-                  <CardTitle>Vibez</CardTitle>
+                  <CardTitle value="vibez">Vibez</CardTitle>
                   <CardSubtitle>Make friends with the same music taste</CardSubtitle>
                   <CardText>
                     This is a wider card with supporting text below as a natural
                     lead-in to additional content. 
                   </CardText>
-                  <Button>Button</Button>
+                  <Button value="vibez" onClick={this.handleInputChange}>Vote</Button>
                 </CardBody>
               </Card>
             </CardDeck>
           </FormGroup>
           <div className="text-center">
-            <Button color="danger" size="lg" input type="submit">
+            <Button color="danger" size="lg" input type="submit" onClick={this.handleFormSubmit}>
               Submit{" "}
             </Button>
           </div>
