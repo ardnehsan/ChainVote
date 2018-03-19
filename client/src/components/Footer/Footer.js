@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 import React from "react";
 import {
@@ -70,3 +71,5 @@ const Footer = () => (
 
 export default Footer;
 >>>>>>> 5f70e117844f552a8ccdff14fd15d96ab41077de
+=======
+>>>>>>> b6ec159de3a3cc6ae235dabbaa7e36e5e1cc6b93

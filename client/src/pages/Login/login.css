@@ -1,16 +1,57 @@
-.loginBox {
-    color: midnightblue;
+.card.card-body {
+    content: " ";
+    background-color: #FF611D;
+    width: 80%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom-color: #101727;
+    border-bottom-width: 10px;
+    border-top-color: #101727;
+    border-top-width: 10px;
+
+    animation-name: moveInRight;
+    animation-duration: 3s;
+    backface-visibility: hidden;
+
 }
 
 .title {
-    color: #101727;
-    font-size: 80px;
+    color: #CCCFD3;
+    font-size: 60px;
     font-family: 'Rajdhani', sans-serif;  
 }
 
 .subtitle {
     color: #101727;
-    font-weight: 900;
-    font-size: 30px;
-    font-family: 'Julius Sans One', sans-serif;
+    font-weight: bolder;
+    font-size: 20px;
+    font-family: 'Rajdhani', sans-serif;
+}
+.cards:visited {
+    color: #FF611D;;
+}  
+
+.cards:hover { 
+    background-color: #FF611D;
+}  
+
+.cards:active {
+    color: #FF611D;;
+}
+
+.historyTable {
+    background-color: midnightblue;
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
 }

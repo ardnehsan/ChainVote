@@ -14,8 +14,8 @@ const store = createStore(reducers, {}, applyMiddleware());
 
 ReactDOM.render(
     // Provider TAG IS A REACT COMPONENT THAT KNOW HOW TO READ CHANGES FROM THE REDUX STORE.
-    <Provider store={store}>
-        <App />
-    </Provider>,
+    // <Provider store={store}>
+        <App />,
+    // </Provider>,
     document.querySelector('#root')
 );

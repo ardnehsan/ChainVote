@@ -1,24 +1,43 @@
-import React, { Component } from "react";
-import API from "../../utils/API";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Landing from "../Landing";
+import React from "react";
+import "../../utils/API";
+import "../Landing";
+import { Table } from 'reactstrap';
+import "./History.css";
 
-class History extends Component {
-//create a function where it'll grab data from previous voting data
+
+export default class History extends React.Component {
   render() {
     return (
-      <table>
-        <thead>
+      <Table bordered>
+        <thead className="historyTable">
           <tr>
-            <th>Campaign</th>
+            <th>Ballots</th>
+            <th>Previous Block</th>
+            <th>Voter</th>
+            <th>Vote</th>
           </tr>
         </thead>
-        <tbody>History</tbody>
-      </table>
+        <tbody className="historyTable">
+          <tr>
+            <th scope="row">32he2e2he</th>
+            <td>0</td>
+            <td>david</td>
+            <td>nash</td>
+          </tr>
+          <tr>
+            <th scope="row">2e3b2kh2bk3e</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">23k2b32kh3b2hhk</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </Table>
     );
-    return (
-      <Route exact path="/landing" component={Landing} />
-    )
   }
 }
-export default History;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Col, Button, Form, FormGroup, Label, Input } from "reactstrap";
-import styles from "./loginForm.css";
+import "./loginForm.css";
 
 class LoginForm extends Component {
 
@@ -42,7 +42,7 @@ class LoginForm extends Component {
 
     return (
       <div className="container">
-        <Form>
+        <Form className="loginForm">
           <FormGroup row>
             <Label for="email" sm={2}>
               Email
@@ -85,12 +85,12 @@ class LoginForm extends Component {
             </Col>
           </FormGroup>
         </Form>
-        <Button color="primary" onClick={handleFormSubmit}>
-          Login
-        </Button>{" "}
-        <Button color="secondary" onClick={toggle}>
+        <Button size="lg" style={{ backgroundColor: '#171f32', borderColor: '#FF611D', borderWidth: '2px'}} onClick={toggle}>
           {this.props.buttonLabel}Registration
         </Button>
+        <Button size="lg" style={{ backgroundColor: '#171f32', borderColor: '#FF611D', borderWidth: '2px' }} onClick={handleFormSubmit}>
+          Login
+        </Button>{" "}
       </div>
     );
   }

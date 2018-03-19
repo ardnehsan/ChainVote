@@ -12,7 +12,11 @@ import {
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
+<<<<<<< HEAD
 import styles from './header.css'
+=======
+import './Header.css';
+>>>>>>> b6ec159de3a3cc6ae235dabbaa7e36e5e1cc6b93
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -32,15 +36,13 @@ export default class Header extends React.Component {
     return (
       <div className='header'>
         <Navbar color="faded" light expand="md">
-          <NavbarBrand href="/" style={{color:'#CCCFD3'}}>Chain Vote</NavbarBrand>
-          <img className='logo' alt='ChainVote'/>
-          C:\Users\David\Desktop\ChainVote\client\src\img\LogoSingle.png
-          C:\Users\David\Desktop\ChainVote\client\src\components\Header\Header.js
+          <img className='logo' href="/" />
+          <NavbarBrand href="/" style={{ color: '#CCCFD3' }}>Chain Vote</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret style={{color:'#CCCFD3'}}>
+                <DropdownToggle nav caret style={{ color: '#CCCFD3' }}>
                   Options
                 </DropdownToggle>
                 <DropdownMenu>

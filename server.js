@@ -1,8 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const path = require("path");
 const mongoose = require("mongoose");
 const routes = require("./routes");
+<<<<<<< HEAD
 const path = require('path');
+=======
+>>>>>>> b6ec159de3a3cc6ae235dabbaa7e36e5e1cc6b93
 const app = express();
 
 //const PeerServer = require('peer').PeerServer;

@@ -7,22 +7,15 @@ const SHA256 = require('crypto-js/sha256');
 module.exports = {
   findAll: function(req, res) {
     db.BlockChain
-      .find(req.query)
-      .sort({date: -1})
+      .find()
+      .sort({timestamp: -1})
       .then(dbBlockChain => res.json(dbBlockChain))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    // console.log(req.body);
     const timestamp = Date.now();
-    // console.log(timestamp);
     const voter = req.body.voter;
     const vote = req.body.vote;
-    const data = {
-      voter: voter,
-      vote: vote
-    }
-
 
     db.BlockChain
       .findOne(req.query)
@@ -33,20 +26,21 @@ module.exports = {
         class Block {
           //the different values & datatypes placed in each block
           
-          constructor(timestamp, data, previousHash = '') {
+          constructor(timestamp, vote, voter, previousHash = '') {
             this.timestamp = timestamp;
-            this.data = data;
+            this.vote = vote;
+            this.voter = voter;
             this.previousHash = previousHash;
             this.hash = this.calculateHash();
           };
 
           //the method that compiles all a given block's information into a stringified hash
           calculateHash() {
-            return SHA256(this.timestamp + this.previousHash + JSON.stringify(this.data)).toString();
+            return SHA256(this.timestamp + this.vote + this.voter + this.previousHash).toString();
           };
         };
         db.BlockChain
-          .create(new Block(timestamp, data, previousHash))
+          .create(new Block(timestamp, vote, voter, previousHash))
            .then(dbBlockChain1 => {
              console.log(dbBlockChain1);
             return res.json(dbBlockChain1);
@@ -58,7 +52,7 @@ module.exports = {
   },
   createGen: function (req, res) {
     console.log(req.body);
-    const timestamp = Date.now;
+    const timestamp = Date.now();
     const voter = req.body.voter;
     const vote = req.body.vote;
     const data = {
@@ -81,7 +75,7 @@ module.exports = {
         };
       };
     db.BlockChain
-      .create(new Block(timestamp, "Genesis Block", "0000"))
+      .create(new Block(timestamp, "Genesis Block", "Genesis Block"))
       .then(dbBlockChain1 => res.json(dbBlockChain1))
       .catch(err => res.status(422).json(err));
   }
