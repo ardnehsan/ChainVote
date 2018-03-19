@@ -68,13 +68,17 @@ class Login extends Component {
             password: "",
           });
         } else {
-           const auth = {
-             email: res.data.email,
-             isLoggedIn: true
-           };
-           localStorage.setItem("UAuth", JSON.stringify(auth));
-          this.props.history.push("/landing");
-          alert("Success")
+           const authE = res.data.email;
+           const authL = true;
+            
+           localStorage.setItem("UAuthE", authE.toString());
+           localStorage.setItem("UAuthL", authL);
+          //  alert("Success!");
+           console.log(this.props);
+          this.props.history.push("/landing")
+
+          setTimeout(() => { window.location.reload(); }, 500);
+          
         }
       })
       .catch(err => console.log(err));

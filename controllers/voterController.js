@@ -21,6 +21,25 @@ module.exports = {
         })
       .catch(err => res.status(422).json(err));
   },
+  checkVoter: function (req, res) {
+    // console.log(req.query);
+    let email = req.query.email;
+    // // let lastName = req.query.lastName;
+
+    db.Voter
+      .findOne({
+        email: email
+      })
+      .then(dbVoter => {
+        console.log(dbVoter);
+        // if (dbVoter === null) {
+        //   return false;
+        // } else {
+          return res.json(dbVoter);
+        // }
+      })
+      .catch(err => res.status(422).json(err));
+  },
   checkRegistry: function (req, res) {
     let firstName = req.query.firstName;
     let lastName = req.query.lastName;
