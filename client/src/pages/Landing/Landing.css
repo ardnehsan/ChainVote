@@ -1,0 +1,21 @@
+.content {
+    background-color: #FF611D;
+    border-top-color: #101727;
+    border-top-width: 10px;
+    border-top-style: solid;
+
+    border-bottom-color: #101727;
+    border-bottom-width: 10px;
+    border-bottom-style: solid;
+
+    padding: 30px;
+    margin-bottom: 20px;
+
+    text-align: center;
+}
+
+.btn-secondary {
+    margin-left: 20px;
+    width: 150px;
+    height: 40px;
+}

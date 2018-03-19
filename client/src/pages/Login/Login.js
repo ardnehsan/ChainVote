@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Card, CardImg, CardTitle, CardText } from "reactstrap";
+import { Card, CardTitle, CardText } from "reactstrap";
 import LoginForm from "../../components/LoginForm";
 import Registration from "../../components/Registration";
-import styles from "./login.css";
+import "./login.css";
 import API from "../../utils/API";
 
 //imports hashing function
