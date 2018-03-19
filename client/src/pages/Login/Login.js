@@ -52,19 +52,22 @@ class Login extends Component {
   login = () => {
     //conceals the password from us
     const concealer = SHA256(this.state.password).toString();
-    console.log(concealer);
+    // console.log(concealer);
     API.login({
       email: this.state.email,
       //conceals the password from others
       password: SHA256(concealer).toString()
     })
       .then(res => {
-        // console.log(res)
+        console.log(res.data);
         if (res.data === true) {
           this.props.history.push("/landing");
           // alert("Success")
         } else {
           alert("Please register or use the correct username and password");
+          this.setState({
+            password : "",
+          });
         }
       })
       .catch(err => console.log(err));
