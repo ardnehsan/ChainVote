@@ -10,24 +10,24 @@ module.exports = {
     let qpass = req.query.password;
     // let password = makeHash(req.body.password);
 
-<<<<<<< HEAD
-=======
-    db.Voter
-      .findOne({email : email})
-      .then(dbVoter => {
-          let voter = dbVoter;
-          const vpass = SHA256(voter.password).toString();
-         
-        if (vpass === qpass) {
-          console.log('password good!')
-          return res.json(true);
-        };
-        return res.json(false);
-
-        //bdea3eb189822ec26fb752c97e3c2b50fd87326af90d8ca01c5bf67d7b8d1a67
-        })
-      .catch(err => res.status(422).json(err));
->>>>>>> 0b80add7cff91b398bf9e6b175a86194a08fbeb9
+// <<<<<<< HEAD
+// =======
+//     db.Voter
+//       .findOne({email : email})
+//       .then(dbVoter => {
+//           let voter = dbVoter;
+//           const vpass = SHA256(voter.password).toString();
+//
+//         if (vpass === qpass) {
+//           console.log('password good!')
+//           return res.json(true);
+//         };
+//         return res.json(false);
+//
+//         //bdea3eb189822ec26fb752c97e3c2b50fd87326af90d8ca01c5bf67d7b8d1a67
+//         })
+//       .catch(err => res.status(422).json(err));
+// >>>>>>> 0b80add7cff91b398bf9e6b175a86194a08fbeb9
 
     // let dbPassword = makeHash();
     // console.log(res.json(dbVoter));
@@ -38,15 +38,15 @@ module.exports = {
     // console.log("password param: " + req.query.password);
     let firstName = req.query.firstName;
     let lastName = req.query.lastName;
-   
+
     db.Voter
-      .findOne({ 
+      .findOne({
         firstName: firstName,
-        lastName : lastName 
+        lastName : lastName
       })
       .then(dbVoter => {
         console.log(dbVoter);
-        if (dbVoter === null) { 
+        if (dbVoter === null) {
           return false;
         } else {
           return res.json(dbVoter);

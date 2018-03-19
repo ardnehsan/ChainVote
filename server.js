@@ -20,10 +20,6 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 0b80add7cff91b398bf9e6b175a86194a08fbeb9
 
 // Serve up static assets
 app.use(express.static(path.join(__dirname, 'client/build/')));

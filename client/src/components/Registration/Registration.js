@@ -18,20 +18,11 @@ function WarningBanner(props) {
   if (props.warn) {
     return (
       <div className="warning" color="red">
-<<<<<<< HEAD
-        Uh oh! This password does not match! 
+        Uh oh! This password does not match!
         </div>
     );
   }
   return null;
-
-=======
-        Uh oh! This password doesn't match!
-      </div>
-    );
-  }
-  return null;
->>>>>>> 5f70e117844f552a8ccdff14fd15d96ab41077de
 }
 class Registration extends Component {
   constructor(props) {
