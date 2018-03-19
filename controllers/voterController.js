@@ -14,7 +14,7 @@ module.exports = {
          
         if (vpass === qpass) {
           // console.log('password good!')
-          return res.json(true);
+          return res.json(dbVoter);
         };
         return res.json(false);
 

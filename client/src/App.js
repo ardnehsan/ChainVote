@@ -15,8 +15,25 @@ import About from "./pages/About";
 import Four04 from "./pages/Four04";
 import styles from "./App.css"
 
+
 const App = () => {
+
+  let state = false;
+  const isLoggedIn = localStorage.getItem("UAuth");
+  const logger = JSON.parse(isLoggedIn);
+  if (logger === null) {
+    state = false;
+  } else {state = true};
+
+  console.log(logger);
+
+  const UAuthLanding = state ? (<Route exact path="/landing" component={Landing} />
+  ) : (<Route exact path="/landing" component={Login} />);
+
+  const UAuthVote = state ? (<Route exact path="/vote" component={Vote} />
+  ) : (<Route exact path="/vote" component={Login} />);
   return (
+  
     <div className="container">
       {/* REACT COMPONENT */}
       <BrowserRouter>
@@ -27,10 +44,12 @@ const App = () => {
             <Route exact path="/" component={Login} />
             <Route exact path="/login" component={Login} />
             {/* <Route exact path="/campaign" component={Campaign} /> */}
-            <Route exact path="/vote" component={Vote} />
+            {UAuthVote}
+            {/* <Route exact path="/vote" component={Vote} /> */}
             <Route exact path="/report" component={Report} />
             <Route exact path="/history" component={History} />
-            <Route exact path="/landing" component={Landing} />
+            {UAuthLanding}
+            {/* <Route exact path="/landing" component={Landing} /> */}
             <Route exact path="/about" component={About} />
             <Route component={Four04} />
           </Switch>

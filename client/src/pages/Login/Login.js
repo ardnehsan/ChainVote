@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Card, CardImg, CardTitle, CardText } from "reactstrap";
 import LoginForm from "../../components/LoginForm";
 import Registration from "../../components/Registration";
-import styles from "./login.css";
+import "./login.css";
 import API from "../../utils/API";
 
 //imports hashing function
@@ -59,15 +59,22 @@ class Login extends Component {
       password: SHA256(concealer).toString()
     })
       .then(res => {
+
         console.log(res.data);
-        if (res.data === true) {
-          this.props.history.push("/landing");
-          // alert("Success")
-        } else {
+
+        if (res.data === false) {
           alert("Please register or use the correct username and password");
           this.setState({
-            password : "",
+            password: "",
           });
+        } else {
+           const auth = {
+             email: res.data.email,
+             isLoggedIn: true
+           };
+           localStorage.setItem("UAuth", JSON.stringify(auth));
+          this.props.history.push("/landing");
+          alert("Success")
         }
       })
       .catch(err => console.log(err));
