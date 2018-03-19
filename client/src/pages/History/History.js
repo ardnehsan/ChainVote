@@ -1,7 +1,6 @@
 import React from "react";
 import "../../utils/API";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Landing from "../Landing";
+import "../Landing";
 import { Table } from 'reactstrap';
 import "./History.css";
 

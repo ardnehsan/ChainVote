@@ -1,23 +1,28 @@
 import React, { Component } from "react";
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   Button,
-  } from 'reactstrap';
+} from 'reactstrap';
 import "../../utils/API";
 import "../History";
+import "./Landing.css"
 
 class Landing extends Component {
   render() {
     return (
       <div className="container">
-        {/* REACT COMPONENT */}
-          <div>
-              {/* router links */}
-              <Link to="/Report"><Button>History</Button></Link>
-              <Link to="/vote"><Button>Vote</Button></Link>
-              <h2>ChainVote is an application that allow users to create campaigns, and vote on other campaigns.
-              ChainVote will help cut down time that it takes to count votes.</h2>
-          </div>
+
+        <div className="content">
+          <h2>ChainVote is a voting system application with Block Chain Technology at is core.</h2>
+          <h2>It allows users to vote on a campaign or create their own.</h2>
+          <h2>ChainVote is SECURE, FAST, AND ACURATE!</h2>
+        </div>
+
+
+        <div>
+          <Link to="/Report"><Button size="lg" style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>History</Button></Link>
+          <Link to="/vote"><Button size="lg" style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>Vote</Button></Link>
+        </div>
       </div>
     );
   }

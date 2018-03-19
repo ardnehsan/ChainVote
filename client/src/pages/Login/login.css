@@ -17,16 +17,16 @@
 }
 
 .title {
-    color: #101727;
+    color: #CCCFD3;
     font-size: 60px;
     font-family: 'Rajdhani', sans-serif;  
 }
 
 .subtitle {
     color: #101727;
-    font-weight: 900;
+    font-weight: bolder;
     font-size: 20px;
-    font-family: 'Julius Sans One', sans-serif;
+    font-family: 'Rajdhani', sans-serif;
 }
 .cards:visited {
     color: #FF611D;;
