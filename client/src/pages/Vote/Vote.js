@@ -6,24 +6,6 @@ import {
   NavLink
 } from 'reactstrap';
 
-  Nav,
-  Navbar,
-  NavbarBrand,
-  NavItem,
-  NavLink,
-  Card,
-  CardImg,
-  CardTitle,
-  CardText,
-  CardDeck,
-  CardSubtitle,
-  CardBody,
-  FormGroup,
-  Label,
-  Input
-} from "reactstrap";
-
-
 //ISSUES
 // STILL CANNOT CAPTURE THE VALUE INPUT MADE BY THE USER
 // NEED TO INTEGRATE THE SESSION ID
@@ -84,62 +66,12 @@ class Vote extends Component {
 render() {
   
   const voted = this.state.notVoted;
-  
-  return(
+
     
-        <div>
-      voter: this.state.voter,
-      vote: this.state.value
-    })
-      .then(res => this.getVotes())
-      .catch(err => console.log(err));
-  };
-
-  render() {
     return (
+
       <div>
-
-        <Jumbotron>
-          <h2 className="text-center">Chris' Class</h2>
-        </Jumbotron>
-        {voted ? (
-        <form className="text-center" onSubmit={this.handleFormSubmit}>
-
-        <label>
-         Pick your favorite project:    
-          <select value={this.state.value} name="vote" onChange={this.handleInputChange}>
-            <option value="Chainvote">Chain Vote</option>
-            <option value="Chores">Chores</option>
-            <option value="Eatneat">Eat Neat</option>
-            <option value="Helloworld">Hello World</option>
-          </select>
-        </label>
-        <div className="text-center">
-        <Button color="danger" size="lg" input type="submit">Submit </Button>
-        </div>
-      </form>
-        ):( <h2 className="text-center">THANK YOU FOR VOTING!</h2>)}
-        </div>
-
-
-        )
-    }
-=======
-          {/* <label>
-            Pick your favorite project:
-            <select
-              value={this.state.value}
-              name="vote"
-              onChange={this.handleInputChange}
-            >
-              <option value="Chainvote">Chain Vote</option>
-              <option value="Chores">Chores</option>
-              <option value="Eatneat">Eat Neat</option>
-              <option value="Eatneat">Hello World</option>
-              <option value="Eatneat">Snippets</option>
-              <option value="Helloworld">Vibez</option>
-            </select>
-          </label> */}
+        <h2 className="text-center">Chris' Class</h2>
           <FormGroup>
             <CardDeck>
               <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
@@ -266,7 +198,6 @@ render() {
               Submit{" "}
             </Button>
           </div>
-        </form>
       </div>
     );
 
