@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Col, Button, Form, FormGroup, Label, Input } from "reactstrap";
-import styles from "./loginForm.css";
+import "./loginForm.css";
 
 class LoginForm extends Component {
   render() {

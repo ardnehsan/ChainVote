@@ -14,7 +14,7 @@ import Report from "./pages/Report";
 import Landing from "./pages/Landing";
 import About from "./pages/About";
 import Four04 from "./pages/Four04";
-import styles from "./App.css"
+import "./App.css"
 
 const App = () => {
   return (

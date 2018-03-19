@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button, Jumbotron } from "reactstrap";
-import Header from "../../components/Header";
+import "../../components/Header";
 import API from "../../utils/API";
 import {
   // Nav,
@@ -24,8 +24,8 @@ import {
 // STILL CANNOT CAPTURE THE VALUE INPUT MADE BY THE USER
 // NEED TO INTEGRATE THE SESSION ID
 
-import { Link } from "react-router-dom";
-import styles from "./vote.css"
+// import { Link } from "react-router-dom";
+import "./vote.css"
 
 class Vote extends Component {
   constructor(props) {

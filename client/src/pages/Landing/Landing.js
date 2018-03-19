@@ -1,25 +1,10 @@
 import React, { Component } from "react";
-import { Link, Router } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import {
-  Col,
   Button,
-  Form,
-  FormGroup,
-  Jumbotron,
-  Label,
-  Input,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Nav,
-  Navbar,
-  NavbarBrand,
-  NavItem,
-  NavLink
-} from 'reactstrap';
-import API from "../../utils/API";
-import History from "../History";
+  } from 'reactstrap';
+import "../../utils/API";
+import "../History";
 
 class Landing extends Component {
   render() {
