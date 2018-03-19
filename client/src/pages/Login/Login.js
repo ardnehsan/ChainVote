@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Card, CardImg, Button, CardTitle, CardText } from "reactstrap";
+import { Card, CardImg, CardTitle, CardText } from "reactstrap";
 import LoginForm from "../../components/LoginForm";
 import Registration from "../../components/Registration";
 import styles from './login.css';
 import API from "../../utils/API";
+
 //imports hashing function
 const SHA256 = require('crypto-js/sha256');
 

@@ -3,10 +3,6 @@ import {Button,Jumbotron } from 'reactstrap';
 import Header from '../../components/Header';
 import API from "../../utils/API";
 import {
-  Nav,
-  Navbar,
-  NavbarBrand,
-  NavItem,
   NavLink
 } from 'reactstrap';
 
@@ -24,7 +20,8 @@ class Vote extends Component {
     super(props);
     this.state = {
       voter: "Nash",
-      value: "Chainvote"
+      value: "Chainvote",
+      notVoted: true
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -64,18 +61,24 @@ class Vote extends Component {
     event.preventDefault();
     API.saveBlockChain({
       voter: "Nash",
-      vote: this.state.value})
+      vote: this.state.value
+})
         .then(res => this.getVotes())
         .catch(err => console.log(err));
    };
 
 
 render() {
+  
+  const voted = this.state.notVoted;
+  
   return(
+    
         <div>
         <Jumbotron>
         <h2 className="text-center">ELECTION </h2>
         </Jumbotron>
+        {voted ? (
         <form className="text-center" onSubmit={this.handleFormSubmit}>
         <label>
          Pick your favorite project:    
@@ -90,7 +93,7 @@ render() {
         <Button color="danger" size="lg" input type="submit">Submit </Button>
         </div>
       </form>
-     
+        ):( <h2 className="text-center">THANK YOU FOR VOTING!</h2>)}
         </div>
 
 
