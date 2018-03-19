@@ -3,11 +3,11 @@ import { Button, Jumbotron } from "reactstrap";
 import Header from "../../components/Header";
 import API from "../../utils/API";
 import {
-  // Nav,
-  // Navbar,
-  // NavbarBrand,
-  // NavItem,
-  // NavLink,
+  Nav,
+  Navbar,
+  NavbarBrand,
+  NavItem,
+  NavLink,
   Card,
   CardImg,
   CardTitle,
@@ -18,7 +18,7 @@ import {
   FormGroup,
   Label,
   Input
-} from "reactstrap";
+} from 'reactstrap';
 
 //ISSUES
 // STILL CANNOT CAPTURE THE VALUE INPUT MADE BY THE USER
@@ -31,18 +31,16 @@ class Vote extends Component {
     super(props);
     this.state = {
       voter: "Nash",
-      value: "Chainvote"
+      value: "chainvote",
+      total:[],
+      notVoted: true
     };
+
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
-  state = {
-    voter: "",
-    vote: "",
-    total: []
-  };
 
   //need to name select input bar
   // add to state object
@@ -50,94 +48,71 @@ class Vote extends Component {
 
   getVotes = () => {
     API.getBlockChain()
-      .then(res =>
+      .then(res =>{
+        console.log(res.data)
         this.setState({
           total: res.data
         })
+      }
       )
       .catch(err => console.log(err));
   };
 
   handleInputChange = event => {
     this.setState({ value: event.target.value });
+    console.log(this.state.value);
   };
 
   handleFormSubmit = event => {
     alert("You chose: " + this.state.value + " as your favorite project");
-
+    console.log(this.state.total);
     event.preventDefault();
     API.saveBlockChain({
       voter: "Nash",
-      vote: this.state.value
-    })
-      .then(res => this.getVotes())
-      .catch(err => console.log(err));
-  };
+      vote: this.state.value})
+        .then(res => this.getVotes())
+        .catch(err => console.log(err));
+   };
 
-  render() {
+
+render() {
+  
+  const voted = this.state.notVoted;
+
+    
     return (
+
       <div>
-        <Jumbotron>
-          <h2 className="text-center">Chris' Class</h2>
-        </Jumbotron>
-        <form className="text-center" onSubmit={this.handleFormSubmit}>
-          {/* <label>
-            Pick your favorite project:
-            <select
-              value={this.state.value}
-              name="vote"
-              onChange={this.handleInputChange}
-            >
-              <option value="Chainvote">Chain Vote</option>
-              <option value="Chores">Chores</option>
-              <option value="Eatneat">Eat Neat</option>
-              <option value="Eatneat">Hello World</option>
-              <option value="Eatneat">Snippets</option>
-              <option value="Helloworld">Vibez</option>
-            </select>
-          </label> */}
+        <h2 className="text-center">Chris' Class</h2>
           <FormGroup>
-            <CardDeck className="TopDeck">
-              <Card
-                body
-                inverse
-                style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
-              >
+            <CardDeck>
+              <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
                 <CardImg
                   top
                   width="100%"
                   src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
                   alt="Card image cap"
                 />
-                <CardBody>
+                <CardBody className="cards">
                   <CardTitle>Chain Vote</CardTitle>
                   <CardSubtitle>Block Chain Voting System</CardSubtitle>
                   <CardText>
                     A voting application built with block chain technology at
                     it's core.
                   </CardText>
+                  <Button  value="chainvote" onClick={this.handleInputChange}>Vote</Button>
                 </CardBody>
-                <Label for="exampleEmail">Email</Label>
-                <Input
-                  type=""
-                  name="email"
-                  id="exampleEmail"
-                  placeholder="with a placeholder"
-                />
               </Card>
 
-              <Card
-                body
-                inverse
-                style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
-              >
+              <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
                 <CardImg
                   top
                   width="100%"
                   src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
                   alt="Card image cap"
                 />
-                <CardBody>
+
+                <CardBody  className="cards">
                   <CardTitle>Chores</CardTitle>
                   <CardSubtitle>
                     Need a way to track your chores? This is the application to
@@ -147,115 +122,97 @@ class Vote extends Component {
                     This card has supporting text below as a natural lead-in to
                     additional content.
                   </CardText>
-                  <Button>Button</Button>
+                  <Button value="chores" onClick={this.handleInputChange}>Vote</Button>
                 </CardBody>
               </Card>
 
-              <Card
-                body
-                inverse
-                style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
-              >
+              <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
                 <CardImg
                   top
                   width="100%"
                   src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
                   alt="Card image cap"
                 />
-                <CardBody>
+                <CardBody  className="cards">
                   <CardTitle>Eat Neat</CardTitle>
                   <CardSubtitle>
-                    Eat Neat! Eat healthy and delicious with the app that
-                    provokes taste buds.
+                    Eat Neat! Eat healthy and delicious with the app that provokes taste buds.
                   </CardSubtitle>
                   <CardText>
                     This is a wider card with supporting text below as a natural
-                    lead-in to additional content.
+                    lead-in to additional content. 
                   </CardText>
-                  <Button>Button</Button>
+                  <Button  value="eatneat" onClick={this.handleInputChange}>Vote</Button>
                 </CardBody>
               </Card>
             </CardDeck>
+            {/* ending of card */}
             {/*  ========================================================================================================== */}
             {/*  ========================================================================================================== */}
             <CardDeck className="bottomDeck">
-              <Card
-                body
-                inverse
-                style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
-              >
-                <CardImg
+            <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
+                <CardImg className="cards"
                   top
                   width="100%"
                   src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
                   alt="Card image cap"
                 />
-                <CardBody>
-                  <CardTitle>Hello World</CardTitle>
+                <CardBody  className="cards">
+                  <CardTitle value="helloworld">Hello World</CardTitle>
                   <CardSubtitle>Travel to interesting places!</CardSubtitle>
                   <CardText>
                     This is a wider card with supporting text below as a natural
                     lead-in to additional content.
                   </CardText>
-                  <Button>Button</Button>
+                  <Button value="helloworld" onClick={this.handleInputChange}>Vote</Button>
                 </CardBody>
               </Card>
 
-              <Card
-                body
-                inverse
-                style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
-              >
+              <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
                 <CardImg
                   top
                   width="100%"
                   src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
                   alt="Card image cap"
                 />
-                <CardBody>
-                  <CardTitle>Snippets</CardTitle>
+                <CardBody  className="cards">
+                  <CardTitle value="snippets">Snippets</CardTitle>
                   <CardSubtitle>Find the tutorial that you need</CardSubtitle>
                   <CardText>
                     This card has supporting text below as a natural lead-in to
                     additional content.
                   </CardText>
-                  <Button>Button</Button>
+                  <Button value="snippets" onClick={this.handleInputChange}>Vote</Button>
                 </CardBody>
               </Card>
 
-              <Card
-                body
-                inverse
-                style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
-              >
+              <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
                 <CardImg
                   top
                   width="100%"
                   src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
                   alt="Card image cap"
                 />
-                <CardBody>
-                  <CardTitle>Vibez</CardTitle>
-                  <CardSubtitle>
-                    Make friends with the same music taste
-                  </CardSubtitle>
+                <CardBody  className="cards">
+                  <CardTitle value="vibez">Vibez</CardTitle>
+                  <CardSubtitle>Make friends with the same music taste</CardSubtitle>
                   <CardText>
                     This is a wider card with supporting text below as a natural
-                    lead-in to additional content.
+                    lead-in to additional content. 
                   </CardText>
-                  <Button>Button</Button>
+                  <Button value="vibez" onClick={this.handleInputChange}>Vote</Button>
                 </CardBody>
               </Card>
             </CardDeck>
           </FormGroup>
           <div className="text-center">
-            <Button color="danger" size="lg" input type="submit">
+            <Button color="danger" size="lg" input type="submit" onClick={this.handleFormSubmit}>
               Submit{" "}
             </Button>
           </div>
-        </form>
       </div>
     );
+
   }
 }
 

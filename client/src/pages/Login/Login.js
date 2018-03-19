@@ -4,7 +4,7 @@ import LoginForm from "../../components/LoginForm";
 import Registration from "../../components/Registration";
 import styles from "./login.css";
 import API from "../../utils/API";
-import { Link, Router } from "react-router-dom";
+
 //imports hashing function
 const SHA256 = require("crypto-js/sha256");
 
