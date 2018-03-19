@@ -3,6 +3,9 @@ import { Button, Jumbotron } from "reactstrap";
 import Header from "../../components/Header";
 import API from "../../utils/API";
 import {
+  NavLink
+} from 'reactstrap';
+
   Nav,
   Navbar,
   NavbarBrand,
@@ -20,6 +23,7 @@ import {
   Input
 } from "reactstrap";
 
+
 //ISSUES
 // STILL CANNOT CAPTURE THE VALUE INPUT MADE BY THE USER
 // NEED TO INTEGRATE THE SESSION ID
@@ -29,7 +33,12 @@ import { Link } from "react-router-dom";
 class Vote extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: "Chainvote" };
+    this.state = {
+      voter: "Nash",
+      value: "Chainvote",
+      notVoted: true
+    };
+
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -64,6 +73,21 @@ class Vote extends Component {
     console.log(this.state.value);
     event.preventDefault();
     API.saveBlockChain({
+      voter: "Nash",
+      vote: this.state.value
+})
+        .then(res => this.getVotes())
+        .catch(err => console.log(err));
+   };
+
+
+render() {
+  
+  const voted = this.state.notVoted;
+  
+  return(
+    
+        <div>
       voter: this.state.voter,
       vote: this.state.value
     })
@@ -74,10 +98,33 @@ class Vote extends Component {
   render() {
     return (
       <div>
+
         <Jumbotron>
           <h2 className="text-center">Chris' Class</h2>
         </Jumbotron>
+        {voted ? (
         <form className="text-center" onSubmit={this.handleFormSubmit}>
+
+        <label>
+         Pick your favorite project:    
+          <select value={this.state.value} name="vote" onChange={this.handleInputChange}>
+            <option value="Chainvote">Chain Vote</option>
+            <option value="Chores">Chores</option>
+            <option value="Eatneat">Eat Neat</option>
+            <option value="Helloworld">Hello World</option>
+          </select>
+        </label>
+        <div className="text-center">
+        <Button color="danger" size="lg" input type="submit">Submit </Button>
+        </div>
+      </form>
+        ):( <h2 className="text-center">THANK YOU FOR VOTING!</h2>)}
+        </div>
+
+
+        )
+    }
+=======
           {/* <label>
             Pick your favorite project:
             <select
@@ -222,6 +269,7 @@ class Vote extends Component {
         </form>
       </div>
     );
+
   }
 }
 
