@@ -91,7 +91,6 @@ class Vote extends Component {
                 body
                 inverse
                 style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
-                onClick={this.select}
               >
                 <CardImg
                   top
@@ -103,11 +102,10 @@ class Vote extends Component {
                 <CardBody>
                   <CardTitle>Chain Vote</CardTitle>
                   <CardSubtitle>Block Chain Voting System</CardSubtitle>
-
-                  <Label check>
-                    <Input type="radio" name="radio2" />{' '}
-                  </Label>
                 </CardBody>
+                <Label check>
+                  <Input type="radio" name="radio2" />{' '}
+                </Label>
               </Card>
 
 
@@ -117,7 +115,6 @@ class Vote extends Component {
                 body
                 inverse
                 style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
-
               >
                 <CardImg
                   top
@@ -131,6 +128,10 @@ class Vote extends Component {
                     Need a way to track your chores? This is the application to
                     help you{" "}
                   </CardSubtitle>
+                  <CardText>
+                    This card has supporting text below as a natural lead-in to
+                    additional content.
+                  </CardText>
                   <Label check>
                     <Input type="radio" name="radio2" />{' '}
                   </Label>
@@ -157,6 +158,10 @@ class Vote extends Component {
                     Eat Neat! Eat healthy and delicious with the app that
                     provokes taste buds.
                   </CardSubtitle>
+                  <CardText>
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content.
+                  </CardText>
                   <Label check>
                     <Input type="radio" name="radio2" />{' '}
                   </Label>
@@ -180,6 +185,10 @@ class Vote extends Component {
                 <CardBody>
                   <CardTitle>Hello World</CardTitle>
                   <CardSubtitle>Travel to interesting places!</CardSubtitle>
+                  <CardText>
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content.
+                  </CardText>
                   <Label check>
                     <Input type="radio" name="radio2" />{' '}
                   </Label>
@@ -200,6 +209,10 @@ class Vote extends Component {
                 <CardBody>
                   <CardTitle>Snippets</CardTitle>
                   <CardSubtitle>Find the tutorial that you need</CardSubtitle>
+                  <CardText>
+                    This card has supporting text below as a natural lead-in to
+                    additional content.
+                  </CardText>
                   <Label check>
                     <Input type="radio" name="radio2" />{' '}
                   </Label>
@@ -222,7 +235,10 @@ class Vote extends Component {
                   <CardSubtitle>
                     Make friends with the same music taste
                   </CardSubtitle>
-
+                  <CardText>
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content.
+                  </CardText>
                   <Label check>
                     <Input type="radio" name="radio2" />{' '}
                   </Label>
