@@ -7,6 +7,8 @@
 }
 
 .logo {
-    color: red;
-    background-image: url("/LogoSingle.png");
+    background-image: url("./LogoSingle.png");
+    background-size: cover;
+    height: 60px;
+    width: 60px
 }
