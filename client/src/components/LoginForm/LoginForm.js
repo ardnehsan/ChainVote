@@ -1,68 +1,72 @@
 import React, { Component } from "react";
-import {
-  Col,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Nav,
-  Navbar,
-  NavbarBrand,
-  NavItem,
-  NavLink
-} from 'reactstrap';
-import API from "../../utils/API";
+import { Col, Button, Form, FormGroup, Label, Input } from "reactstrap";
+import styles from "./loginForm.css";
 
 class LoginForm extends Component {
   render() {
     const {
-      email, 
-      password, 
-      toggle, 
-      handleFormSubmit, 
-      handleInputChange
+      email,
+      password,
+      toggle,
+      handleFormSubmit,
+      handleInputChange,
+      showWarning
     } = this.props;
 
+    function WarningBanner() {
+      if (showWarning) {
+        return (
+          <div className="warning" color="red">
+            Uh oh! This password doesn't match!
+          </div>
+        );
+      }
+      return null;
+    }
 
     return (
-      <div className='container'>
-        <Form>
+      <div className="container">
+        <Form className="loginForm">
           <FormGroup row>
-            <Label for="email" sm={2}>Email</Label>
+            <Label for="email" sm={2}>
+              Email
+            </Label>
             <Col sm={10}>
-              <Input 
+              <Input
                 type="email"
-                name="email" 
-                id="email" 
-                placeholder="John" 
-                value={email} 
-                onChange={handleInputChange} 
+                name="email"
+                id="email"
+                placeholder="JohnSnow@example.com"
+                value={email}
+                onChange={handleInputChange}
                 required
-               />
+              />
             </Col>
           </FormGroup>
           <FormGroup row>
-            <Label for="password" sm={2}>Password</Label>
+            <Label for="password" sm={2}>
+              Password
+            </Label>
             <Col sm={10}>
-              <Input 
-                type="password" 
-                name="password" 
-                id="password" 
-                placeholder="Snow" 
-                value={password} 
-                onChange={handleInputChange} 
+              <Input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                value={password}
+                onChange={handleInputChange}
                 required
-               />
+              />
+              <WarningBanner warn={showWarning} />
             </Col>
           </FormGroup>
-      </Form>
-      <Button color="primary" onClick={handleFormSubmit}>Login</Button>{' '}
-      <Button color="secondary" onClick={toggle}>{this.props.buttonLabel}Registration</Button>
+        </Form>
+        <Button color="secondary" onClick={toggle}>
+          {this.props.buttonLabel}Registration
+        </Button>
+        <Button color="primary" onClick={handleFormSubmit}>
+          Login
+        </Button>{" "}
       </div>
     );
   }

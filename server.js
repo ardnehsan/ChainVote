@@ -1,8 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const path = require("path");
 const mongoose = require("mongoose");
 const routes = require("./routes");
-const path = require ('path');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -10,11 +10,12 @@ const PORT = process.env.PORT || 5000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// Add routes, both API and view
-app.use(routes);
 
 // Serve up static assets
 app.use(express.static(path.join(__dirname, 'client/build/')));
+
+// Add routes, both API and view
+app.use(routes);
 
 app.get('*', function (req, res) {
   const index = path.join(__dirname, 'client/build', 'index.html');

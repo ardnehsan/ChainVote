@@ -1,39 +1,43 @@
 const db = require("../models");
-
+const SHA256 = require('crypto-js/sha256');
 //Defining methods for Voter
 module.exports = {
   login: function (req, res) {
-    console.log(req.query);
-    console.log("email param: " + req.query.email);
-    console.log("password param: " + req.query.password);
-
-    let password = "";
-    let dbPassword = "";
-
-    // let password = makeHash(req.body.password);
-
+    let email = req.query.email;
+    let qpass = req.query.password;
+ 
     db.Voter
-      .find({ email: req.query.email })
-      .then(dbVoter => res.json(dbVoter))
+      .findOne({email : email})
+      .then(dbVoter => {
+          let voter = dbVoter;
+          const vpass = SHA256(voter.password).toString();
+         
+        if (vpass === qpass) {
+          // console.log('password good!')
+          return res.json(true);
+        };
+        return res.json(false);
+
+        })
       .catch(err => res.status(422).json(err));
-
-    // let dbPassword = makeHash();
-
-    if (password === dbPassword) {
-      let voter = {
-        email: req.params.email,
-        password: password
-      };
-      db.Voter
-        .find(voter)
-        .then(dbVoter => res.json(dbVoter))
-        .catch(err => res.status(422).json(err));
-    };
   },
-  findByName: function(req, res) {
+  checkRegistry: function (req, res) {
+    let firstName = req.query.firstName;
+    let lastName = req.query.lastName;
+   
     db.Voter
-      .find({ firstName: req.params.firstName, lastName: req.params.lastName })
-      .then(dbVoter => res.json(dbVoter))
+      .findOne({ 
+        firstName: firstName,
+        lastName : lastName 
+      })
+      .then(dbVoter => {
+        // console.log(dbVoter);
+        if (dbVoter === null) { 
+          return false;
+        } else {
+          return res.json(dbVoter);
+        }
+      })
       .catch(err => res.status(422).json(err));
   },
   //FOR TESTING PURPOSES; DELETE AFTER=======================================================
@@ -44,32 +48,34 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   createNew: function (req, res) {
-    console.log(req.body);
+    // console.log(req.body);
     const citizen = {
       email : req.body.email,
       password : req.body.password,
       firstName : req.body.firstName,
-      lastName : req.body.lastName,
-
+      lastName : req.body.lastName
     };
 
     db.Voter
-      .create({citizen})
+      .create(citizen)
       .then(dbVoter => res.json(dbVoter))
       .catch(err => res.status(422).json(err));
   },
   //========================================================================================
-  update: function(req, res) {
-    let password = "";
+  
+  Register: function(req, res) {
+    const vfirstName = req.body.params.firstName;
+    const vlastName = req.body.params.lastName;
+    const vemail = req.body.params.email;
+    const vpassword = req.body.params.password;
 
-    // let password = makeHash(req.body.password);
-    let voter = {
-      email: req.body.email,
-      password: password,
+    const voter = {
+      email: vemail,
+      password: vpassword,
       isRegistered: true
     };
     db.Voter
-      .findOneAndUpdate({ firstName: req.params.firstName, lastName: req.params.lastName }, voter)
+      .findOneAndUpdate({ firstName: vfirstName, lastName: vlastName }, voter)
       .then(dbVoter => res.json(dbVoter))
       .catch(err => res.status(422).json(err));
   }

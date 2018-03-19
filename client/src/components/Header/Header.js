@@ -12,7 +12,11 @@ import {
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
+<<<<<<< HEAD
 import styles from './Header.css'
+=======
+import styles from './Header.css';
+>>>>>>> e5fa8110c3ddc87750a57bc702308def03273a57
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -32,7 +36,8 @@ export default class Header extends React.Component {
     return (
       <div className='header'>
         <Navbar color="faded" light expand="md">
-          <NavbarBrand href="/" style={{color:'#CCCFD3'}} className="Logo">ChainVote</NavbarBrand>
+          <NavbarBrand href="/" style={{color:'#CCCFD3'}}>Chain Vote</NavbarBrand>
+          <img className='logo' alt='ChainVote'/>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>

@@ -1,56 +1,44 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Landing from "../Landing";
+import { Table } from 'reactstrap';
+import styles from "./History.css";
 
-class History extends Component {
-  state = {
-    articles: [],
-    q: "",
-    start_year: "",
-    end_year: "",
-    message: "Search For Articles To Begin!"
-  };
 
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
-  getArticles = () => {
-    API.getArticles({
-      q: this.state.q,
-      start_year: this.state.start_year,
-      end_year: this.state.end_year
-    })
-      .then(res =>
-        this.setState({
-          articles: res.data,
-          message: !res.data.length
-            ? "No New Articles Found, Try a Different Query"
-            : ""
-        })
-      )
-      .catch(err => console.log(err));
-  };
-
-  handleFormSubmit = event => {
-    event.preventDefault();
-    this.getArticles();
-  };
-
-  handleArticleSave = id => {
-    const article = this.state.articles.find(article => article._id === id);
-    API.saveArticle(article).then(res => this.getArticles());
-  };
-
+export default class History extends React.Component {
   render() {
     return (
-      <div>
-        <h1>History</h1>
-      </div>
+      <Table bordered>
+        <thead className="historyTable">
+          <tr>
+            <th>Ballots</th>
+            <th>Previous Block</th>
+            <th>Voter</th>
+            <th>Vote</th>
+          </tr>
+        </thead>
+        <tbody className="historyTable">
+          <tr>
+            <th scope="row">32he2e2he</th>
+            <td>0</td>
+            <td>david</td>
+            <td>nash</td>
+          </tr>
+          <tr>
+            <th scope="row">2e3b2kh2bk3e</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">23k2b32kh3b2hhk</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </Table>
     );
   }
 }
-
-export default History;
