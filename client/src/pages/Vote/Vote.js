@@ -33,7 +33,7 @@ class Vote extends Component {
       voter: "Nash",
       value: "chainvote",
       total:[],
-      notVoted: true
+      hasVoted: false
     };
 
 
@@ -41,10 +41,25 @@ class Vote extends Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
+  
 
-  //need to name select input bar
-  // add to state object
-  // give an initial value
+  componentDidMount(){
+    console.log(this.state);
+    this.getVoter();
+  }
+
+  getVoter = () =>{
+    API.getVoter()
+    .then(res=>{
+      console.log(res.data);
+    })
+  }
+
+
+  CannotVote = () =>{
+    this.state.hasVoted = true;
+    console.log(this.state);
+  }
 
   getVotes = () => {
     API.getBlockChain()
@@ -64,6 +79,7 @@ class Vote extends Component {
   };
 
   handleFormSubmit = event => {
+    this.CannotVote();
     alert("You chose: " + this.state.value + " as your favorite project");
     console.log(this.state.total);
     event.preventDefault();
@@ -72,17 +88,24 @@ class Vote extends Component {
       vote: this.state.value})
         .then(res => this.getVotes())
         .catch(err => console.log(err));
-   };
+   
+    
+      };
+
 
 
 render() {
   
-  const voted = this.state.notVoted;
+  const voted = this.state.hasVoted;
 
-    
+
+
     return (
+    
+    <div className="container">
 
-      <div>
+    {!voted ? (
+        <div>
         <h2 className="text-center">Chris' Class</h2>
           <FormGroup>
             <CardDeck>
@@ -210,9 +233,12 @@ render() {
               Submit{" "}
             </Button>
           </div>
-      </div>
-    );
 
+      </div>
+    ) : (<h2>nothing</h2>)}
+
+  </div>
+  );
   }
 }
 

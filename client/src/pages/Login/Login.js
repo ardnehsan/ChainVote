@@ -47,6 +47,7 @@ class Login extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     this.login();
+    
   };
 
   login = () => {

@@ -4,7 +4,7 @@ import {Table} from 'reactstrap';
 //previoushash
 //voter
 //vote
-const VoteTable = ({vote, id}) =>(
+const VoteTable = ({vote, hash, previoushash}) =>(
     <Table bordered>
     <thead>
       <tr>
@@ -18,8 +18,8 @@ const VoteTable = ({vote, id}) =>(
       <tr>
         <th scope="row"></th>
         <td>{vote}</td>
-        <td>{id}</td>
-        
+        <td>{hash}</td>
+        <td>{previoushash}</td>
       </tr>
      
     </tbody>

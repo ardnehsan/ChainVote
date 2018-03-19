@@ -16,6 +16,9 @@ export default {
   register: function(params) {
     return axios.put("/api/voter/register", { params: filterParams(params) });
   },
+  getVoter: function(){
+    return axios.get("api/voter");
+  },
   // Get block chain
   getBlockChain: function() {
     return axios.get("/api/blockChain");

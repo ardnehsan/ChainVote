@@ -13,7 +13,8 @@ import VoteTable from "../../components/VoteTable";
 class Report extends Component {
  
   state = {
-    votes: []
+    votes: [],
+    voter:[]
   };
 
   componentDidMount(){
@@ -24,7 +25,7 @@ class Report extends Component {
   getBlockChain = () => {
     API.getBlockChain()
     .then(res => {
-      console.log(res.data)
+     
       this.setState({
         votes: res.data
       })
@@ -53,14 +54,7 @@ render() {
   return (
       <div>
         <h2 className="text-center">Election Results</h2>
-        <Bar
-          data={data}
-          width={100}
-          height={100}
-          options={{
-            maintainAspectRatio: false
-          }}
-        />
+      
 
        <div>
         {this.state.votes.length ? (

@@ -16,6 +16,11 @@ import Four04 from "./pages/Four04";
 import styles from "./App.css"
 
 const App = () => {
+
+  this.state ={
+    email: "",
+    hasVoted: false
+  }
   return (
     <div className="container">
       {/* REACT COMPONENT */}
