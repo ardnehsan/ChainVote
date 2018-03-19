@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Card, CardImg, CardTitle, CardText } from "reactstrap";
+import { Card, CardTitle, CardText } from "reactstrap";
 import LoginForm from "../../components/LoginForm";
 import Registration from "../../components/Registration";
-import styles from "./login.css";
+import "./login.css";
 import API from "../../utils/API";
-import { Link, Router } from "react-router-dom";
+
 //imports hashing function
 const SHA256 = require("crypto-js/sha256");
 
@@ -52,19 +52,33 @@ class Login extends Component {
   login = () => {
     //conceals the password from us
     const concealer = SHA256(this.state.password).toString();
-    console.log(concealer);
+    // console.log(concealer);
     API.login({
       email: this.state.email,
       //conceals the password from others
       password: SHA256(concealer).toString()
     })
       .then(res => {
-        // console.log(res)
-        if (res.data === true) {
-          this.props.history.push("/landing");
-          // alert("Success")
-        } else {
+
+        console.log(res.data);
+
+        if (res.data === false) {
           alert("Please register or use the correct username and password");
+          this.setState({
+            password: "",
+          });
+        } else {
+           const authE = res.data.email;
+           const authL = true;
+            
+           localStorage.setItem("UAuthE", authE.toString());
+           localStorage.setItem("UAuthL", authL);
+          //  alert("Success!");
+           console.log(this.props);
+          this.props.history.push("/landing")
+
+          setTimeout(() => { window.location.reload(); }, 500);
+          
         }
       })
       .catch(err => console.log(err));
