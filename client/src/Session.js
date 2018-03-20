@@ -18,32 +18,21 @@ import Four04 from "./pages/Four04";
 import API from "./utils/API";
 import "./App.css"
 
+
 const UAuthEmail = localStorage.getItem("UAuthE");
 const UAuthLogger = JSON.parse(localStorage.getItem("UAuthL"));
-const UAuthVote = JSON.parse(localStorage.getItem("UAuthV"));
+// const UAuthVote = JSON.parse(localStorage.getItem("UAuthV"));
+
 
 const LogCheck = () => {
-    if (UAuthLogger === true) {
+    if (UAuthLogger) {
         return true;
     } else {
         return false;
     }
 };
-const LogCheck2 = () => {
-    if (UAuthVote === true) {
-        return true;
-    } else {
-        return false;
-    }
-};
-// // console.log(UAuthE);
-// console.log(UAuthEmail);
-// console.log(UAuthLogger);
-const Logger = LogCheck();
-const VoterLog = LogCheck2();
-// const Voted = VoteCheck();
 
-// console.log(Logger);
+const Logger = LogCheck();
 
 
 export default class Session extends React.Component {
@@ -51,12 +40,36 @@ export default class Session extends React.Component {
         super(props);
         this.state = {
             isLoggedIn: Logger,
-            hasVoted: VoterLog,
-            UserFName: "",
+            UPrivateKey: "",
             UserEmail: "",
+            UserFName: "",
+            UserLName: "",
+            UisRegistered: false,
+            UhasVoted: true
         };
     }
+    isPrevUser = () => {
+        if (UAuthEmail) {
+            API.getVoter({ email: UAuthEmail })
+                .then(res => {
+                    console.log(res.data);
+                    this.setState({
+                        UPrivateKey: res.data.userPrivateKey,
+                        UserEmail: res.data.email,
+                        UserFName: res.data.firstName,
+                        UserLName: res.data.lastName,
+                        UisRegistered: res.data.isRegistered,
+                        UhasVoted: res.data.hasVoted,
+                    });
+                    return res.data;
+                })
+                .catch(err => console.log(err));
 
+            // return true;
+        } else {
+            return false;
+        }
+    };
 
     VoteCheck = () => {
         API.getVoter({ email: UAuthEmail })
@@ -72,10 +85,10 @@ export default class Session extends React.Component {
     };
 
     componentDidMount() {
-        // this.VoteCheck();
+        this.isPrevUser();
         // this.state.hasVoted = VoteCheck();
-        console.log(this.state.hasVoted);
-        setTimeout(() => { console.log(this.state.hasVoted); }, 5000);
+        console.log(this.state.UhasVoted);
+        setTimeout(() => { console.log(this.state); }, 5000);
 
     };
 
@@ -97,24 +110,143 @@ export default class Session extends React.Component {
     render() {
 
         const UAuthRoot = this.state.isLoggedIn ?
-            (<Route exact path="/" component={Landing} email={this.state.email} isLoggedIn={this.state.isLoggedIn} />) :
-            (<Route exact path="/" component={Login} email={this.state.email} isLoggedIn={this.state.isLoggedIn} />);
-       
+            (<Route exact path="/"
+                render={() =>
+                    <Landing
+                        handleInputChange2={this.handleInputChange2}
+                        isLoggedIn={this.state.isLoggedIn}
+                        UserEmail={this.state.UserEmail}
+                        UserFName={this.state.UserFName}
+                        UserLName={this.state.UserLName}
+                        UisRegistered={this.state.UisRegistered}
+                        UhasVoted={this.state.UhasVoted}
+                        UPrivateKey={this.state.UPrivateKey}
+                    />}
+            />) : 
+            (<Route exact path="/"
+                render={() =>
+                    <Login
+                        handleInputChange2={this.handleInputChange2}
+                        isLoggedIn={this.state.isLoggedIn}
+                        UserEmail={this.state.UserEmail}
+                        UserFName={this.state.UserFName}
+                        UserLName={this.state.UserLName}
+                        UisRegistered={this.state.UisRegistered}
+                        UhasVoted={this.state.UhasVoted}
+                        UPrivateKey={this.state.UPrivateKey}
+                    />}
+            />);
         const UAuthLogin = this.state.isLoggedIn ?
-            (<Route exact path="/login" component={Landing} email={this.state.email} isLoggedIn={this.state.isLoggedIn} />) :
-            (<Route exact path="/login" component={Login} email={this.state.email} isLoggedIn={this.state.isLoggedIn} />);
-
+            (<Route exact path="/login"
+                render={() =>
+                    <Landing
+                        handleInputChange2={this.handleInputChange2}
+                        isLoggedIn={this.state.isLoggedIn}
+                        UserEmail={this.state.UserEmail}
+                        UserFName={this.state.UserFName}
+                        UserLName={this.state.UserLName}
+                        UisRegistered={this.state.UisRegistered}
+                        UhasVoted={this.state.UhasVoted}
+                        UPrivateKey={this.state.UPrivateKey}
+                    />}
+            />) : 
+            (<Route exact path="/login"
+                render={() =>
+                    <Login
+                        handleInputChange2={this.handleInputChange2}
+                        isLoggedIn={this.state.isLoggedIn}
+                        UserEmail={this.state.UserEmail}
+                        UserFName={this.state.UserFName}
+                        UserLName={this.state.UserLName}
+                        UisRegistered={this.state.UisRegistered}
+                        UhasVoted={this.state.UhasVoted}
+                        UPrivateKey={this.state.UPrivateKey}
+                    />}
+            />);
         const UAuthLanding = this.state.isLoggedIn ? 
-            (<Route exact path="/landing" component={Landing} email={this.state.email} isLoggedIn={this.state.isLoggedIn} />) : 
-            (<Route exact path="/landing" component={Login} email={this.state.email} isLoggedIn={this.state.isLoggedIn} />);
+            (<Route exact path="/landing"
+                render={() =>
+                    <Landing
+                        handleInputChange2={this.handleInputChange2}
+                        isLoggedIn={this.state.isLoggedIn}
+                        UserEmail={this.state.UserEmail}
+                        UserFName={this.state.UserFName}
+                        UserLName={this.state.UserLName}
+                        UisRegistered={this.state.UisRegistered}
+                        UhasVoted={this.state.UhasVoted}
+                        UPrivateKey={this.state.UPrivateKey}
+                    />}
+            />) : 
+            (<Route exact path="/landing"
+                render={() =>
+                    <Login
+                        handleInputChange2={this.handleInputChange2}
+                        isLoggedIn={this.state.isLoggedIn}
+                        UserEmail={this.state.UserEmail}
+                        UserFName={this.state.UserFName}
+                        UserLName={this.state.UserLName}
+                        UisRegistered={this.state.UisRegistered}
+                        UhasVoted={this.state.UhasVoted}
+                        UPrivateKey={this.state.UPrivateKey}
+                    />}
+            />);
 
         const UAuthVote = this.state.isLoggedIn ? 
-    (<Route exact path="/vote" render={() => <Vote handleInputChange2={this.handleInputChange2} email={this.state.email} hasVoted ={this.state.hasVoted} isLoggedIn={this.state.isLoggedIn} />} />) : 
-            (<Route exact path="/vote" component={Login} email={this.state.email} hasVoted={this.state.hasVoted} isLoggedIn={this.state.isLoggedIn} />);
+            (<Route exact path="/vote" 
+                render={() => 
+                    <Vote 
+                    handleInputChange2={this.handleInputChange2}  
+                    isLoggedIn={this.state.isLoggedIn}
+                    UserEmail={this.state.UserEmail}
+                    UserFName={this.state.UserFName}
+                    UserLName={this.state.UserLName}
+                    UisRegistered={this.state.UisRegistered}
+                    UhasVoted={this.state.UhasVoted}
+                    UPrivateKey={this.state.UPrivateKey}
+                    />}
+              />) : 
+            (<Route exact path="/vote" 
+                render={() =>
+                    <Login
+                        handleInputChange2={this.handleInputChange2}
+                        isLoggedIn={this.state.isLoggedIn}
+                        UserEmail={this.state.UserEmail}
+                        UserFName={this.state.UserFName}
+                        UserLName={this.state.UserLName}
+                        UisRegistered={this.state.UisRegistered}
+                        UhasVoted={this.state.UhasVoted}
+                        UPrivateKey={this.state.UPrivateKey}
+                    />}
+             />);
         
         const UAuthAbout = this.state.isLoggedIn ?
-            (<Route exact path="/about" component={About} email={this.state.email} isLoggedIn={this.state.isLoggedIn} />) :
-            (<Route exact path="/about" component={Login} email={this.state.email} isLoggedIn={this.state.isLoggedIn} />);
+            (<Route exact path="/about"
+                render={() =>
+                    <About
+                        handleInputChange2={this.handleInputChange2}
+                        isLoggedIn={this.state.isLoggedIn}
+                        UserEmail={this.state.UserEmail}
+                        UserFName={this.state.UserFName}
+                        UserLName={this.state.UserLName}
+                        UisRegistered={this.state.UisRegistered}
+                        UhasVoted={this.state.UhasVoted}
+                        UPrivateKey={this.state.UPrivateKey}
+                    />}
+            />) : 
+            (<Route exact path="/about"
+                render={() =>
+                    <About
+                        handleInputChange2={this.handleInputChange2}
+                        isLoggedIn={this.state.isLoggedIn}
+                        UserEmail={this.state.UserEmail}
+                        UserFName={this.state.UserFName}
+                        UserLName={this.state.UserLName}
+                        UisRegistered={this.state.UisRegistered}
+                        UhasVoted={this.state.UhasVoted}
+                        UPrivateKey={this.state.UPrivateKey}
+                    />}
+            />);
+
 
         return (
             <div className="container">

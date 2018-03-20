@@ -16,6 +16,7 @@ import "./vote.css"
 const UAuthEmail = localStorage.getItem("UAuthE");
 const UAuthLogger = JSON.parse(localStorage.getItem("UAuthL"));
 const UAuthVote = JSON.parse(localStorage.getItem("UAuthV"));
+
 const VoteCheck = () => {
   console.log(UAuthEmail);
   let hasVoted = true;
@@ -98,6 +99,8 @@ class Vote extends Component {
 
   render() {
     console.log(this.props);
+    setTimeout(() => { console.log(this.props); }, 5000);
+
     const voted = this.state.hasVoted;
 
     const VotePage = UAuthVote ?

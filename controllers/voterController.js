@@ -9,34 +9,43 @@ module.exports = {
     db.Voter
       .findOne({email : email})
       .then(dbVoter => {
-          let voter = dbVoter;
-          const vpass = SHA256(voter.password).toString();
+        if (dbVoter === null) {
+          return res.json("Unregistered");
+        }
+          const vpass = SHA256(dbVoter.password).toString();
           if (vpass === qpass) {
             // console.log('password good!')
-            return res.json(true);
+            let VoterObj = {
+              email : dbVoter.email,
+              firstName : dbVoter.firstName,
+              lastName : dbVoter.lastName,
+              hasVoted : dbVoter.hasVoted
+            };
+            return res.json(VoterObj);
           }
           else {
             return res.json(false);
           };
+  
         })
       .catch(err => res.json(false));
   },
-  checkVoter: function (req, res) {
-    // console.log(req.query);
+  getVoter: function (req, res) {
     let email = req.query.email;
-    // // let lastName = req.query.lastName;
-
     db.Voter
       .findOne({
         email: email
       })
       .then(dbVoter => {
-        console.log(dbVoter);
-        // if (dbVoter === null) {
-        //   return false;
-        // } else {
-          return res.json(dbVoter);
-        // }
+        let VoterObj = {
+          userPrivateKey: dbVoter._id,
+          email: dbVoter.email,
+          firstName: dbVoter.firstName,
+          lastName: dbVoter.lastName,
+          hasVoted: dbVoter.hasVoted,
+          isRegistered: dbVoter.isRegistered
+        }
+          return res.json(VoterObj);
       })
       .catch(err => res.status(422).json(err));
   },
