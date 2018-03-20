@@ -1,9 +1,8 @@
-import React, { Component } from "react";
-import API from "../../utils/API";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Landing from "../Landing";
+import React from "react";
+import "../../utils/API";
+import "../Landing";
 import { Table } from 'reactstrap';
-import styles from "./History.css";
+import "./History.css";
 
 
 export default class History extends React.Component {
