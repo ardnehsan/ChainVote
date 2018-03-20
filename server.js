@@ -17,10 +17,10 @@ app.use(express.static(path.join(__dirname, 'client/build/')));
 // Add routes, both API and view
 app.use(routes);
 
-app.get('*', function (req, res) {
-  const index = path.join(__dirname, 'client/build', 'index.html');
-  res.sendFile(index);
-});
+// app.get('*', function (req, res) {
+//   const index = path.join(__dirname, 'client/build', 'index.html');
+//   res.sendFile(index);
+// });
 
 
 // Set up promises with mongoose

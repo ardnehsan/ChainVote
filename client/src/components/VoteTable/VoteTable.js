@@ -1,27 +1,31 @@
 import React from "react";
-import {Table} from 'reactstrap';
+import { Table } from 'reactstrap';
+import "./Report.css";
 //hash
 //previoushash
 //voter
 //vote
-const VoteTable = ({vote, hash, previoushash}) =>(
-    <Table bordered>
-    <thead>
+const VoteTable = ({ vote, id, pH }) => (
+  <Table bordered>
+    <thead className="historyTable">
       <tr>
         <th>#</th>
         <th>Project</th>
-        <th>id</th>
-       
+        <th>Hash</th>
+        <th>Previous Hash</th>
+
+
       </tr>
     </thead>
     <tbody>
       <tr>
         <th scope="row"></th>
         <td>{vote}</td>
-        <td>{hash}</td>
-        <td>{previoushash}</td>
+        <td>{id}</td>
+        <td>{pH}</td>
+
       </tr>
-     
+
     </tbody>
   </Table>
 );
