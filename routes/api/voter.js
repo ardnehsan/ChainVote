@@ -8,7 +8,9 @@ router
 	.route("/")
 	.get(voterController.checkVoter);
 //===============================================================
-
+router
+	.route("/voters")
+	.get(voterController.findAll);
 	
 // Matches with "/api/voter/register/firstname&lastname"
 router

@@ -20,6 +20,8 @@ import "./App.css"
 
 const UAuthEmail = localStorage.getItem("UAuthE");
 const UAuthLogger = JSON.parse(localStorage.getItem("UAuthL"));
+const UAuthVote = JSON.parse(localStorage.getItem("UAuthV"));
+
 const LogCheck = () => {
     if (UAuthLogger === true) {
         return true;
@@ -27,11 +29,18 @@ const LogCheck = () => {
         return false;
     }
 };
-
+const LogCheck2 = () => {
+    if (UAuthVote === true) {
+        return true;
+    } else {
+        return false;
+    }
+};
 // // console.log(UAuthE);
 // console.log(UAuthEmail);
 // console.log(UAuthLogger);
 const Logger = LogCheck();
+const VoterLog = LogCheck2();
 // const Voted = VoteCheck();
 
 // console.log(Logger);
@@ -42,7 +51,7 @@ export default class Session extends React.Component {
         super(props);
         this.state = {
             isLoggedIn: Logger,
-            hasVoted: true,
+            hasVoted: VoterLog,
             UserFName: "",
             UserEmail: "",
         };
@@ -70,6 +79,13 @@ export default class Session extends React.Component {
 
     };
 
+    handleInputChange2 = (value) => {
+        // const { value } = event.target;
+        this.setState({
+            hasVoted: value
+        });
+    };
+
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -93,8 +109,8 @@ export default class Session extends React.Component {
             (<Route exact path="/landing" component={Login} email={this.state.email} isLoggedIn={this.state.isLoggedIn} />);
 
         const UAuthVote = this.state.isLoggedIn ? 
-            (<Route exact path="/vote" component={Vote} email={this.state.email} isLoggedIn={this.state.isLoggedIn} />) : 
-            (<Route exact path="/vote" component={Login} email={this.state.email} isLoggedIn={this.state.isLoggedIn} />);
+    (<Route exact path="/vote" render={() => <Vote handleInputChange2={this.handleInputChange2} email={this.state.email} hasVoted ={this.state.hasVoted} isLoggedIn={this.state.isLoggedIn} />} />) : 
+            (<Route exact path="/vote" component={Login} email={this.state.email} hasVoted={this.state.hasVoted} isLoggedIn={this.state.isLoggedIn} />);
         
         const UAuthAbout = this.state.isLoggedIn ?
             (<Route exact path="/about" component={About} email={this.state.email} isLoggedIn={this.state.isLoggedIn} />) :
@@ -106,7 +122,7 @@ export default class Session extends React.Component {
                 <BrowserRouter>
                     {/* COLLECTION OF ROUTES */}
                     <div>
-                        <Header />
+                        <Header isLoggedIn={this.state.isLoggedIn} />
                         <Switch>
                             {UAuthRoot}
                             {UAuthLogin}
