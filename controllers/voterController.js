@@ -14,11 +14,30 @@ module.exports = {
          
         if (vpass === qpass) {
           // console.log('password good!')
-          return res.json(true);
+          return res.json(dbVoter);
         };
         return res.json(false);
 
         })
+      .catch(err => res.status(422).json(err));
+  },
+  checkVoter: function (req, res) {
+    // console.log(req.query);
+    let email = req.query.email;
+    // // let lastName = req.query.lastName;
+
+    db.Voter
+      .findOne({
+        email: email
+      })
+      .then(dbVoter => {
+        console.log(dbVoter);
+        // if (dbVoter === null) {
+        //   return false;
+        // } else {
+          return res.json(dbVoter);
+        // }
+      })
       .catch(err => res.status(422).json(err));
   },
   checkRegistry: function (req, res) {

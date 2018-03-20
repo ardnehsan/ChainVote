@@ -6,9 +6,11 @@ const voterController = require("../../controllers/voterController");
 //MADE FOR TESTING; DELETE AFTER=================================
 router
 	.route("/")
-	.get(voterController.findAll);
+	.get(voterController.checkVoter);
 //===============================================================
-
+router
+	.route("/voters")
+	.get(voterController.findAll);
 	
 // Matches with "/api/voter/register/firstname&lastname"
 router

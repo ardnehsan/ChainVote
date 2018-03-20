@@ -1,0 +1,17 @@
+/* .text-center {
+    font-size: 50px;
+} */
+.card-img-top {
+    background-image: url('ChainVote.jpg');
+    background-size: contain;
+    background-repeat: no-repeat
+}
+
+.card-deck .card {
+    margin-bottom: 0;
+}
+
+.btn-danger{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}

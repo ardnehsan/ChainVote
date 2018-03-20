@@ -1,69 +1,63 @@
 import React, { Component } from "react";
 import { Button, Jumbotron } from "reactstrap";
-import Header from "../../components/Header";
+import "../../components/Header";
 import API from "../../utils/API";
 import {
-  Nav,
-  Navbar,
-  NavbarBrand,
-  NavItem,
-  NavLink,
   Card,
   CardImg,
   CardTitle,
-  CardText,
   CardDeck,
   CardSubtitle,
   CardBody,
   FormGroup,
-  Label,
-  Input
-} from 'reactstrap';
+} from "reactstrap";
+import "./vote.css"
 
+const UAuthEmail = localStorage.getItem("UAuthE");
+const UAuthLogger = JSON.parse(localStorage.getItem("UAuthL"));
+const VoteCheck = () => {
+  console.log(UAuthEmail);
+  let hasVoted = true;
+  API.getVoter({email: UAuthEmail})
+    .then(res => {
+      console.log(res.data.hasVoted);
+      hasVoted = res.data.hasVoted;
+    })
+    .catch(err => console.log(err));
+  
+  if (hasVoted === true) {
+    return true;
+  } else {
+    return false;
+  }
+};
+const Logger = VoteCheck();
 //ISSUES
 // STILL CANNOT CAPTURE THE VALUE INPUT MADE BY THE USER
 // NEED TO INTEGRATE THE SESSION ID
 
-import { Link } from "react-router-dom";
 
 class Vote extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      voter: "Nash",
-      value: "chainvote",
-      total:[],
-      hasVoted: false
+      voter: "",
+      value: "",
+      total: [],
+      hasVoted: Logger
     };
-
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
-  
-
-  componentDidMount(){
-    console.log(this.state);
-    this.getVoter();
-  }
-
-  getVoter = () =>{
-    API.getVoter()
-    .then(res=>{
-      console.log(res.data);
-    })
-  }
-
-
-  CannotVote = () =>{
-    this.state.hasVoted = true;
-    console.log(this.state);
-  }
+  //need to name select input bar
+  // add to state object
+  // give an initial value
 
   getVotes = () => {
     API.getBlockChain()
-      .then(res =>{
+      .then(res => {
         console.log(res.data)
         this.setState({
           total: res.data
@@ -85,31 +79,112 @@ class Vote extends Component {
     event.preventDefault();
     API.saveBlockChain({
       voter: "Nash",
-      vote: this.state.value})
-        .then(res => this.getVotes())
-        .catch(err => console.log(err));
-   
-    
-      };
+      vote: this.state.value
+    })
+      .then(res => this.getVotes())
+      .catch(err => console.log(err));
+  };
 
 
+  render() {
 
-render() {
-  
-  const voted = this.state.hasVoted;
-
-
-
-    return (
-    
-    <div className="container">
-
-    {!voted ? (
+    const voted = this.state.hasVoted;
+    const VotePage = this.props.hasVoted ?
+      (
         <div>
-        <h2 className="text-center">Chris' Class</h2>
+          <Jumbotron>
+            <h1 className="text-center">Uh oh! It looks like you've already voted!</h1>
+          </Jumbotron >
+        </div >
+      ) : (
+        <div>
+          <Jumbotron>
+            <h1 className="text-center">Projects' Election</h1>
+          </Jumbotron>
+
           <FormGroup>
             <CardDeck>
+
+              {/* FIRST CANDIDATE =======================================================*/}
+              {/* ========================================================================*/}
               <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
+                <CardImg
+                  top
+                  width="100%"
+                  height="100%"
+                  margin-left="auto"
+                  margin-right="auto"
+                />
+                <CardBody>
+                  <CardTitle>Chain Vote</CardTitle>
+                  <CardSubtitle>Block Chain Voting System</CardSubtitle>
+                  <Button value="chainvote" onClick={this.handleInputChange}>Vote</Button>
+                </CardBody>
+              </Card>
+
+
+              {/* SECOND CANDIDATE =======================================================*/}
+              {/* ========================================================================*/}
+              <Card body inverse style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}>
+                <CardImg
+                  top
+                  width="100%"
+                  src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
+                  alt="Card image cap"
+                />
+                <CardBody>
+                  <CardTitle>Chores</CardTitle>
+                  <CardSubtitle>Organize you todo list</CardSubtitle>
+                  <Button value="chores" onClick={this.handleInputChange}>Vote</Button>
+                </CardBody>
+              </Card>
+
+
+              {/* THIRD CANDIDATE =======================================================*/}
+              {/* =======================================================================*/}
+              <Card body inverse style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}>
+                <CardImg
+                  top
+                  width="100%"
+                  src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
+                  alt="Card image cap"
+                />
+                <CardBody>
+                  <CardTitle>Eat Neat</CardTitle>
+                  <CardSubtitle>Eat healthy and delicious. Eat Neat!</CardSubtitle>
+                  <Button value="eatneat" onClick={this.handleInputChange}>Vote</Button>
+                </CardBody>
+              </Card>
+            </CardDeck>
+
+            {/*  ========================================================================================================== */}
+            {/*  ========================================================================================================== */}
+
+            <CardDeck className="bottomDeck">
+              {/* FOURTH CANDIDATE =======================================================*/}
+              {/* ========================================================================*/}
+              <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
+                <CardImg className="cards"
+                  top
+                  width="100%"
+                  src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
+                  alt="Card image cap"
+                />
+                <CardBody className="cards">
+                  <CardTitle value="helloworld">Hello World</CardTitle>
+                  <CardSubtitle>Travel to interesting places!</CardSubtitle>
+                  <Button value="helloworld" onClick={this.handleInputChange}>Vote</Button>
+                </CardBody>
+              </Card>
+
+
+              {/* FIFTH CANDIDATE =======================================================*/}
+              {/* =======================================================================*/}
+              <Card
+                body
+                inverse
+                style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
+              >
                 <CardImg
                   top
                   width="100%"
@@ -117,128 +192,71 @@ render() {
                   alt="Card image cap"
                 />
                 <CardBody className="cards">
-                  <CardTitle>Chain Vote</CardTitle>
-                  <CardSubtitle>Block Chain Voting System</CardSubtitle>
-                  <CardText>
-                    A voting application built with block chain technology at
-                    it's core.
-                  </CardText>
-                  <Button  value="chainvote" onClick={this.handleInputChange}>Vote</Button>
-                </CardBody>
-              </Card>
-
-              <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
-                <CardImg
-                  top
-                  width="100%"
-                  src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
-                  alt="Card image cap"
-                />
-
-                <CardBody  className="cards">
-                  <CardTitle>Chores</CardTitle>
-                  <CardSubtitle>
-                    Need a way to track your chores? This is the application to
-                    help you{" "}
-                  </CardSubtitle>
-                  <CardText>
-                    This card has supporting text below as a natural lead-in to
-                    additional content.
-                  </CardText>
-                  <Button value="chores" onClick={this.handleInputChange}>Vote</Button>
-                </CardBody>
-              </Card>
-
-              <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
-                <CardImg
-                  top
-                  width="100%"
-                  src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
-                  alt="Card image cap"
-                />
-                <CardBody  className="cards">
-                  <CardTitle>Eat Neat</CardTitle>
-                  <CardSubtitle>
-                    Eat Neat! Eat healthy and delicious with the app that provokes taste buds.
-                  </CardSubtitle>
-                  <CardText>
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. 
-                  </CardText>
-                  <Button  value="eatneat" onClick={this.handleInputChange}>Vote</Button>
-                </CardBody>
-              </Card>
-            </CardDeck>
-            {/* ending of card */}
-            {/*  ========================================================================================================== */}
-            {/*  ========================================================================================================== */}
-            <CardDeck className="bottomDeck">
-            <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
-                <CardImg className="cards"
-                  top
-                  width="100%"
-                  src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
-                  alt="Card image cap"
-                />
-                <CardBody  className="cards">
-                  <CardTitle value="helloworld">Hello World</CardTitle>
-                  <CardSubtitle>Travel to interesting places!</CardSubtitle>
-                  <CardText>
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content.
-                  </CardText>
-                  <Button value="helloworld" onClick={this.handleInputChange}>Vote</Button>
-                </CardBody>
-              </Card>
-
-              <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
-                <CardImg
-                  top
-                  width="100%"
-                  src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
-                  alt="Card image cap"
-                />
-                <CardBody  className="cards">
                   <CardTitle value="snippets">Snippets</CardTitle>
-                  <CardSubtitle>Find the tutorial that you need</CardSubtitle>
-                  <CardText>
-                    This card has supporting text below as a natural lead-in to
-                    additional content.
-                  </CardText>
+                  <CardSubtitle>Search & Post Tutorials</CardSubtitle>
                   <Button value="snippets" onClick={this.handleInputChange}>Vote</Button>
                 </CardBody>
               </Card>
 
-              <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
+
+              {/* SIXTH CANDIDATE =======================================================*/}
+              {/* =======================================================================*/}
+              <Card
+                body
+                inverse
+                style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
+              >
                 <CardImg
                   top
                   width="100%"
                   src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
                   alt="Card image cap"
                 />
-                <CardBody  className="cards">
+                <CardBody className="cards">
                   <CardTitle value="vibez">Vibez</CardTitle>
-                  <CardSubtitle>Make friends with the same music taste</CardSubtitle>
-                  <CardText>
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. 
-                  </CardText>
+                  <CardSubtitle>Make friends with the same music taste.</CardSubtitle>
                   <Button value="vibez" onClick={this.handleInputChange}>Vote</Button>
                 </CardBody>
               </Card>
+
+             {/* SEVENTH CANDIDATE =======================================================*/}
+              {/* =======================================================================*/}
+              <Card
+                body
+                inverse
+                style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
+              >
+                <CardImg
+                  top
+                  width="100%"
+                  src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
+                  alt="Card image cap"
+                />
+                <CardBody className="cards">
+                  <CardTitle value="gamerguru">Gamer Guru</CardTitle>
+                  <CardSubtitle>Enables users to view multiple streams through a single site</CardSubtitle>
+                  <Button value="gamerguru" onClick={this.handleInputChange}>Vote</Button>
+                </CardBody>
+              </Card>
+
             </CardDeck>
           </FormGroup>
+
+
+          {/* SUBMIT YOUR VOTE BUTTON ===============================================*/}
+          {/* =======================================================================*/}
           <div className="text-center">
-            <Button color="danger" size="lg" input type="submit" onClick={this.handleFormSubmit}>
+            <Button color="danger" size="lg" block input type="submit" onClick={this.handleFormSubmit}>
               Submit{" "}
             </Button>
           </div>
+        </div>
+      );
 
-      </div>
-    ) : (<h2>nothing</h2>)}
-
-  </div>
-  );
+    return (<div>
+              {VotePage}
+            </div>
+    );
   }
 }
 

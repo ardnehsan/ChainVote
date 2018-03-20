@@ -4,12 +4,15 @@ import filterParams from "./filterParams";
 
 export default {
   login: function (params) {
-    console.log(params);
+    // console.log(params);
     return axios.get("/api/voter/login", { params: filterParams(params) });
+  },
+  getVoter: function (params) {
+    return axios.get("api/voter/", {params});
   },
   // Get voter by firstname/lastname
   checkRegistry: function (params) {
-    console.log(params);
+    // console.log(params);
     return axios.get("api/voter/register", { params: filterParams(params) });
   },
   // Save voter info
