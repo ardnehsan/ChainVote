@@ -33,7 +33,7 @@ module.exports = {
       .then(dbVoter => {
           return res.json(dbVoter);
       })
-      .catch(err => res.json(dbVoter));
+      .catch(err => res.json(null));
   },
   //FOR TESTING PURPOSES; DELETE AFTER=======================================================
   findAll: function (req, res) {
