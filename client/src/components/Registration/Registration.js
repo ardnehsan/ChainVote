@@ -81,7 +81,7 @@ class Registration extends Component {
         console.log(res.data);
         const response = res.data;
 
-        if (response === null) {
+        if (res.data === null) {
           //swap this alert for a better notification
           alert(
             "Uh oh! It looks like you're not eligible to register at this time!"
@@ -100,6 +100,8 @@ class Registration extends Component {
               password: concealer
             });
             //add a page redirect here or say success!
+            const authV = false;
+            localStorage.setItem("UAuthV", authV);
           }
         }
       })

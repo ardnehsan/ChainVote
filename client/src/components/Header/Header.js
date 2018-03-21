@@ -10,6 +10,7 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
+  Button,
   DropdownItem
 } from "reactstrap";
 import './Header.css';
@@ -23,20 +24,38 @@ export default class Header extends React.Component {
       isOpen: false
     };
   }
+  LogOut() {
+    const authL = false;
+    const authV = false;
+
+    // localStorage.setItem("UAuthE", authE.toString());
+    localStorage.setItem("UAuthL", authL);
+    // localStorage.setItem("UAuthV", authV);
+
+    // this.props.history.push("/")
+
+    setTimeout(() => { window.location.reload(); }, 500);
+
+  };
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
     });
   }
   render() {
+    const Logged = this.props.isLoggedIn ?
+      (<Button onClick={this.LogOut}>Logout</Button>) :
+      (<div></div>);
+
     return (
       <div className='header'>
         <Navbar color="faded" light expand="md">
           <img className='logo' href="/" />
-          <NavbarBrand href="/" style={{ color: '#CCCFD3' }}>Chain Vote</NavbarBrand>
+          <NavbarBrand href="/" style={{ color: '#CCCFD3' }}>VoteChain<Button>Home</Button></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
+              {Logged}
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret style={{ color: '#CCCFD3' }}>
                   Options
