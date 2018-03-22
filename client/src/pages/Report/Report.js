@@ -37,6 +37,7 @@ class Report extends Component {
   
     
 render() {
+  console.log(this.props);
   const data = {
     labels: ['Chain Vote', 'Chores', 'Eat Neat', 'Hello World', 'Snippets', 'Vibez'],
     datasets: [
@@ -55,9 +56,6 @@ render() {
   return (
       <div>
         <h2 className="text-center">Election Results</h2>
-<<<<<<< HEAD
-      
-=======
         {/* <Bar
           data={data}
           width={100}
@@ -66,7 +64,6 @@ render() {
             maintainAspectRatio: false
           }}
         /> */}
->>>>>>> dfb5a5cfbcd7104f2793d6b7a8f118372eb869dc
 
        <div>
         {this.state.votes.length ? (
@@ -74,6 +71,7 @@ render() {
           {this.state.votes.map(ballot =>{
             return (
             <VoteTable
+              key={ballot.voter}
               vote={ballot.vote}
               id={ballot.hash}
               pH={ballot.previousHash}

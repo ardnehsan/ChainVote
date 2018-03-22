@@ -85,7 +85,7 @@ class Vote extends Component {
     console.log(this.state.total);
     event.preventDefault();
     API.saveBlockChain({
-      voter: "Nash",
+      voter: "",
       vote: this.state.value
     })
       .then(res => this.getVotes())

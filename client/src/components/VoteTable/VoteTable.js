@@ -5,11 +5,12 @@ import "./Report.css";
 //previoushash
 //voter
 //vote
-const VoteTable = ({ vote, id, pH }) => (
+const VoteTable = ({key, vote, id, pH }) => (
   <Table bordered>
     <thead className="historyTable">
       <tr>
         <th>#</th>
+        <th>Key</th>
         <th>Project</th>
         <th>Hash</th>
         <th>Previous Hash</th>
@@ -20,6 +21,7 @@ const VoteTable = ({ vote, id, pH }) => (
     <tbody>
       <tr>
         <th scope="row"></th>
+        <td>{key}</td>
         <td>{vote}</td>
         <td>{id}</td>
         <td>{pH}</td>
