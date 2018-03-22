@@ -67,7 +67,7 @@ class Registration extends Component {
 
   register() {
     //======remove this toggle later so it doesn't clear state
-    this.props.toggle();
+    //this.props.toggle();
     //===================================================
     const concealer = SHA256(this.state.password).toString();
 
@@ -92,6 +92,8 @@ class Registration extends Component {
           if (response.isRegistered === true) {
             alert("Uh oh! It looks like you've already registered!");
           } else {
+            this.props.toggle();
+            alert("You have successfully registered!");
             console.log(res.data);
             API.register({
               firstName: this.state.firstName,
