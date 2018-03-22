@@ -1,3 +1,4 @@
+
 const db = require("../models");
 const SHA256 = require('crypto-js/sha256');
 
@@ -52,14 +53,19 @@ module.exports = {
   checkRegistry: function (req, res) {
     let firstName = req.query.firstName;
     let lastName = req.query.lastName;
-   
+
     db.Voter
-      .findOne({ 
+      .findOne({
         firstName: firstName,
-        lastName : lastName 
+        lastName : lastName
       })
       .then(dbVoter => {
-          return res.json(dbVoter);
+        // console.log(dbVoter);
+          if (dbVoter === null) {
+            return false;
+          } else {
+            return res.json(dbVoter);
+          }
       })
       .catch(err => res.json(null));
   },
@@ -85,7 +91,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   //========================================================================================
-  
+
   Register: function(req, res) {
     const vfirstName = req.body.params.firstName;
     const vlastName = req.body.params.lastName;
@@ -116,12 +122,3 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   }
 };
-
-//add users to Voter Table in votechain DB.
-
-// db.Voter.insert({"firstName": "Lysandnie", "lastName": "Jacques", "email": "LJacques@gmail.com", "password": "", isRegistered": "false"})
-// db.Voter.insert({"firstName": "David", "lastName": "Morales", "email": "dmorales@gmail.com", "password": "", "isRegistered": true})
-// db.Voter.insert({"firstName": "Matthew", "lastName": "Lloyd", "email": "MLloyd@gmail.com", "password": "tester", "isRegistered": true})
-// db.Voter.insert({"firstName": "Michael", "lastName": "Nguyen", "email": "MNguyen@gmail.com", "password": "", "isRegistered": true})
-// db.Voter.insert({"firstName": "Hau", "lastName": "Tran", "email": "HTran@gmail.com", "password": "", "isRegistered": true})
-// db.Voter.insert({"firstName": "Nash", "lastName": "Fowsar", "email": "NFowsar@gmail.com", "password": "", "isRegistered": true})

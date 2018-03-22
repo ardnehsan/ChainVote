@@ -18,8 +18,8 @@ function WarningBanner(props) {
   if (props.warn) {
     return (
       <div className="warning" color="red">
-        Uh oh! This password doesn't match!
-      </div>
+        Uh oh! This password does not match!
+        </div>
     );
   }
   return null;
@@ -67,7 +67,7 @@ class Registration extends Component {
 
   register() {
     //======remove this toggle later so it doesn't clear state
-    this.props.toggle();
+    //this.props.toggle();
     //===================================================
     const concealer = SHA256(this.state.password).toString();
 
@@ -87,11 +87,20 @@ class Registration extends Component {
             "Uh oh! It looks like you're not eligible to register at this time!"
           );
 
+<<<<<<< HEAD
+        //or kickback the user
+      } else {
+        if (response.isRegistered === true) {
+          alert("Uh oh! It looks like you've already registered!")
+=======
           //or kickback the user
+>>>>>>> 5f70e117844f552a8ccdff14fd15d96ab41077de
         } else {
           if (response.isRegistered === true) {
             alert("Uh oh! It looks like you've already registered!");
           } else {
+            this.props.toggle();
+            alert("You have successfully registered!");
             console.log(res.data);
             API.register({
               firstName: this.state.firstName,
@@ -186,6 +195,11 @@ class Registration extends Component {
                   Confirm Password
                 </Label>
                 <Col sm={10}>
+<<<<<<< HEAD
+                  <Input type="password" name="cpassword" id="cpassword"
+                    placeholder="" value={this.state.cpassword} onChange={this.handleInputChange}
+                  required />
+=======
                   <Input
                     type="password"
                     name="cpassword"
@@ -195,6 +209,7 @@ class Registration extends Component {
                     onChange={this.handleInputChange}
                     required
                   />
+>>>>>>> 5f70e117844f552a8ccdff14fd15d96ab41077de
                   <div>
                     <WarningBanner warn={this.state.showWarning} />
                   </div>

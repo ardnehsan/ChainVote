@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import { Button, Jumbotron } from "reactstrap";
 import "../../components/Header";
@@ -133,6 +134,7 @@ class Vote extends Component {
     // console.log(this.props);
     // setTimeout(() => { console.log(this.props); }, 5000);
 
+
     const voted = this.state.hasVoted;
 
     const VotePage = UhasVoted ?
@@ -147,6 +149,7 @@ class Vote extends Component {
           <Jumbotron>
             <h1 className="text-center">Projects' Election</h1>
           </Jumbotron>
+
 
           <FormGroup>
             <CardDeck>
@@ -282,6 +285,7 @@ class Vote extends Component {
               {VotePage}
             </div>
     );
+
   }
 }
 

@@ -13,7 +13,7 @@ import {
   Button,
   DropdownItem
 } from "reactstrap";
-import './Header.css';
+import styles from './header.css'
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -60,8 +60,7 @@ export default class Header extends React.Component {
     return (
       <div className='header'>
         <Navbar color="faded" light expand="md">
-          <img className='logo' href="/" />
-          <NavbarBrand href="/" style={{ color: '#CCCFD3' }}>VoteChain<Button>Home</Button></NavbarBrand>
+          <NavbarBrand href="/" style={{ color: '#CCCFD3' }}><Button>Home</Button></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
