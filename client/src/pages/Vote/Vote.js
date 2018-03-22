@@ -16,6 +16,8 @@ import "./vote.css"
 
 const UAuthEmail = localStorage.getItem("UAuthE");
 const UAuthLogger = JSON.parse(localStorage.getItem("UAuthL"));
+const UAuthVote = JSON.parse(localStorage.getItem("UAuthV"));
+
 const VoteCheck = () => {
   console.log(UAuthEmail);
   let hasVoted = true;
@@ -45,7 +47,7 @@ class Vote extends Component {
       voter: "",
       value: "",
       total: [],
-      hasVoted: Logger
+      hasVoted: false
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -75,6 +77,11 @@ class Vote extends Component {
 
   handleFormSubmit = event => {
     alert("You chose: " + this.state.value + " as your favorite project");
+    this.setState({ hasVoted : true })
+    this.props.handleInputChange2(true);
+    const authV = true;
+    localStorage.setItem("UAuthV", authV);
+
     console.log(this.state.total);
     event.preventDefault();
     API.saveBlockChain({
@@ -83,10 +90,16 @@ class Vote extends Component {
     })
       .then(res => this.getVotes())
       .catch(err => console.log(err));
-  };
+    // this.props.history.push("/Report")
 
+    setTimeout(() => { window.location.reload(); }, 500);
+  
+  };
+  ComponentDidMount() {
+  };  
 
   render() {
+<<<<<<< HEAD
 <<<<<<< HEAD
     return (
       <div>
@@ -138,9 +151,14 @@ class Vote extends Component {
             </select>
           </label> */}
 =======
+=======
+    console.log(this.props);
+    setTimeout(() => { console.log(this.props); }, 5000);
+>>>>>>> 93b851958a615d3eec81f9346c70a935d97cb5f9
 
     const voted = this.state.hasVoted;
-    const VotePage = this.props.hasVoted ?
+
+    const VotePage = UAuthVote ?
       (
         <div>
           <Jumbotron>
@@ -170,7 +188,7 @@ class Vote extends Component {
                 <CardBody>
                   <CardTitle>Chain Vote</CardTitle>
                   <CardSubtitle>Block Chain Voting System</CardSubtitle>
-                  <Button value="chainvote" onClick={this.handleInputChange}>Vote</Button>
+                  <Button value="votechain" onClick={this.handleInputChange}>Vote</Button>
                 </CardBody>
               </Card>
 
