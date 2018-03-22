@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import { Button, Jumbotron } from "reactstrap";
 import "../../components/Header";
@@ -98,8 +99,62 @@ class Vote extends Component {
   };  
 
   render() {
+<<<<<<< HEAD
+<<<<<<< HEAD
+    return (
+      <div>
+        <Jumbotron>
+          <h2 className="text-center">Chris' Class</h2>
+        </Jumbotron>
+        <form className="text-center" onSubmit={this.handleFormSubmit}>
+<<<<<<< HEAD
+        <label>
+<<<<<<< HEAD
+         Pick your favorite project:
+          <select value={this.state.value} onChange={this.VoteSave}>
+            <option value="Eatneat">EatNeat</option>
+            <option value="Chainvote">ChainVote</option>
+=======
+         Pick your favorite project:    
+          <select value={this.state.value} name="vote" onChange={this.handleInputChange}>
+            <option value="Chainvote">Chain Vote</option>
+            <option value="Chores">Chores</option>
+            <option value="Eatneat">Eat Neat</option>
+            <option value="Helloworld">Hello World</option>
+>>>>>>> 0b80add7cff91b398bf9e6b175a86194a08fbeb9
+          </select>
+        </label>
+        <div className="text-center">
+        <Button color="danger" size="lg" input type="submit">Submit </Button>
+        </div>
+      </form>
+     
+        </div>
+
+
+        )
+    }
+=======
+          {/* <label>
+            Pick your favorite project:
+            <select
+              value={this.state.value}
+              name="vote"
+              onChange={this.handleInputChange}
+            >
+              <option value="Chainvote">Chain Vote</option>
+              <option value="Chores">Chores</option>
+              <option value="Eatneat">Eat Neat</option>
+              <option value="Eatneat">Hello World</option>
+              <option value="Eatneat">Snippets</option>
+              <option value="Helloworld">Vibez</option>
+            </select>
+          </label> */}
+=======
+=======
     console.log(this.props);
     setTimeout(() => { console.log(this.props); }, 5000);
+>>>>>>> 93b851958a615d3eec81f9346c70a935d97cb5f9
 
     const voted = this.state.hasVoted;
 
@@ -116,6 +171,7 @@ class Vote extends Component {
             <h1 className="text-center">Projects' Election</h1>
           </Jumbotron>
 
+>>>>>>> b6ec159de3a3cc6ae235dabbaa7e36e5e1cc6b93
           <FormGroup>
             <CardDeck>
 
@@ -250,6 +306,7 @@ class Vote extends Component {
               {VotePage}
             </div>
     );
+>>>>>>> 5f70e117844f552a8ccdff14fd15d96ab41077de
   }
 }
 
