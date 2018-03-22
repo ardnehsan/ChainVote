@@ -52,7 +52,7 @@ export default class Session extends React.Component {
         if (UAuthEmail) {
             API.getVoter({ email: UAuthEmail })
                 .then(res => {
-                    console.log(res.data);
+                    // console.log(res.data);
                     this.setState({
                         UPrivateKey: res.data.userPrivateKey,
                         UserEmail: res.data.email,
@@ -71,23 +71,8 @@ export default class Session extends React.Component {
         }
     };
 
-    VoteCheck = () => {
-        API.getVoter({ email: UAuthEmail })
-            .then(res => {
-                // console.log(res.data);
-                this.setState({
-                    hasVoted: res.data.hasVoted
-                });
-            })
-            .catch(err => console.log(err));
-        // setTimeout(() => { console.log(hasVoted); }, 1000);
-
-    };
-
     componentDidMount() {
         this.isPrevUser();
-        // this.state.hasVoted = VoteCheck();
-        console.log(this.state.UhasVoted);
         setTimeout(() => { console.log(this.state); }, 5000);
 
     };
@@ -114,13 +99,6 @@ export default class Session extends React.Component {
                 render={() =>
                     <Landing
                         handleInputChange2={this.handleInputChange2}
-                        isLoggedIn={this.state.isLoggedIn}
-                        UserEmail={this.state.UserEmail}
-                        UserFName={this.state.UserFName}
-                        UserLName={this.state.UserLName}
-                        UisRegistered={this.state.UisRegistered}
-                        UhasVoted={this.state.UhasVoted}
-                        UPrivateKey={this.state.UPrivateKey}
                     />}
             />) : 
             (<Route exact path="/"
@@ -129,11 +107,8 @@ export default class Session extends React.Component {
                         handleInputChange2={this.handleInputChange2}
                         isLoggedIn={this.state.isLoggedIn}
                         UserEmail={this.state.UserEmail}
-                        UserFName={this.state.UserFName}
-                        UserLName={this.state.UserLName}
                         UisRegistered={this.state.UisRegistered}
                         UhasVoted={this.state.UhasVoted}
-                        UPrivateKey={this.state.UPrivateKey}
                     />}
             />);
         const UAuthLogin = this.state.isLoggedIn ?
@@ -142,25 +117,16 @@ export default class Session extends React.Component {
                     <Landing
                         handleInputChange2={this.handleInputChange2}
                         isLoggedIn={this.state.isLoggedIn}
-                        UserEmail={this.state.UserEmail}
-                        UserFName={this.state.UserFName}
-                        UserLName={this.state.UserLName}
-                        UisRegistered={this.state.UisRegistered}
-                        UhasVoted={this.state.UhasVoted}
-                        UPrivateKey={this.state.UPrivateKey}
                     />}
             />) : 
-            (<Route exact path="/login"
+            (<Route exact path="/login" 
                 render={() =>
                     <Login
                         handleInputChange2={this.handleInputChange2}
                         isLoggedIn={this.state.isLoggedIn}
                         UserEmail={this.state.UserEmail}
-                        UserFName={this.state.UserFName}
-                        UserLName={this.state.UserLName}
                         UisRegistered={this.state.UisRegistered}
                         UhasVoted={this.state.UhasVoted}
-                        UPrivateKey={this.state.UPrivateKey}
                     />}
             />);
         const UAuthLanding = this.state.isLoggedIn ? 
@@ -169,12 +135,6 @@ export default class Session extends React.Component {
                     <Landing
                         handleInputChange2={this.handleInputChange2}
                         isLoggedIn={this.state.isLoggedIn}
-                        UserEmail={this.state.UserEmail}
-                        UserFName={this.state.UserFName}
-                        UserLName={this.state.UserLName}
-                        UisRegistered={this.state.UisRegistered}
-                        UhasVoted={this.state.UhasVoted}
-                        UPrivateKey={this.state.UPrivateKey}
                     />}
             />) : 
             (<Route exact path="/landing"
@@ -183,11 +143,8 @@ export default class Session extends React.Component {
                         handleInputChange2={this.handleInputChange2}
                         isLoggedIn={this.state.isLoggedIn}
                         UserEmail={this.state.UserEmail}
-                        UserFName={this.state.UserFName}
-                        UserLName={this.state.UserLName}
                         UisRegistered={this.state.UisRegistered}
                         UhasVoted={this.state.UhasVoted}
-                        UPrivateKey={this.state.UPrivateKey}
                     />}
             />);
 
@@ -198,9 +155,6 @@ export default class Session extends React.Component {
                     handleInputChange2={this.handleInputChange2}  
                     isLoggedIn={this.state.isLoggedIn}
                     UserEmail={this.state.UserEmail}
-                    UserFName={this.state.UserFName}
-                    UserLName={this.state.UserLName}
-                    UisRegistered={this.state.UisRegistered}
                     UhasVoted={this.state.UhasVoted}
                     UPrivateKey={this.state.UPrivateKey}
                     />}
@@ -212,11 +166,8 @@ export default class Session extends React.Component {
                         handleInputChange2={this.handleInputChange2}
                         isLoggedIn={this.state.isLoggedIn}
                         UserEmail={this.state.UserEmail}
-                        UserFName={this.state.UserFName}
-                        UserLName={this.state.UserLName}
                         UisRegistered={this.state.UisRegistered}
                         UhasVoted={this.state.UhasVoted}
-                        UPrivateKey={this.state.UPrivateKey}
                     />}
              />);
         
@@ -255,7 +206,12 @@ export default class Session extends React.Component {
                 <BrowserRouter>
                     {/* COLLECTION OF ROUTES */}
                     <div>
-                        <Header isLoggedIn={this.state.isLoggedIn} />
+                        <Header history={this.history}
+                            handleInputChange2={this.handleInputChange2}
+                            UserFName={this.state.UserFName}
+                            UPrivateKey={this.state.UPrivateKey}
+                            isLoggedIn={this.state.isLoggedIn}
+                             />
                         <Switch>
                             {UAuthRoot}
                             {UAuthLogin}

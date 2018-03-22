@@ -44,11 +44,19 @@ export default class Header extends React.Component {
     });
   }
   render() {
-    const Logged = this.props.isLoggedIn ? (
-      <Button onClick={this.LogOut}>Logout</Button>
-    ) : (
-      <div />
-    );
+    const {
+      // isLoggedIn,
+      UPrivateKey,
+      // UserEmail,
+      UserFName,
+      // UserLName,
+      // UisRegistered,
+      // UhasVoted
+    } = this.props;
+    // console.log(this.props);
+    const Logged = this.props.isLoggedIn ?
+      (<Button onClick={this.LogOut}>Logout</Button>) :
+      (<div></div>);
 
     return (
       <div className="header">
