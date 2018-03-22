@@ -49,9 +49,11 @@ const Logger = VoteCheck();
 
 class Vote extends Component {
   constructor(props) {
-    super(props);
+    super(props)
+    this.handleKeyDown = this.handleKeyDown.bind(this);
     this.state = {
       voter: "",
+      cursor: 0,
       value: "",
       vote: "",
       total: [],
@@ -60,8 +62,22 @@ class Vote extends Component {
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    // this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
+  handleKeyDown(e) {
+    const { cursor, total } = this.state
+    // arrow up/down button should select next/previous list element
+    if (e.key === 38 && cursor > 0) {
+      this.setState( prevState => ({
+        cursor: prevState.cursor - 1
+      }))
+    } else if (e.key === 40 && cursor < total.length - 1) {
+      this.setState( prevState => ({
+        cursor: prevState.cursor + 1
+      }))
+    }
+  }
   //need to name select input bar
   // add to state object
   // give an initial value
@@ -136,14 +152,23 @@ class Vote extends Component {
   ComponentDidMount() {}
 
   render() {
-    console.log(this.props);
-    setTimeout(() => {
-      console.log(this.props);
-    }, 5000);
+    setTimeout(() => { console.log(this.props); }, 5000);
+    const { cursor } = this.state;
+    const {
+      isLoggedIn,
+      UPrivateKey,
+      UserEmail,
+      UserFName,
+      UserLName,
+      UisRegistered,
+      UhasVoted
+    } = this.props;
+    // console.log(this.props);
+    // setTimeout(() => { console.log(this.props); }, 5000);
 
     const voted = this.state.hasVoted;
 
-    const VotePage = UAuthVote ? (
+    const VotePage = UhasVoted ?
       <div>
         <Jumbotron>
           <h1 className="text-center">

@@ -11,10 +11,7 @@ const VoteTable = ({ vote, id, pH }) => (
       <tr>
         <th>#</th>
         <th>Project</th>
-        <th>Hash</th>
-        <th>Previous Hash</th>
-
-
+        <th>id</th>
       </tr>
     </thead>
     <tbody>
