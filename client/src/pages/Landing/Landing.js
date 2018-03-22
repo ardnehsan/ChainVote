@@ -8,8 +8,15 @@ import "../History";
 import "./Landing.css"
 
 class Landing extends Component {
+
   render() {
-    return (
+    const {
+      email,
+      isLoggedIn
+    } = this.props;
+    console.log(this.props.email);
+    console.log(this.props.isLoggedIn);
+  return (
       <div className="container">
 
         <div className="content">
@@ -20,7 +27,7 @@ class Landing extends Component {
 
 
         <div>
-          <Link to="/Report"><Button size="lg" style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>History</Button></Link>
+          <Link to="/Report"><Button size="lg" style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>Report</Button></Link>
           <Link to="/vote"><Button size="lg" style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>Vote</Button></Link>
         </div>
       </div>

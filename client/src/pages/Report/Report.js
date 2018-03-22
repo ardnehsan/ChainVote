@@ -3,6 +3,7 @@ import API from "../../utils/API";
 
 import {Bar} from 'react-chartjs-2';
 import VoteTable from "../../components/VoteTable";
+import "./Report.css";
 
 
 //ISSUES
@@ -53,14 +54,14 @@ render() {
   return (
       <div>
         <h2 className="text-center">Election Results</h2>
-        <Bar
+        {/* <Bar
           data={data}
           width={100}
           height={100}
           options={{
             maintainAspectRatio: false
           }}
-        />
+        /> */}
 
        <div>
         {this.state.votes.length ? (
@@ -69,7 +70,8 @@ render() {
             return (
             <VoteTable
               vote={ballot.vote}
-              id={ballot._id}
+              id={ballot.hash}
+              pH={ballot.previousHash}
             />
             );
           })}
