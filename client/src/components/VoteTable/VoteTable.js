@@ -11,7 +11,6 @@ const VoteTable = ({vote, id}) =>(
         <th>#</th>
         <th>Project</th>
         <th>id</th>
-       
       </tr>
     </thead>
     <tbody>
