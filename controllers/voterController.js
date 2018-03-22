@@ -1,42 +1,51 @@
 const db = require("../models");
 const SHA256 = require('crypto-js/sha256');
+
 //Defining methods for Voter
 module.exports = {
   login: function (req, res) {
     let email = req.query.email;
     let qpass = req.query.password;
- 
     db.Voter
       .findOne({email : email})
       .then(dbVoter => {
-          let voter = dbVoter;
-          const vpass = SHA256(voter.password).toString();
-         
-        if (vpass === qpass) {
-          // console.log('password good!')
-          return res.json(dbVoter);
-        };
-        return res.json(false);
-
+        if (dbVoter === null) {
+          return res.json("Unregistered");
+        }
+          const vpass = SHA256(dbVoter.password).toString();
+          if (vpass === qpass) {
+            // console.log('password good!')
+            let VoterObj = {
+              email : dbVoter.email,
+              firstName : dbVoter.firstName,
+              lastName : dbVoter.lastName,
+              hasVoted : dbVoter.hasVoted
+            };
+            return res.json(VoterObj);
+          }
+          else {
+            return res.json(false);
+          };
+  
         })
-      .catch(err => res.status(422).json(err));
+      .catch(err => res.json(false));
   },
-  checkVoter: function (req, res) {
-    // console.log(req.query);
+  getVoter: function (req, res) {
     let email = req.query.email;
-    // // let lastName = req.query.lastName;
-
     db.Voter
       .findOne({
         email: email
       })
       .then(dbVoter => {
-        console.log(dbVoter);
-        // if (dbVoter === null) {
-        //   return false;
-        // } else {
-          return res.json(dbVoter);
-        // }
+        let VoterObj = {
+          userPrivateKey: dbVoter._id,
+          email: dbVoter.email,
+          firstName: dbVoter.firstName,
+          lastName: dbVoter.lastName,
+          hasVoted: dbVoter.hasVoted,
+          isRegistered: dbVoter.isRegistered
+        }
+          return res.json(VoterObj);
       })
       .catch(err => res.status(422).json(err));
   },
@@ -50,14 +59,9 @@ module.exports = {
         lastName : lastName 
       })
       .then(dbVoter => {
-        // console.log(dbVoter);
-        if (dbVoter === null) { 
-          return false;
-        } else {
           return res.json(dbVoter);
-        }
       })
-      .catch(err => res.status(422).json(err));
+      .catch(err => res.json(null));
   },
   //FOR TESTING PURPOSES; DELETE AFTER=======================================================
   findAll: function (req, res) {

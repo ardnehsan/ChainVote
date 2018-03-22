@@ -67,7 +67,7 @@ class Registration extends Component {
 
   register() {
     //======remove this toggle later so it doesn't clear state
-    this.props.toggle();
+    //this.props.toggle();
     //===================================================
     const concealer = SHA256(this.state.password).toString();
 
@@ -81,7 +81,7 @@ class Registration extends Component {
         console.log(res.data);
         const response = res.data;
 
-        if (response === null) {
+        if (res.data === null) {
           //swap this alert for a better notification
           alert(
             "Uh oh! It looks like you're not eligible to register at this time!"
@@ -92,6 +92,8 @@ class Registration extends Component {
           if (response.isRegistered === true) {
             alert("Uh oh! It looks like you've already registered!");
           } else {
+            this.props.toggle();
+            alert("You have successfully registered!");
             console.log(res.data);
             API.register({
               firstName: this.state.firstName,
@@ -100,6 +102,8 @@ class Registration extends Component {
               password: concealer
             });
             //add a page redirect here or say success!
+            const authV = false;
+            localStorage.setItem("UAuthV", authV);
           }
         }
       })

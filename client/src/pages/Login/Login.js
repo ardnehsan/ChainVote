@@ -4,6 +4,7 @@ import LoginForm from "../../components/LoginForm";
 import Registration from "../../components/Registration";
 import "./login.css";
 import API from "../../utils/API";
+import { Route, Redirect } from 'react-router'
 
 //imports hashing function
 const SHA256 = require("crypto-js/sha256");
@@ -18,7 +19,10 @@ class Login extends Component {
       email: "",
       password: "",
       cpassword: "",
-      showWarning: false
+      showWarning: false,
+      isRegistered: true,
+      passwordMatch: true,
+      emptyField: true
     };
 
     this.toggle = this.toggle.bind(this);
@@ -46,42 +50,64 @@ class Login extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    this.login();
+
+    this.setState({
+      isRegistered: true,
+      passwordMatch: true,
+      emptyField: true
+    });
+
+    if(this.state.email === "" || this.state.password === "") {
+      this.setState({
+        emptyField: false
+      });
+    }
+    else {
+      this.login();
+    };
   };
 
   login = () => {
     //conceals the password from us
     const concealer = SHA256(this.state.password).toString();
-    // console.log(concealer);
     API.login({
       email: this.state.email,
       //conceals the password from others
       password: SHA256(concealer).toString()
     })
-      .then(res => {
-
-        console.log(res.data);
-
+    .then(res => {
+      console.log(res.data);
+      //Unregistered notification
+      if (res.data === "Unregistered") {
+        this.setState({
+          isRegistered: false
+        });
+      //==========================  
+      } else {
+      //Incorrect Password notification  
         if (res.data === false) {
-          alert("Please register or use the correct username and password");
           this.setState({
             password: "",
+            passwordMatch : false
           });
+      //============================    
         } else {
-           const authE = res.data.email;
-           const authL = true;
-            
-           localStorage.setItem("UAuthE", authE.toString());
-           localStorage.setItem("UAuthL", authL);
-          //  alert("Success!");
-           console.log(this.props);
-          this.props.history.push("/landing")
-
-          setTimeout(() => { window.location.reload(); }, 500);
-          
+          this.setState({
+            isRegistered: true,
+            passwordMatch: true
+          });
+          const authE = res.data.email;
+          const authL = true;
+          this.setState({
+            hasVoted: res.data.hasVoted,
+          });
+          localStorage.setItem("UAuthE", authE.toString());
+          localStorage.setItem("UAuthL", authL);
+          window.location.reload();
         }
-      })
-      .catch(err => console.log(err));
+      }
+    })
+    .catch(err => console.log(err));
   };
 
   //modal logic to pop up and dismiss
@@ -92,11 +118,28 @@ class Login extends Component {
       lastName: "",
       email: "",
       password: "",
-      cpassword: ""
+      cpassword: "",
+      isRegistered: true
     });
   }
 
   render() {
+    const isRegistered = this.state.isRegistered ?
+      (<div></div>) :
+      (<div><CardText className="text-center subtitle">
+        Uh Oh! It Looks Like You're Not Registered!</CardText></div>);
+
+    const passwordMatch = this.state.passwordMatch ?
+      (<div></div>) :
+      (<div><CardText className="text-center subtitle">
+        Incorrect Email or Password!</CardText></div>);
+
+    const emptyField = this.state.emptyField ?
+      (<div></div>) :
+      (<div><CardText className="text-center subtitle">
+        Please fill out all fields!</CardText></div>);
+    
+
     return (
       <div className="loginBox">
         <Card body outline color="#101727">
@@ -104,12 +147,16 @@ class Login extends Component {
           <CardText className="text-center subtitle">
             Let your voice be heard!
           </CardText>
+          {emptyField}
+          {isRegistered}
+          {passwordMatch}
           <LoginForm
             toggle={this.toggle}
             handleInputChange={this.handleInputChange}
             handleFormSubmit={this.handleFormSubmit}
             email={this.state.email}
             password={this.state.password}
+            isRegistered={this.state.isRegistered}
           />
           <Registration
             modal={this.state.modal}
