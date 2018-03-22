@@ -4,6 +4,7 @@ import LoginForm from "../../components/LoginForm";
 import Registration from "../../components/Registration";
 import "./login.css";
 import API from "../../utils/API";
+import { Route, Redirect } from 'react-router'
 
 //imports hashing function
 const SHA256 = require("crypto-js/sha256");
@@ -20,7 +21,8 @@ class Login extends Component {
       cpassword: "",
       showWarning: false,
       isRegistered: true,
-      passwordMatch: true
+      passwordMatch: true,
+      emptyField: true
     };
 
     this.toggle = this.toggle.bind(this);
@@ -48,15 +50,24 @@ class Login extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    this.login();
-    console.log(this.login());
+
+    this.setState({
+      isRegistered: true,
+      passwordMatch: true,
+      emptyField: true
+    });
+
+    if(this.state.email === "" || this.state.password === "") {
+      this.setState({
+        emptyField: false
+      });
+    }
+    else {
+      this.login();
+    };
   };
 
   login = () => {
-    this.setState({
-      isRegistered: true,
-      passwordMatch: true
-    });
     //conceals the password from us
     const concealer = SHA256(this.state.password).toString();
     API.login({
@@ -69,7 +80,7 @@ class Login extends Component {
       //Unregistered notification
       if (res.data === "Unregistered") {
         this.setState({
-          isRegistered: false,
+          isRegistered: false
         });
       //==========================  
       } else {
@@ -92,9 +103,7 @@ class Login extends Component {
           });
           localStorage.setItem("UAuthE", authE.toString());
           localStorage.setItem("UAuthL", authL);
-          console.log(this.props);
-          this.props.history.push("/landing")
-          setTimeout(() => { window.location.reload(); }, 500);
+          window.location.reload();
         }
       }
     })
@@ -119,10 +128,16 @@ class Login extends Component {
       (<div></div>) :
       (<div><CardText className="text-center subtitle">
         Uh Oh! It Looks Like You're Not Registered!</CardText></div>);
+
     const passwordMatch = this.state.passwordMatch ?
       (<div></div>) :
       (<div><CardText className="text-center subtitle">
         Incorrect Email or Password!</CardText></div>);
+
+    const emptyField = this.state.emptyField ?
+      (<div></div>) :
+      (<div><CardText className="text-center subtitle">
+        Please fill out all fields!</CardText></div>);
     
 
     return (
@@ -132,6 +147,7 @@ class Login extends Component {
           <CardText className="text-center subtitle">
             Let your voice be heard!
           </CardText>
+          {emptyField}
           {isRegistered}
           {passwordMatch}
           <LoginForm

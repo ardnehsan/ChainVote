@@ -132,7 +132,7 @@ class Vote extends Component {
                 <CardBody>
                   <CardTitle>Chain Vote</CardTitle>
                   <CardSubtitle>Block Chain Voting System</CardSubtitle>
-                  <Button value="chainvote" onClick={this.handleInputChange}>Vote</Button>
+                  <Button value="votechain" onClick={this.handleInputChange}>Vote</Button>
                 </CardBody>
               </Card>
 
