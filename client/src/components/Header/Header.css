@@ -12,3 +12,11 @@
     height: 60px;
     width: 60px
 }
+
+.logOut {
+    background-color: #FF611D;
+} 
+
+.btn:not(:disabled):not(.disabled){
+    background-color: #FF611D;
+}

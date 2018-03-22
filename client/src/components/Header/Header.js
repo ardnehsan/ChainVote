@@ -44,7 +44,7 @@ export default class Header extends React.Component {
   }
   render() {
     const Logged = this.props.isLoggedIn ?
-      (<Button onClick={this.LogOut}>Logout</Button>) :
+      (<Button className="logOut" onClick={this.LogOut}>Logout</Button>) :
       (<div></div>);
 
     return (

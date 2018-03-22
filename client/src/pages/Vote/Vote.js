@@ -223,7 +223,8 @@ class Vote extends Component {
                 <CardBody className="cards">
                   <CardTitle value="snippets">Snippets</CardTitle>
                   <CardSubtitle>Search & Post Tutorials</CardSubtitle>
-                  <Button value="snippets" onClick={this.handleInputChange}>Vote</Button>
+                  <Button value="snippets" onClick
+               onKeyDown={this.handleInputChange}>Vote</Button>
                 </CardBody>
               </Card>
 
