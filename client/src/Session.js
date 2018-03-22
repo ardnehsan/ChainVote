@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 // IMPORT GLOBAL COMPONENTS ========================
 import Header from "./components/Header";
-// import Footer from "./components/Footer";
+import Footer from "./components/Footer";
 
 // IMPORT PAGES ====================================
 import Login from "./pages/Login";
@@ -161,7 +161,8 @@ export default class Session extends React.Component {
               />) : 
             (<Route exact path="/vote" 
                 render={() =>
-                    <Login
+                    // Change to Login
+                    <Vote
                         handleInputChange2={this.handleInputChange2}
                         isLoggedIn={this.state.isLoggedIn}
                         UserEmail={this.state.UserEmail}
@@ -225,7 +226,7 @@ export default class Session extends React.Component {
                             <Route exact path="/about" component={About} />
                             <Route component={Four04} />
                         </Switch>
-                        {/* <Footer /> */}
+                        <Footer />
                     </div>
                 </BrowserRouter>
             </div>
