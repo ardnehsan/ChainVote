@@ -76,7 +76,7 @@ render() {
             );
           })}
           </p>
-        ): (<h1>Nothing</h1>)}
+        ): (<h1>You currently do not have any votes stored.</h1>)}
         </div>
         </div>
         );
