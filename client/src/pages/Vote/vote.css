@@ -1,17 +1,48 @@
 /* .text-center {
     font-size: 50px;
 } */
-.card-img-top {
-    background-image: url('ChainVote.jpg');
-    background-size: contain;
-    background-repeat: no-repeat
+
+.jumbotron{
+    border-style: solid;
+    border-width: 20px;
+    border-color: #FF611D;
+    font-size: 30px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: bolder;
+    letter-spacing: 12px;
 }
 
-.card-deck .card {
-    margin-bottom: 0;
+.bottomDeck{
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .btn-danger{
     margin-top: 40px;
     margin-bottom: 40px;
+    height: 60px;
+    border-radius: 100px;
+}
+
+.btn.btn-lg{
+    border-radius: 30px;
+    font-size: 30px;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 4px;
+}
+
+.btn.btn-secondary {
+    width: 100%;
+    margin-top: 20px;
+    font-size: 20px;
+    transition-duration: 0.3s;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: bold;
+    opacity: .6;
+    border-radius: 30px;    
+}
+
+.btn.btn-secondary:hover {
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 5px 20px 0 rgba(0,0,0,0.10);
+    opacity: 2;
 }

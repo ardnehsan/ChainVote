@@ -4,6 +4,7 @@
     border-bottom: #FF611D;
     border-bottom-style: solid;
     border-bottom-width: 8px;
+
 }
 
 .logo {
@@ -11,4 +12,12 @@
     background-size: cover;
     height: 60px;
     width: 60px
+}
+
+.logOut {
+    background-color: #FF611D;
+} 
+
+.btn:not(:disabled):not(.disabled){
+    background-color: #FF611D;
 }

@@ -19,8 +19,14 @@ export default {
   register: function(params) {
     return axios.put("/api/voter/register", { params: filterParams(params) });
   },
+<<<<<<< HEAD
   getVoter: function(){
     return axios.get("api/voter");
+=======
+
+  hasVoted: function (params) {
+    return axios.put("/api/voter/", {params});
+>>>>>>> 69ca63960ae805e3cbdfc22ba15d953301eee1b6
   },
   // Get block chain
   getBlockChain: function() {
@@ -28,7 +34,6 @@ export default {
   },
   // Save voter
   saveBlockChain: function(vote) {
-    console.log(vote);
     return axios.post("/api/blockChain", vote);
   }
 };

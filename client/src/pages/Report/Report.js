@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-
+import { Button, Jumbotron } from "reactstrap";
 import {Bar} from 'react-chartjs-2';
 import VoteTable from "../../components/VoteTable";
 import "./Report.css";
+const SHA256 = require("crypto-js/sha256");
 
 
 //ISSUES
@@ -70,17 +71,34 @@ render() {
     ]
   };
 
+  const Keys = this.props.isLoggedIn ?
+    (<div className="Reporter">
+      <p>Hello {this.props.UserFName}! 
+      Your Voter public key is: <strong>{SHA256(this.props.UPrivateKey).toString()}</strong></p>
+      {/* <h3>Your private key is {this.props.UPrivateKey}</h3> */}
+    </div>
+    ) : (
+      <div>
+      </div>);
+
   return (
       <div>
-        <h2 className="text-center">Election Results</h2>
-        { <Bar
+        <Jumbotron className="text-center">
+          <h1>
+            Election Results
+          </h1>
+        </Jumbotron>
+      <h2>
+        {Keys}
+      </h2>
+        {/* <Bar
           data={data}
           width={100}
           height={100}
           options={{
             maintainAspectRatio: false
           }}
-        /> }
+        />*/ }
 
        <div>
         {this.state.votes.length ? (
@@ -90,13 +108,14 @@ render() {
             <VoteTable
               key={ballot.voter}
               vote={ballot.vote}
+              voter={ballot.voter}
               id={ballot.hash}
               pH={ballot.previousHash}
             />
             );
           })}
           </p>
-        ): (<h1>Nothing</h1>)}
+        ): (<h1>You currently do not have any votes stored.</h1>)}
         </div>
         </div>
         );

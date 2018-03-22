@@ -1,0 +1,14 @@
+
+.footer {
+    display: table-row;
+    margin-top: 5%;
+    background-color: #171f32;
+    border-top: 500px;    
+    border-bottom: #FF611D;
+    border-bottom-style: solid;
+    border-bottom-width: 8px;
+    position: absolute;
+    left: 0;
+    bottom: -10;
+    width: 100%;
+}

@@ -10,24 +10,30 @@ import {
   CardBody
 } from "reactstrap";
 
+import Lysnandie from "../../img/Lysnandie.jpg";
+import Hau from "../../img/Hau.jpg";
+import Nash from "../../img/Nash.jpg";
+import Matt from "../../img/Matt.jpg";
+import David from "../../img/David.jpg";
+import Michael from "../../img/Michael.jpg";
+
 const Example = props => {
   return (
     <div>
       <CardDeck className="TopDeck">
         <Card>
-          <CardImg
-            top
-            width="100%"
-            src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
-            alt="Card image cap"
+          <CardImg className="cardp1"
+           top
+           src={Matt}
+           width="80%"
+           height="80%"
           />
           <CardBody>
             <CardTitle>Matthew Lloyd</CardTitle>
-            <CardSubtitle>Project Manager</CardSubtitle>
+            <CardSubtitle>Project Manager<br />
+            Full-Stack Developer</CardSubtitle>
             <CardText>
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
+             
             </CardText>
             <Button
               color="info"
@@ -37,7 +43,7 @@ const Example = props => {
               GitHub
             </Button>
             <Button
-              color="primary"
+              color="info"
               href="https://www.linkedin.com/in/-matthew-lloyd/"
               target="_blank"
             >
@@ -48,36 +54,59 @@ const Example = props => {
         <Card>
           <CardImg
             top
-            width="100%"
-            src="../Lysnandei.jpg"
-            alt="Card image cap"
+            src={Lysnandie}
+            width="80%"
+            height="80%"
           />
           <CardBody>
             <CardTitle>Lysnandie</CardTitle>
             <CardSubtitle>Data Base and Backend Developer</CardSubtitle>
             <CardText>
-              This card has supporting text below as a natural lead-in to
-              additional content.
+           
             </CardText>
-            <Button>Button</Button>
+            <Button
+              color="info"
+              href="https://github.com/Lysnandie"
+              target="_blank"
+            >
+              GitHub
+            </Button>
+            <Button
+              color="info"
+              href="https://www.linkedin.com/in/lysnandiej/"
+              target="_blank"
+            >
+              LinkedIn
+            </Button>
           </CardBody>
         </Card>
         <Card>
           <CardImg
-            top
-            width="100%"
-            src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
-            alt="Card image cap"
+              top
+              src={Michael}
+              width="80%"
+              height="80%"
           />
           <CardBody>
             <CardTitle>Michael Nguyen</CardTitle>
             <CardSubtitle>Backend Server Developer / Debuger Hero</CardSubtitle>
             <CardText>
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.
+             
             </CardText>
-            <Button>Button</Button>
+            <Button
+              color="info"
+              href="https://github.com/michaelnguyen55"
+              target="_blank"
+            >
+              GitHub
+            </Button>
+            <Button
+              color="info"
+              href="https://www.linkedin.com/in/michael-nguyen-2153a9142/"
+              target="_blank"
+            >
+              LinkedIn
+            </Button>
           </CardBody>
         </Card>
       </CardDeck>
@@ -86,55 +115,89 @@ const Example = props => {
       <CardDeck className="bottomDeck">
         <Card>
           <CardImg
-            top
-            width="100%"
-            src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
-            alt="Card image cap"
+           top
+           src={Nash}
+           width="80%"
+           height="80%"
           />
           <CardBody>
             <CardTitle>Nash </CardTitle>
             <CardSubtitle>Frontend Logic Developer</CardSubtitle>
             <CardText>
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
+             
             </CardText>
-            <Button>Button</Button>
+            <Button
+              color="info"
+              href="https://github.com/ardnehsan"
+              target="_blank"
+            >
+              GitHub
+            </Button>
+            <Button
+              color="info"
+              href="https://www.linkedin.com/in/nashendrafowsar/"
+              target="_blank"
+            >
+              LinkedIn
+            </Button>
           </CardBody>
         </Card>
         <Card>
           <CardImg
-            top
-            width="100%"
-            src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
-            alt="Card image cap"
+           top
+           src={David}
+           width="70%"
+           height="70%"
           />
           <CardBody>
             <CardTitle>David Morales</CardTitle>
             <CardSubtitle>Frontend Styling Developer</CardSubtitle>
             <CardText>
-              This card has supporting text below as a natural lead-in to
-              additional content.
+             
             </CardText>
-            <Button>Button</Button>
+            <Button
+              color="info"
+              href="https://github.com/Citizen32"
+              target="_blank"
+            >
+              GitHub
+            </Button>
+            <Button
+              color="info"
+              href="https://www.linkedin.com/in/david-morgar/"
+              target="_blank"
+            >
+              LinkedIn
+            </Button>
           </CardBody>
         </Card>
         <Card>
           <CardImg
-            top
-            width="100%"
-            src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
-            alt="Card image cap"
+           top
+           src={Hau}
+           width="80%"
+           height="80%"
           />
           <CardBody>
             <CardTitle>Hau</CardTitle>
             <CardSubtitle>Frontend Developer</CardSubtitle>
             <CardText>
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.
+              
             </CardText>
-            <Button>Button</Button>
+            <Button
+              color="info"
+              href="https://github.com/hautran1993"
+              target="_blank"
+            >
+              GitHub
+            </Button>
+            <Button
+              color="info"
+              href="https://www.linkedin.com/in/hau-tran-a1224314b/"
+              target="_blank"
+            >
+              LinkedIn
+            </Button>
           </CardBody>
         </Card>
       </CardDeck>

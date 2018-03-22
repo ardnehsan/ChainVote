@@ -13,7 +13,8 @@ import {
   Button,
   DropdownItem
 } from "reactstrap";
-import './Header.css';
+import "./Header.css";
+const SHA256 = require("crypto-js/sha256");
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -33,46 +34,76 @@ export default class Header extends React.Component {
     // localStorage.setItem("UAuthV", authV);
 
     // this.props.history.push("/")
-
-    setTimeout(() => { window.location.reload(); }, 500);
-
-  };
+    setTimeout(() => { window.location = "/"; }, 500);
+  }
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
     });
   }
   render() {
+    const {
+      // isLoggedIn,
+      UPrivateKey,
+      // UserEmail,
+      UserFName,
+      // UserLName,
+      // UisRegistered,
+      // UhasVoted
+    } = this.props;
+    // console.log(this.props);
+    const Keys = this.props.isLoggedIn ?
+      (<div>
+        <h2>{this.props.UserFName}</h2>
+        <h3>Your private key is {this.props.UPrivateKey}</h3>
+        <h3>Your public key is {SHA256(this.props.UPrivateKey).toString()}</h3>
+        </div>    
+      ) : (
+        <div>
+        </div>);
     const Logged = this.props.isLoggedIn ?
-      (<Button onClick={this.LogOut}>Logout</Button>) :
-      (<div></div>);
+      (<DropdownItem>
+        <NavItem>
+          <NavLink onClick={this.LogOut}>
+            Logout
+          </NavLink>
+        </NavItem>
+      </DropdownItem>
+      ) : (
+      <div>     
+      </div>);
 
     return (
-      <div className='header'>
+      <div className="header">
+        {/* {Keys} */}
         <Navbar color="faded" light expand="md">
-          <img className='logo' href="/" />
-          <NavbarBrand href="/" style={{ color: '#CCCFD3' }}>VoteChain<Button>Home</Button></NavbarBrand>
+          <NavbarBrand href="/" style={{ color: '#CCCFD3' }}><Button className="homeBtn">Home</Button></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              {Logged}
+              {/* {Logged} */}
               <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret style={{ color: '#CCCFD3' }}>
+                <DropdownToggle nav caret style={{ color: "#CCCFD3" }}>
                   Options
                 </DropdownToggle>
                 <DropdownMenu>
                   <DropdownItem>
                     <NavItem>
-                      <NavLink href="https://github.com/ardnehsan/ChainVote" target="_blank">
+                      <NavLink
+                        href="https://github.com/ardnehsan/ChainVote"
+                        target="_blank">
                         Github
                       </NavLink>
                     </NavItem>
                   </DropdownItem>
                   <DropdownItem>
                     <NavItem>
-                      <NavLink href="./about">Developers</NavLink>
+                      <NavLink href="./about">
+                        Developers
+                      </NavLink>
                     </NavItem>
                   </DropdownItem>
+                  {Logged}
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>

@@ -3,3 +3,24 @@
     color: white;
 }
 
+.jumbotron{
+    border-style: solid;
+    border-width: 20px;
+    border-color: #FF611D;
+    font-size: 30px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: bolder;
+    letter-spacing: 12px;
+}
+
+.Reporter{
+    border-style: solid;
+    border-width: 2px;
+    text-align: center;
+    border-color: #FF611D;
+    font-size: 22px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: bolder;
+    /* letter-spacing: 12px; */
+}
+

@@ -23,7 +23,6 @@ class LoginForm extends Component {
       }
       return null;
     }
-
     return (
       <div className="container">
         <Form className="loginForm">
@@ -31,7 +30,7 @@ class LoginForm extends Component {
             <Label for="email" sm={2}>
               Email
             </Label>
-            <Col sm={10}>
+            <Col sm={12}>
               <Input
                 type="email"
                 name="email"
@@ -44,10 +43,10 @@ class LoginForm extends Component {
             </Col>
           </FormGroup>
           <FormGroup row>
-            <Label for="password" sm={2}>
+          <Label for="password" sm={2}>
               Password
             </Label>
-            <Col sm={10}>
+            <Col sm={12}>
               <Input
                 type="password"
                 name="password"
@@ -61,12 +60,30 @@ class LoginForm extends Component {
             </Col>
           </FormGroup>
         </Form>
-        <Button size="lg" style={{ backgroundColor: '#171f32', borderColor: '#FF611D', borderWidth: '2px'}} onClick={toggle}>
-          {this.props.buttonLabel}Registration
-        </Button>
-        <Button size="lg" style={{ backgroundColor: '#171f32', borderColor: '#FF611D', borderWidth: '2px' }} onClick={handleFormSubmit}>
+        <Button
+          size="lg"
+          style={{
+            backgroundColor: "#171f32",
+            borderColor: "#FF611D",
+            borderWidth: "2px",
+            borderRadius: "40px"
+          }}
+          onClick={handleFormSubmit}
+        >
           Login
         </Button>{" "}
+        <Button
+          size="lg"
+          style={{
+            backgroundColor: "#171f32",
+            borderColor: "#FF611D",
+            borderWidth: "2px",
+            borderRadius: "40px"
+          }}
+          onClick={toggle}
+        >
+          {this.props.buttonLabel}Registration
+        </Button>
       </div>
     );
   }

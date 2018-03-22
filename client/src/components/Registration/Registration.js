@@ -35,18 +35,15 @@ class Registration extends Component {
       cpassword: "",
       showWarning: false
     };
-
     this.checkPassword = this.checkPassword.bind(this);
     // this.handleConfirmPass = this.handleConfirmPass.bind(this);
   }
-
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   };
-
   checkPassword() {
     if (this.state.cpassword === this.state.password) {
       this.setState(prevState => ({
@@ -59,15 +56,13 @@ class Registration extends Component {
       }));
     }
   }
-
   handleFormRegister = event => {
     event.preventDefault();
     this.register();
   };
-
   register() {
     //======remove this toggle later so it doesn't clear state
-    this.props.toggle();
+    //this.props.toggle();
     //===================================================
     const concealer = SHA256(this.state.password).toString();
 
@@ -92,6 +87,8 @@ class Registration extends Component {
           if (response.isRegistered === true) {
             alert("Uh oh! It looks like you've already registered!");
           } else {
+            this.props.toggle();
+            alert("You have successfully registered!");
             console.log(res.data);
             API.register({
               firstName: this.state.firstName,
@@ -203,7 +200,7 @@ class Registration extends Component {
             </Form>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.checkPassword}>
+            <Button color="secondary" onClick={this.checkPassword}>
               Register
             </Button>
             {""}
