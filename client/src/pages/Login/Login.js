@@ -26,7 +26,15 @@ class Login extends Component {
     this.toggle = this.toggle.bind(this);
     this.handleConfirmPass = this.handleConfirmPass.bind(this);
   }
-
+  componentDidMount() {
+    setTimeout(() => { 
+      if (this.props.UserEmail) {
+        this.setState({
+          email: this.props.UserEmail,
+        });
+      };
+    }, 500);
+  };
   handleConfirmPass = event => {
     const { name, value } = event.target;
     this.setState(
@@ -93,7 +101,7 @@ class Login extends Component {
           localStorage.setItem("UAuthE", authE.toString());
           localStorage.setItem("UAuthL", authL);
           console.log(this.props);
-          this.props.history.push("/landing")
+          this.context.history.push("/landing");
           setTimeout(() => { window.location.reload(); }, 500);
         }
       }
@@ -115,10 +123,19 @@ class Login extends Component {
   }
 
   render() {
+    const {
+      isLoggedIn,
+      UserEmail,
+      UisRegistered,
+      UhasVoted
+    } = this.props;
+
+
+
     const isRegistered = this.state.isRegistered ?
       (<div></div>) :
       (<div><CardText className="text-center subtitle">
-        Uh Oh! It Looks Like You're Not Registered!</CardText></div>);
+        Uh Oh! It Looks Like You Are Not Registered!</CardText></div>);
     const passwordMatch = this.state.passwordMatch ?
       (<div></div>) :
       (<div><CardText className="text-center subtitle">

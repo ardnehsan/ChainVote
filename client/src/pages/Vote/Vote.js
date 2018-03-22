@@ -12,17 +12,19 @@ import {
   FormGroup,
 } from "reactstrap";
 import "./vote.css"
+//imports hashing function
+const SHA256 = require("crypto-js/sha256");
 
 const UAuthEmail = localStorage.getItem("UAuthE");
 const UAuthLogger = JSON.parse(localStorage.getItem("UAuthL"));
 const UAuthVote = JSON.parse(localStorage.getItem("UAuthV"));
 
 const VoteCheck = () => {
-  console.log(UAuthEmail);
+  // console.log(UAuthEmail);
   let hasVoted = true;
   API.getVoter({email: UAuthEmail})
     .then(res => {
-      console.log(res.data.hasVoted);
+      // console.log(res.data.hasVoted);
       hasVoted = res.data.hasVoted;
     })
     .catch(err => console.log(err));
@@ -45,8 +47,9 @@ class Vote extends Component {
     this.state = {
       voter: "",
       value: "",
+      vote: "",
       total: [],
-      hasVoted: false
+      hasVoted: this.props.UhasVoted
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -56,54 +59,83 @@ class Vote extends Component {
   //need to name select input bar
   // add to state object
   // give an initial value
-
-  getVotes = () => {
-    API.getBlockChain()
-      .then(res => {
-        console.log(res.data)
-        this.setState({
-          total: res.data
-        })
-      }
-      )
-      .catch(err => console.log(err));
-  };
+// 
+  // getVotes = () => {
+  //   API.getBlockChain()
+  //     .then(res => {
+  //       // console.log(res.data)
+  //       this.setState({
+  //         total: res.data
+  //       })
+  //     }
+  //     )
+  //     .catch(err => console.log(err));
+  // };
 
   handleInputChange = event => {
     this.setState({ value: event.target.value });
-    console.log(this.state.value);
+    setTimeout(() => { console.log(this.state.value); }, 500);
   };
+
+  // handleInputChange = event => {
+  //   const { name, value } = event.target;
+  //   this.setState({
+  //     [name]: value
+  //   });
+  // };
 
   handleFormSubmit = event => {
     alert("You chose: " + this.state.value + " as your favorite project");
-    this.setState({ hasVoted : true })
-    this.props.handleInputChange2(true);
-    const authV = true;
-    localStorage.setItem("UAuthV", authV);
-
-    console.log(this.state.total);
+    // this.setState({ hasVoted : true })
+    // const authV = true;
     event.preventDefault();
+
+    // console.log(this.props.UPrivateKey)
+    let UPrivKey = this.props.UPrivateKey;
+    let UPubKey = SHA256(this.props.PrivateKey).toString();
+//Creates new block to store User's Vote========================    
     API.saveBlockChain({
-      voter: "Nash",
+      voter: UPubKey,
       vote: this.state.value
     })
-      .then(res => this.getVotes())
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => console.log(err));
+//Now Update the User's Vote Status=============================      
+    API.hasVoted({
+      UPrivKey
+    })
+      .then(res => {
+        console.log(res.data);
+      })
       .catch(err => console.log(err));
     // this.props.history.push("/Report")
-
-    setTimeout(() => { window.location.reload(); }, 500);
-  
+    // this.props.handleInputChange2(true);
+    // setTimeout(() => { console.log(this.props.UhasVoted); }, 5000);  
+    
+    // setTimeout(() => { window.location.reload(); }, 500);
+    setTimeout(() => { window.location = "/Report"; }, 500);
   };
   ComponentDidMount() {
   };  
 
   render() {
-    console.log(this.props);
-    setTimeout(() => { console.log(this.props); }, 5000);
+    const {
+      isLoggedIn,
+      UPrivateKey,
+      UserEmail,
+      UserFName,
+      UserLName,
+      UisRegistered,
+      UhasVoted
+    } = this.props;
+    // console.log(this.props);
+    // setTimeout(() => { console.log(this.props); }, 5000);
 
     const voted = this.state.hasVoted;
 
-    const VotePage = UAuthVote ?
+    const VotePage = UhasVoted ?
       (
         <div>
           <Jumbotron>
@@ -130,9 +162,9 @@ class Vote extends Component {
                   margin-right="auto"
                 />
                 <CardBody>
-                  <CardTitle>Chain Vote</CardTitle>
+                  <CardTitle>VoteChain</CardTitle>
                   <CardSubtitle>Block Chain Voting System</CardSubtitle>
-                  <Button value="chainvote" onClick={this.handleInputChange}>Vote</Button>
+                  <Button value="VoteChain" onClick={this.handleInputChange}>Vote</Button>
                 </CardBody>
               </Card>
 
@@ -239,7 +271,7 @@ class Vote extends Component {
           {/* SUBMIT YOUR VOTE BUTTON ===============================================*/}
           {/* =======================================================================*/}
           <div className="text-center">
-            <Button color="danger" size="lg" block input type="submit" onClick={this.handleFormSubmit}>
+            <Button color="danger" size="lg" block type="submit" onClick={this.handleFormSubmit}>
               Submit{" "}
             </Button>
           </div>

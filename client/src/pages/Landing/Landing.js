@@ -10,13 +10,18 @@ import "./Landing.css"
 class Landing extends Component {
 
   render() {
-    const {
-      email,
-      isLoggedIn
-    } = this.props;
-    console.log(this.props.email);
-    console.log(this.props.isLoggedIn);
+//     const {
+//       isLoggedIn,
+//       UPrivateKey,
+//       UserEmail,
+//       UserFName,
+//       UserLName,
+//       UisRegistered,
+//       UhasVoted
+//     } = this.props;
+// console.log(this.props);
   return (
+
       <div className="container">
 
         <div className="content">
@@ -27,8 +32,22 @@ class Landing extends Component {
 
 
         <div>
-          <Link to="/Report"><Button size="lg" style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>Report</Button></Link>
-          <Link to="/vote"><Button size="lg" style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>Vote</Button></Link>
+          <Link to="/Report">
+            <Button size="lg" 
+              style={{ 
+                backgroundColor: '#171f32', 
+                borderColor: '#FF611D'
+              }}>Report
+            </Button>
+          </Link>
+          <Link to="/vote">
+            <Button size="lg" 
+              style={{ 
+                backgroundColor: '#171f32', 
+                borderColor: '#FF611D'
+              }}>Vote
+            </Button>
+          </Link>
         </div>
       </div>
     );

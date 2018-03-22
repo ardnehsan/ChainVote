@@ -101,6 +101,19 @@ module.exports = {
       .findOneAndUpdate({ firstName: vfirstName, lastName: vlastName }, voter)
       .then(dbVoter => res.json(dbVoter))
       .catch(err => res.status(422).json(err));
+  },
+    hasVoted: function (req, res) {
+      console.log(req.body.params.UPrivKey);
+    const VPrivKey = req.body.params.UPrivKey;
+    const voter = {
+      hasVoted: true
+    };
+    db.Voter
+      .findOneAndUpdate(VPrivKey, voter)
+      .then(dbVoter => {
+        console.log(dbVoter);
+        res.json(dbVoter)})
+      .catch(err => res.status(422).json(err));
   }
 };
 

@@ -42,7 +42,7 @@ module.exports = {
         db.BlockChain
           .create(new Block(timestamp, vote, voter, previousHash))
            .then(dbBlockChain1 => {
-             console.log(dbBlockChain1);
+            //  console.log(dbBlockChain1);
             return res.json(dbBlockChain1);
           })
            .catch(err => res.status(422).json(err));
