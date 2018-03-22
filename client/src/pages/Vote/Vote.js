@@ -12,6 +12,13 @@ import {
   FormGroup
 } from "reactstrap";
 import "./vote.css";
+import VoteBK from "../../img/VoteBK.jpg";
+import ChoresBK from "../../img/ChoresBK.jpg";
+import EatBK from "../../img/EatBK.jpg";
+import WorldBK from "../../img/WorldBK.jpg";
+import SnippetsBK from "../../img/SnippetsBK.jpg";
+import VibezBK from "../../img/VibezBK.jpg";
+import GameBK from "../../img/GameBK.jpg";
 
 const UAuthEmail = localStorage.getItem("UAuthE");
 const UAuthLogger = JSON.parse(localStorage.getItem("UAuthL"));
@@ -126,14 +133,7 @@ class Vote extends Component {
               inverse
               style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
             >
-              <CardImg
-                className="cardImg1"
-                top
-                width="100%"
-                height="100%"
-                margin-left="auto"
-                margin-right="auto"
-              />
+              <CardImg top src={VoteBK} width="80%" height="80%" />
               <CardBody className="cards">
                 <CardTitle>Vote Chain</CardTitle>
                 <CardSubtitle>Block Chain Voting System</CardSubtitle>
@@ -152,14 +152,7 @@ class Vote extends Component {
               inverse
               style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
             >
-              <CardImg
-                className="cardImg2"
-                top
-                width="100%"
-                height="100%"
-                margin-left="auto"
-                margin-right="auto"
-              />
+              <CardImg top src={ChoresBK} width="80%" height="80%" />
               <CardBody className="cards">
                 <CardTitle>Chores</CardTitle>
                 <CardSubtitle>Organize you todo list</CardSubtitle>
@@ -177,15 +170,11 @@ class Vote extends Component {
               inverse
               style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
             >
-              <CardImg
-                className="cardImg3"
-                src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
-                alt="Card image cap"
-              />
+              <CardImg top src={EatBK} width="80%" height="80%" />
               <CardBody className="cards">
                 <CardTitle>Eat Neat</CardTitle>
                 <CardSubtitle>Eat healthy and delicious. Eat</CardSubtitle>
-                <Button value="chores" onClick={this.handleInputChange}>
+                <Button value="eat" onClick={this.handleInputChange}>
                   SELECT
                 </Button>
               </CardBody>
@@ -203,7 +192,7 @@ class Vote extends Component {
               inverse
               style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
             >
-              <CardImg className="cardImg4" top width="100%" height="100%" />
+              <CardImg top src={WorldBK} width="80%" height="80%" />
               <CardBody className="cards">
                 <CardTitle value="helloworld">Hello World</CardTitle>
                 <CardSubtitle>Travel to interesting places!</CardSubtitle>
@@ -220,7 +209,7 @@ class Vote extends Component {
               inverse
               style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
             >
-              <CardImg className="cardImg5" top width="100%" height="100%" />
+              <CardImg top src={SnippetsBK} width="80%" height="80%" />
               <CardBody className="cards">
                 <CardTitle value="snippets">Snippets</CardTitle>
                 <CardSubtitle>Search & Post Tutorials</CardSubtitle>
@@ -237,12 +226,7 @@ class Vote extends Component {
               inverse
               style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
             >
-              <CardImg
-                className="cardImg6"
-                top
-                width="100%"
-               height="100%"
-              />
+              <CardImg top src={VibezBK} width="80%" height="80%" />
               <CardBody className="cards">
                 <CardTitle value="vibez">Vibez</CardTitle>
                 <CardSubtitle>
@@ -253,29 +237,46 @@ class Vote extends Component {
                 </Button>
               </CardBody>
             </Card>
+          </CardDeck>
 
-            {/* SEVENTH CANDIDATE =======================================================*/}
-            {/* =======================================================================*/}
+          {/* SEVENTH CANDIDATE =======================================================*/}
+          {/* =======================================================================*/}
+          <CardDeck>
             <Card
               body
               inverse
               style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
             >
-              <CardImg
-                className="cardImg7"
-                top
-                width="100%"
-                src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
-                alt="Card image cap"
-              />
+              <CardImg width="80%" height="80%" />
               <CardBody className="cards">
-                <CardTitle value="vibez">Gamer Guru</CardTitle>
-                <CardSubtitle>
-                  Stream live video games.
-                </CardSubtitle>
-                <Button value="vibez" onClick={this.handleInputChange}>
+                <CardTitle value="" />
+                <CardSubtitle />
+              </CardBody>
+            </Card>
+
+            <Card
+              body
+              inverse
+              style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
+            >
+              <CardImg top src={GameBK} width="80%" height="80%" />
+              <CardBody className="cards">
+                <CardTitle value="gamer">Gamer Guru</CardTitle>
+                <CardSubtitle>Stream live video games.</CardSubtitle>
+                <Button value="gamer" onClick={this.handleInputChange}>
                   SELECT
                 </Button>
+              </CardBody>
+            </Card>
+            <Card
+              body
+              inverse
+              style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
+            >
+              <CardImg width="80%" height="80%" />
+              <CardBody className="cards">
+                <CardTitle value="" />
+                <CardSubtitle />
               </CardBody>
             </Card>
           </CardDeck>

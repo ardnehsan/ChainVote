@@ -35,18 +35,15 @@ class Registration extends Component {
       cpassword: "",
       showWarning: false
     };
-
     this.checkPassword = this.checkPassword.bind(this);
     // this.handleConfirmPass = this.handleConfirmPass.bind(this);
   }
-
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   };
-
   checkPassword() {
     if (this.state.cpassword === this.state.password) {
       this.setState(prevState => ({
@@ -59,12 +56,10 @@ class Registration extends Component {
       }));
     }
   }
-
   handleFormRegister = event => {
     event.preventDefault();
     this.register();
   };
-
   register() {
     //======remove this toggle later so it doesn't clear state
     //this.props.toggle();

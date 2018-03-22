@@ -1,3 +1,4 @@
+
 const db = require("../models");
 const SHA256 = require('crypto-js/sha256');
 
@@ -6,6 +7,21 @@ module.exports = {
   login: function (req, res) {
     let email = req.query.email;
     let qpass = req.query.password;
+<<<<<<< HEAD
+
+    db.Voter
+      .findOne({email : email})
+      .then(dbVoter => {
+          let voter = dbVoter;
+          const vpass = SHA256(voter.password).toString();
+
+        if (vpass === qpass) {
+          // console.log('password good!')
+          return res.json(dbVoter);
+        };
+        return res.json(false);
+
+=======
     db.Voter
       .findOne({email : email})
       .then(dbVoter => {
@@ -27,6 +43,7 @@ module.exports = {
             return res.json(false);
           };
   
+>>>>>>> 93b851958a615d3eec81f9346c70a935d97cb5f9
         })
       .catch(err => res.json(false));
   },
@@ -52,13 +69,20 @@ module.exports = {
   checkRegistry: function (req, res) {
     let firstName = req.query.firstName;
     let lastName = req.query.lastName;
-   
+
     db.Voter
-      .findOne({ 
+      .findOne({
         firstName: firstName,
-        lastName : lastName 
+        lastName : lastName
       })
       .then(dbVoter => {
+<<<<<<< HEAD
+        // console.log(dbVoter);
+        if (dbVoter === null) {
+          return false;
+        } else {
+=======
+>>>>>>> 93b851958a615d3eec81f9346c70a935d97cb5f9
           return res.json(dbVoter);
       })
       .catch(err => res.json(null));
@@ -85,7 +109,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   //========================================================================================
-  
+
   Register: function(req, res) {
     const vfirstName = req.body.params.firstName;
     const vlastName = req.body.params.lastName;

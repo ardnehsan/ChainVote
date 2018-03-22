@@ -5,10 +5,3 @@
     border-bottom-style: solid;
     border-bottom-width: 8px;
 }
-
-.logo {
-    background-image: url("./LogoSingle.png");
-    background-size: cover;
-    height: 60px;
-    width: 60px
-}

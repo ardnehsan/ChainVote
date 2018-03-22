@@ -23,7 +23,6 @@ class LoginForm extends Component {
       }
       return null;
     }
-
     return (
       <div className="container">
         <Form className="loginForm">

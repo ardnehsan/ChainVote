@@ -53,10 +53,7 @@ export default class Header extends React.Component {
     return (
       <div className="header">
         <Navbar color="faded" light expand="md">
-          <img className="logo" href="/" />
-          <NavbarBrand href="/" style={{ color: "#CCCFD3" }}>
-            VoteChain
-          </NavbarBrand>
+          <NavbarBrand href="/" style={{ color: '#CCCFD3' }}><Button className="homeBtn">Home</Button></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>

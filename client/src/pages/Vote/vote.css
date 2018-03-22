@@ -1,47 +1,6 @@
 /* .text-center {
     font-size: 50px;
 } */
-.cardImg1.card-img-top {
-    background-image: url('../../img/VoteBK.jpg');
-    background-size: contain;
-    background-repeat: no-repeat
-}
-
-.cardImg2.card-img-top {
-    background-image: url('../../img/ChoresBK.jpg');
-    background-size: contain;
-    background-repeat: no-repeat
-}
-
-.cardImg3.card-img-top {
-    background-image: url('../../img/EatBK.jpg');
-    background-size: contain;
-    background-repeat: no-repeat
-}
-
-.cardImg4.card-img-top {
-    background-image: url('../../img/WorldBK.jpg');
-    background-size: contain;
-    background-repeat: no-repeat
-}
-
-.cardImg5.card-img-top {
-    background-image: url('../../img/SnippetsBK.jpg');
-    background-size: contain;
-    background-repeat: no-repeat
-}
-
-.cardImg6.card-img-top {
-    background-image: url('../../img/VibezBK.jpg');
-    background-size: contain;
-    background-repeat: no-repeat
-}
-
-.cardImg7.card-img-top {
-    background-image: url('../../img/GameBK.jpg');
-    background-size: contain;
-    background-repeat: no-repeat
-}
 
 .card-deck .card {
     margin-bottom: 0;
@@ -73,8 +32,7 @@
     font-family: 'Rajdhani', sans-serif;
     font-weight: bold;
     opacity: .6;
-    border-radius: 30px;
-    
+    border-radius: 30px;    
 }
 
 .btn.btn-secondary:hover {

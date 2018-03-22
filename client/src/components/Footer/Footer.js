@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, NavbarBrand, Nav } from "reactstrap";
-import "./Footer.css";
+import "./footer.css";
 
 export default class Footer extends React.Component {
   constructor(props) {

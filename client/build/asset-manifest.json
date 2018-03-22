@@ -1,9 +1,24 @@
 {
+<<<<<<< HEAD
+<<<<<<< HEAD
+  "main.css": "static/css/main.5340a797.css",
+  "main.css.map": "static/css/main.5340a797.css.map",
+  "main.js": "static/js/main.b15012dc.js",
+  "main.js.map": "static/js/main.b15012dc.js.map"
+}
+=======
+  "main.css": "static/css/main.5206ca01.css",
+  "main.css.map": "static/css/main.5206ca01.css.map",
+  "main.js": "static/js/main.d814ab1f.js",
+  "main.js.map": "static/js/main.d814ab1f.js.map",
+=======
   "main.css": "static/css/main.bb34ac09.css",
   "main.css.map": "static/css/main.bb34ac09.css.map",
   "main.js": "static/js/main.fa255b36.js",
   "main.js.map": "static/js/main.fa255b36.js.map",
+>>>>>>> 93b851958a615d3eec81f9346c70a935d97cb5f9
   "static\\media\\ChainVote.jpg": "static/media/ChainVote.39571958.jpg",
   "static\\media\\LogoSingle.png": "static/media/LogoSingle.a840687d.png",
   "static\\media\\mainBackground.jpg": "static/media/mainBackground.5c97ca23.jpg"
 }
+>>>>>>> b6ec159de3a3cc6ae235dabbaa7e36e5e1cc6b93

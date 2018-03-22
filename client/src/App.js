@@ -1,8 +1,11 @@
 import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-// import styles from 'App.css';
+// IMPORT COMPONENTS ==========================
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
-// IMPORT Session ====================================
+// IMPORT SESSIONS ============================
 import Session from "./Session";
 
 const App = () => {

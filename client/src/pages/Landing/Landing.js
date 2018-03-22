@@ -7,6 +7,7 @@ import "../../utils/API";
 import "../History";
 import "./Landing.css"
 
+
 class Landing extends Component {
 
   render() {
