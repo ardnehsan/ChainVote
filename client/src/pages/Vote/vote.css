@@ -1,8 +1,44 @@
 /* .text-center {
     font-size: 50px;
 } */
-.card-img-top {
-    background-image: url('ChainVote.jpg');
+.cardImg1.card-img-top {
+    background-image: url('../../img/VoteBK.jpg');
+    background-size: contain;
+    background-repeat: no-repeat
+}
+
+.cardImg2.card-img-top {
+    background-image: url('../../img/ChoresBK.jpg');
+    background-size: contain;
+    background-repeat: no-repeat
+}
+
+.cardImg3.card-img-top {
+    background-image: url('../../img/EatBK.jpg');
+    background-size: contain;
+    background-repeat: no-repeat
+}
+
+.cardImg4.card-img-top {
+    background-image: url('../../img/WorldBK.jpg');
+    background-size: contain;
+    background-repeat: no-repeat
+}
+
+.cardImg5.card-img-top {
+    background-image: url('../../img/SnippetsBK.jpg');
+    background-size: contain;
+    background-repeat: no-repeat
+}
+
+.cardImg6.card-img-top {
+    background-image: url('../../img/VibezBK.jpg');
+    background-size: contain;
+    background-repeat: no-repeat
+}
+
+.cardImg7.card-img-top {
+    background-image: url('../../img/GameBK.jpg');
     background-size: contain;
     background-repeat: no-repeat
 }
@@ -11,9 +47,22 @@
     margin-bottom: 0;
 }
 
+.bottomDeck{
+    margin-top: 40px;
+}
+
 .btn-danger{
     margin-top: 40px;
     margin-bottom: 40px;
+    height: 60px;
+    border-radius: 100px;
+}
+
+.btn.btn-lg{
+    border-radius: 30px;
+    font-size: 30px;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 4px;
 }
 
 .btn.btn-secondary {
@@ -22,12 +71,13 @@
     font-size: 20px;
     transition-duration: 0.3s;
     font-family: 'Rajdhani', sans-serif;
+    font-weight: bold;
     opacity: .6;
+    border-radius: 30px;
     
 }
 
 .btn.btn-secondary:hover {
-    background-color: #CCCFD3;
     box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 5px 20px 0 rgba(0,0,0,0.10);
-    opacity: 1;
+    opacity: 2;
 }

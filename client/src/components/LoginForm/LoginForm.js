@@ -61,12 +61,30 @@ class LoginForm extends Component {
             </Col>
           </FormGroup>
         </Form>
-        <Button size="lg" style={{ backgroundColor: '#171f32', borderColor: '#FF611D', borderWidth: '2px', borderRadius: '40px'}} onClick={toggle}>
-          {this.props.buttonLabel}Registration
-        </Button>
-        <Button size="lg" style={{ backgroundColor: '#171f32', borderColor: '#FF611D', borderWidth: '2px', borderRadius: '40px' }} onClick={handleFormSubmit}>
+        <Button
+          size="lg"
+          style={{
+            backgroundColor: "#171f32",
+            borderColor: "#FF611D",
+            borderWidth: "2px",
+            borderRadius: "40px"
+          }}
+          onClick={handleFormSubmit}
+        >
           Login
         </Button>{" "}
+        <Button
+          size="lg"
+          style={{
+            backgroundColor: "#171f32",
+            borderColor: "#FF611D",
+            borderWidth: "2px",
+            borderRadius: "40px"
+          }}
+          onClick={toggle}
+        >
+          {this.props.buttonLabel}Registration
+        </Button>
       </div>
     );
   }
