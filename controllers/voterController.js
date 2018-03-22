@@ -115,7 +115,7 @@ module.exports = {
       hasVoted: true
     };
     db.Voter
-      .findOneAndUpdate(VPrivKey, voter)
+      .findOneAndUpdate({ _id: VPrivKey }, {hasVoted: true})
       .then(dbVoter => {
         console.log(dbVoter);
         res.json(dbVoter)})

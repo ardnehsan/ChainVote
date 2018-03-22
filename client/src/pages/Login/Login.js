@@ -98,7 +98,7 @@ class Login extends Component {
             password: "",
             passwordMatch : false
           });
-      //============================    
+      //================================    
         } else {
           this.setState({
             isRegistered: true,
@@ -106,9 +106,6 @@ class Login extends Component {
           });
           const authE = res.data.email;
           const authL = true;
-          this.setState({
-            hasVoted: res.data.hasVoted,
-          });
           localStorage.setItem("UAuthE", authE.toString());
           localStorage.setItem("UAuthL", authL);
           window.location.reload();

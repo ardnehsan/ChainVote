@@ -91,7 +91,7 @@ class Vote extends Component {
     // const authV = true;
     event.preventDefault();
 
-    // console.log(this.props.UPrivateKey)
+    console.log(this.props.UPrivateKey)
     let UPrivKey = this.props.UPrivateKey;
     let UPubKey = SHA256(this.props.PrivateKey).toString();
 //Creates new block to store User's Vote========================    

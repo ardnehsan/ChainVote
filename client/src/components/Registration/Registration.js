@@ -87,14 +87,7 @@ class Registration extends Component {
             "Uh oh! It looks like you're not eligible to register at this time!"
           );
 
-<<<<<<< HEAD
-        //or kickback the user
-      } else {
-        if (response.isRegistered === true) {
-          alert("Uh oh! It looks like you've already registered!")
-=======
           //or kickback the user
->>>>>>> 5f70e117844f552a8ccdff14fd15d96ab41077de
         } else {
           if (response.isRegistered === true) {
             alert("Uh oh! It looks like you've already registered!");
@@ -195,11 +188,6 @@ class Registration extends Component {
                   Confirm Password
                 </Label>
                 <Col sm={10}>
-<<<<<<< HEAD
-                  <Input type="password" name="cpassword" id="cpassword"
-                    placeholder="" value={this.state.cpassword} onChange={this.handleInputChange}
-                  required />
-=======
                   <Input
                     type="password"
                     name="cpassword"
@@ -209,7 +197,6 @@ class Registration extends Component {
                     onChange={this.handleInputChange}
                     required
                   />
->>>>>>> 5f70e117844f552a8ccdff14fd15d96ab41077de
                   <div>
                     <WarningBanner warn={this.state.showWarning} />
                   </div>
