@@ -162,7 +162,7 @@ export default class Session extends React.Component {
             (<Route exact path="/vote" 
                 render={() =>
                     // Change to Login
-                    <Vote
+                    <Login
                         handleInputChange2={this.handleInputChange2}
                         isLoggedIn={this.state.isLoggedIn}
                         UserEmail={this.state.UserEmail}
@@ -199,6 +199,35 @@ export default class Session extends React.Component {
                     />}
             />);
 
+        const UAuthReport = this.state.isLoggedIn ?
+            (<Route exact path="/report"
+                render={() =>
+                    <Report
+                        handleInputChange2={this.handleInputChange2}
+                        isLoggedIn={this.state.isLoggedIn}
+                        UserEmail={this.state.UserEmail}
+                        UserFName={this.state.UserFName}
+                        UserLName={this.state.UserLName}
+                        UsRegistered={this.state.UisRegistered}
+                        UhasVoted={this.state.UhasVoted}
+                        UPrivateKey={this.state.UPrivateKey}
+                    />}
+            />) :
+            (<Route exact path="/report"
+                render={() =>
+                    <Report
+                        handleInputChange2={this.handleInputChange2}
+                        isLoggedIn={this.state.isLoggedIn}
+                        UserEmail={this.state.UserEmail}
+                        UserFName={this.state.UserFName}
+                        UserLName={this.state.UserLName}
+                        UisRegistered={this.state.UisRegistered}
+                        UhasVoted={this.state.UhasVoted}
+                        UPrivateKey={this.state.UPrivateKey}
+                    />}
+            />);
+
+
 
         return (
             <div className="container">
@@ -221,9 +250,11 @@ export default class Session extends React.Component {
                             {/* <Route exact path="/vote" component={Vote} /> */}
                             {UAuthLanding}
                             {/* <Route exact path="/landing" component={Landing} /> */}
-                            <Route exact path="/report" component={Report} />
-                            <Route exact path="/history" component={History} />
-                            <Route exact path="/about" component={About} />
+                            {UAuthAbout}
+                            {UAuthReport}
+                            {/* <Route exact path="/report" component={Report} /> */}
+                            {/* <Route exact path="/history" component={History} /> */}
+                            {/* <Route exact path="/about" component={About} /> */}
                             <Route component={Four04} />
                         </Switch>
                         <Footer />

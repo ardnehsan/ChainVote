@@ -20,7 +20,7 @@ export default class Footer extends React.Component {
   render() {
     return (
       <div className="container">
-        <div className="footer">
+        <div className="footer text-center">
           <Navbar color="faded" light expand="md">
             <NavbarBrand href="/" style={{ color: "#CCCFD3", textAlign: "center" }}>
               ChainVote © Copyright 2018

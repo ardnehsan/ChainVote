@@ -1,23 +1,25 @@
 import React from "react";
 import { Table } from 'reactstrap';
-import "./Report.css";
+import "./VoteTable.css";
 //hash
 //previoushash
 //voter
 //vote
-const VoteTable = ({ vote, id, pH }) => (
-  <Table bordered>
+const VoteTable = ({ voter, vote, id, pH }) => (
+  <Table bordered responsive>
     <thead className="historyTable">
       <tr>
-        <th>#</th>
-        <th>Project</th>
-        <th>id</th>
+        <th>Vote</th>
+        <th>Voter</th>
+        <th>Current Block</th>
+        <th>Previous Block</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody className="TableData">
       <tr>
-        <th scope="row"></th>
-        <td>{vote}</td>
+        <th scope="row">{vote}</th>
+        {/* <td>{vote}</td> */}
+        <td>{voter}</td>
         <td>{id}</td>
         <td>{pH}</td>
 

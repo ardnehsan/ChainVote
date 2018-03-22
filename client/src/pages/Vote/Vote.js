@@ -26,6 +26,31 @@ const UAuthEmail = localStorage.getItem("UAuthE");
 const UAuthLogger = JSON.parse(localStorage.getItem("UAuthL"));
 const UAuthVote = JSON.parse(localStorage.getItem("UAuthV"));
 
+// function WarningBanner(props) {
+//   if (this.state.value === "VoteChain") {
+//     return (
+//       <Card
+//         body
+//         inverse
+//         style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
+//       >
+//         <CardImg top src={VoteBK} width="80%" height="80%" />
+//         <CardBody className="cards">
+//           <CardTitle>Vote Chain</CardTitle>
+//           <CardSubtitle>Block Chain Voting System</CardSubtitle>
+//           <div>
+//             <Button value="VoteChain" onClick={this.handleInputChange}>
+//               SELECT
+//                   </Button>
+//           </div>
+//         </CardBody>
+//       </Card>
+
+//     );
+//   }
+//   return null;
+// }
+
 const VoteCheck = () => {
   // console.log(UAuthEmail);
   let hasVoted = true;
@@ -120,7 +145,7 @@ class Vote extends Component {
 
     console.log(this.props.UPrivateKey)
     let UPrivKey = this.props.UPrivateKey;
-    let UPubKey = SHA256(this.props.PrivateKey).toString();
+    let UPubKey = SHA256(this.props.UPrivateKey).toString();
 //Creates new block to store User's Vote========================    
     API.saveBlockChain({
       voter: UPubKey,
@@ -168,7 +193,7 @@ class Vote extends Component {
 
     const voted = this.state.hasVoted;
 
-    const VotePage = UhasVoted ?
+    const VotePage = UhasVoted ? (
       <div>
         <Jumbotron>
           <h1 className="text-center">
@@ -193,10 +218,10 @@ class Vote extends Component {
             >
               <CardImg top src={VoteBK} width="80%" height="80%" />
               <CardBody className="cards">
-                <CardTitle>Vote Chain</CardTitle>
+                <CardTitle>VoteChain</CardTitle>
                 <CardSubtitle>Block Chain Voting System</CardSubtitle>
                 <div>
-                  <Button value="votechain" onClick={this.handleInputChange}>
+                  <Button value="VoteChain" onClick={this.handleInputChange}>
                     SELECT
                   </Button>
                 </div>
@@ -214,7 +239,7 @@ class Vote extends Component {
               <CardBody className="cards">
                 <CardTitle>Chores</CardTitle>
                 <CardSubtitle>Organize you todo list</CardSubtitle>
-                <Button value="chores" onClick={this.handleInputChange}>
+                <Button value="Chores" onClick={this.handleInputChange}>
                   SELECT
                 </Button>
               </CardBody>
@@ -230,9 +255,9 @@ class Vote extends Component {
             >
               <CardImg top src={EatBK} width="80%" height="80%" />
               <CardBody className="cards">
-                <CardTitle>Eat Neat</CardTitle>
+                <CardTitle>EatNeat</CardTitle>
                 <CardSubtitle>Eat healthy and delicious. Eat</CardSubtitle>
-                <Button value="eat" onClick={this.handleInputChange}>
+                <Button value="EatNeat" onClick={this.handleInputChange}>
                   SELECT
                 </Button>
               </CardBody>
@@ -254,7 +279,7 @@ class Vote extends Component {
               <CardBody className="cards">
                 <CardTitle value="helloworld">Hello World</CardTitle>
                 <CardSubtitle>Travel to interesting places!</CardSubtitle>
-                <Button value="helloworld" onClick={this.handleInputChange}>
+                <Button value="HelloWorld" onClick={this.handleInputChange}>
                   SELECT
                 </Button>
               </CardBody>
@@ -271,7 +296,7 @@ class Vote extends Component {
               <CardBody className="cards">
                 <CardTitle value="snippets">Snippets</CardTitle>
                 <CardSubtitle>Search & Post Tutorials</CardSubtitle>
-                <Button value="snippets" onClick={this.handleInputChange}>
+                <Button value="Snippets" onClick={this.handleInputChange}>
                   SELECT
                 </Button>
               </CardBody>
@@ -286,11 +311,11 @@ class Vote extends Component {
             >
               <CardImg top src={VibezBK} width="80%" height="80%" />
               <CardBody className="cards">
-                <CardTitle value="vibez">Vibez</CardTitle>
+                <CardTitle value="Vibez">Vibez</CardTitle>
                 <CardSubtitle>
                   Make friends with the same music taste.
                 </CardSubtitle>
-                <Button value="vibez" onClick={this.handleInputChange}>
+                <Button value="Vibez" onClick={this.handleInputChange}>
                   SELECT
                 </Button>
               </CardBody>
@@ -317,7 +342,7 @@ class Vote extends Component {
               <CardBody className="cards">
                 <CardTitle value="gamer">Gamer Guru</CardTitle>
                 <CardSubtitle>Stream live video games.</CardSubtitle>
-                <Button value="gamer" onClick={this.handleInputChange}>
+                <Button value="Gamer Guru" onClick={this.handleInputChange}>
                   SELECT
                 </Button>
               </CardBody>

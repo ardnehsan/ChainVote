@@ -200,7 +200,7 @@ class Registration extends Component {
             </Form>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.checkPassword}>
+            <Button color="secondary" onClick={this.checkPassword}>
               Register
             </Button>
             {""}

@@ -26,24 +26,16 @@ class Landing extends Component {
       <div className="container">
 
         <div className="content">
-          <h2>VoteChain is a voting system application with Block Chain Technology at is core.</h2>
-          <h2>It allows users to vote on a campaign or create their own.</h2>
+          <h2>VoteChain is a voting system application with Blockchain Technology at is core.</h2>
+          <h2>It allows users to vote in an election or create their own.</h2>
           <h2>VoteChain is SECURE, FAST, AND ACURATE!</h2>
           <br />
-          <h2>Click on Vote to start voting on a campaign.</h2>
-          <h2>Click on Report to see the election's results as a block chain.</h2>
+          <h2>Click on Vote to start voting in our election!</h2>
+          <h2>Click on Report to then see the election's results stored on our blockchain.</h2>
         </div>
 
 
         <div>
-          <Link to="/Report">
-            <Button size="lg" 
-              style={{ 
-                backgroundColor: '#171f32', 
-                borderColor: '#FF611D'
-              }}>Report
-            </Button>
-          </Link>
           <Link to="/vote">
             <Button size="lg" 
               style={{ 
@@ -52,6 +44,14 @@ class Landing extends Component {
               }}>Vote
             </Button>
           </Link>
+        <Link to="/Report">
+          <Button size="lg"
+            style={{
+              backgroundColor: '#171f32',
+              borderColor: '#FF611D'
+            }}>Report
+            </Button>
+        </Link>
         </div>
       </div>
     );

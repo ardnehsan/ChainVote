@@ -30,7 +30,8 @@ const Example = props => {
           />
           <CardBody>
             <CardTitle>Matthew Lloyd</CardTitle>
-            <CardSubtitle>Project Manager</CardSubtitle>
+            <CardSubtitle>Project Manager<br />
+            Full-Stack Developer</CardSubtitle>
             <CardText>
              
             </CardText>

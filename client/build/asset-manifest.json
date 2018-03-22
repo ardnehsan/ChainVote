@@ -1,24 +1,21 @@
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "main.css": "static/css/main.5340a797.css",
-  "main.css.map": "static/css/main.5340a797.css.map",
-  "main.js": "static/js/main.b15012dc.js",
-  "main.js.map": "static/js/main.b15012dc.js.map"
-}
-=======
-  "main.css": "static/css/main.5206ca01.css",
-  "main.css.map": "static/css/main.5206ca01.css.map",
-  "main.js": "static/js/main.d814ab1f.js",
-  "main.js.map": "static/js/main.d814ab1f.js.map",
-=======
-  "main.css": "static/css/main.bb34ac09.css",
-  "main.css.map": "static/css/main.bb34ac09.css.map",
-  "main.js": "static/js/main.fa255b36.js",
-  "main.js.map": "static/js/main.fa255b36.js.map",
->>>>>>> 93b851958a615d3eec81f9346c70a935d97cb5f9
-  "static\\media\\ChainVote.jpg": "static/media/ChainVote.39571958.jpg",
+  "main.css": "static/css/main.d7ac98f2.css",
+  "main.css.map": "static/css/main.d7ac98f2.css.map",
+  "main.js": "static/js/main.a6101d61.js",
+  "main.js.map": "static/js/main.a6101d61.js.map",
+  "static\\media\\ChoresBK.jpg": "static/media/ChoresBK.0a02488b.jpg",
+  "static\\media\\David.jpg": "static/media/David.59dc5126.jpg",
+  "static\\media\\EatBK.jpg": "static/media/EatBK.7fa5777b.jpg",
+  "static\\media\\GameBK.jpg": "static/media/GameBK.6148c769.jpg",
+  "static\\media\\Hau.jpg": "static/media/Hau.77580b46.jpg",
   "static\\media\\LogoSingle.png": "static/media/LogoSingle.a840687d.png",
+  "static\\media\\Lysnandie.jpg": "static/media/Lysnandie.ca7166f6.jpg",
+  "static\\media\\Matt.jpg": "static/media/Matt.fb69039c.jpg",
+  "static\\media\\Michael.jpg": "static/media/Michael.d59b544f.jpg",
+  "static\\media\\Nash.jpg": "static/media/Nash.a892ec38.jpg",
+  "static\\media\\SnippetsBK.jpg": "static/media/SnippetsBK.f3032d11.jpg",
+  "static\\media\\VibezBK.jpg": "static/media/VibezBK.52e4cb98.jpg",
+  "static\\media\\VoteBK.jpg": "static/media/VoteBK.f6e26946.jpg",
+  "static\\media\\WorldBK.jpg": "static/media/WorldBK.a518b785.jpg",
   "static\\media\\mainBackground.jpg": "static/media/mainBackground.5c97ca23.jpg"
 }
->>>>>>> b6ec159de3a3cc6ae235dabbaa7e36e5e1cc6b93

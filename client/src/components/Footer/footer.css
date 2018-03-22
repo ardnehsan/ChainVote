@@ -1,6 +1,7 @@
 
 .footer {
     display: table-row;
+    margin-top: 5%;
     background-color: #171f32;
     border-top: 500px;    
     border-bottom: #FF611D;
