@@ -75,7 +75,6 @@ class Vote extends Component {
   };
 
   handleFormSubmit = event => {
-    this.CannotVote();
     alert("You chose: " + this.state.value + " as your favorite project");
     this.setState({ hasVoted : true })
     this.props.handleInputChange2(true);
@@ -100,7 +99,7 @@ class Vote extends Component {
 
   render() {
     console.log(this.props);
-    setTimeout(() => { console.log(this.props); }, 5000);
+    setTimeout(() => { console.log(this.props); }, 300000);
 
     const voted = this.state.hasVoted;
 

@@ -15,7 +15,10 @@ class Report extends Component {
  
   state = {
     votes: [],
-    voter:[]
+    voter:[],
+    vote: "",
+    val1: 0,
+    val2: 0
   };
 
   componentDidMount(){
@@ -30,13 +33,27 @@ class Report extends Component {
       this.setState({
         votes: res.data
       })
+    var votecount = Object.keys(this.state.votes);
+   
+    var votechoice = votecount.map((t)=>{
+      this.state.votes[t].map((e) => e.vote);
+    })
     })
     .catch(err => console.log(err));
     };
-  
-  
+
+
+
     
 render() {
+
+  let votechain = 0;
+  let chores = 0;
+  let eatneat = 0;
+  let helloworld = 0;
+  let snippets = 0;
+  let vibez = 0;
+
   console.log(this.props);
   const data = {
     labels: ['Chain Vote', 'Chores', 'Eat Neat', 'Hello World', 'Snippets', 'Vibez'],
@@ -48,7 +65,7 @@ render() {
         borderWidth: 1,
         hoverBackgroundColor: 'rgba(255,99,132,0.4)',
         hoverBorderColor: 'rgba(255,99,132,1)',
-        data: [1, 1, 1, 1,1, 1]
+        data: [votechain, chores, eatneat, helloworld,snippets, vibez]
       }
     ]
   };
@@ -56,14 +73,14 @@ render() {
   return (
       <div>
         <h2 className="text-center">Election Results</h2>
-        {/* <Bar
+        { <Bar
           data={data}
           width={100}
           height={100}
           options={{
             maintainAspectRatio: false
           }}
-        /> */}
+        /> }
 
        <div>
         {this.state.votes.length ? (
