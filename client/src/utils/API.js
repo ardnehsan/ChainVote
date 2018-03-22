@@ -19,13 +19,16 @@ export default {
   register: function(params) {
     return axios.put("/api/voter/register", { params: filterParams(params) });
   },
+
+  hasVoted: function (params) {
+    return axios.put("/api/voter/", {params});
+  },
   // Get block chain
   getBlockChain: function() {
     return axios.get("/api/blockChain");
   },
   // Save voter
   saveBlockChain: function(vote) {
-    console.log(vote);
     return axios.post("/api/blockChain", vote);
   }
 };

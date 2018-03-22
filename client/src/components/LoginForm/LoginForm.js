@@ -3,6 +3,7 @@ import { Col, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import "./loginForm.css";
 
 class LoginForm extends Component {
+
   render() {
     const {
       email,
@@ -23,6 +24,7 @@ class LoginForm extends Component {
       }
       return null;
     }
+
 
     return (
       <div className="container">

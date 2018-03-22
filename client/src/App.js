@@ -23,6 +23,7 @@ const App = () => {
 
   // LogCheck();
   // console.log(LogCheck());
+  
   return (
     <div className="container">
         <Session UAuthEmail={this.UAuthEmail} />

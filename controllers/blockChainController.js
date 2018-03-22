@@ -25,7 +25,7 @@ module.exports = {
         //Individual block class and constructor to be placed on chain
         class Block {
           //the different values & datatypes placed in each block
-          
+
           constructor(timestamp, vote, voter, previousHash = '') {
             this.timestamp = timestamp;
             this.vote = vote;
@@ -42,13 +42,13 @@ module.exports = {
         db.BlockChain
           .create(new Block(timestamp, vote, voter, previousHash))
            .then(dbBlockChain1 => {
-             console.log(dbBlockChain1);
+            //  console.log(dbBlockChain1);
             return res.json(dbBlockChain1);
           })
            .catch(err => res.status(422).json(err));
       })
       .catch(err => res.status(422).json(err));
-    
+
   },
   createGen: function (req, res) {
     console.log(req.body);

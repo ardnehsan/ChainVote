@@ -13,7 +13,7 @@ import {
   Button,
   DropdownItem
 } from "reactstrap";
-import styles from './Header.css';
+import from './Header.css';
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -43,6 +43,16 @@ export default class Header extends React.Component {
     });
   }
   render() {
+    const {
+      // isLoggedIn,
+      UPrivateKey,
+      // UserEmail,
+      UserFName,
+      // UserLName,
+      // UisRegistered,
+      // UhasVoted
+    } = this.props;
+    // console.log(this.props);
     const Logged = this.props.isLoggedIn ?
       (<Button className="logOut" onClick={this.LogOut}>Logout</Button>) :
       (<div></div>);
@@ -50,8 +60,7 @@ export default class Header extends React.Component {
     return (
       <div className='header'>
         <Navbar color="faded" light expand="md">
-          <img className='logo' href="/" />
-          <NavbarBrand href="/" style={{ color: '#CCCFD3' }}>VoteChain<Button>Home</Button></NavbarBrand>
+          <NavbarBrand href="/" style={{ color: '#CCCFD3' }}><Button>Home</Button></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>

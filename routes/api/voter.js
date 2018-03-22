@@ -6,7 +6,8 @@ const voterController = require("../../controllers/voterController");
 //MADE FOR TESTING; DELETE AFTER=================================
 router
 	.route("/")
-	.get(voterController.getVoter);
+	.get(voterController.getVoter)
+	.put(voterController.hasVoted)
 //===============================================================
 router
 	.route("/voters")
