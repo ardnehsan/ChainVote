@@ -11,7 +11,6 @@ import {
   ModalBody,
   ModalFooter
 } from "reactstrap";
-import { Card, CardTitle, CardText } from "reactstrap";
 import API from "../../utils/API";
 const SHA256 = require("crypto-js/sha256");
 
