@@ -13,11 +13,7 @@ import {
   Button,
   DropdownItem
 } from "reactstrap";
-<<<<<<< HEAD
 import styles from './header.css'
-=======
-import './Header.css';
->>>>>>> b6ec159de3a3cc6ae235dabbaa7e36e5e1cc6b93
 
 export default class Header extends React.Component {
   constructor(props) {
