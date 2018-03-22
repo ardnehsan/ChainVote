@@ -117,22 +117,25 @@ class Vote extends Component {
           </Jumbotron>
 
           <FormGroup>
-            <CardDeck>
+            <CardDeck className="bottomDeck">
 
               {/* FIRST CANDIDATE =======================================================*/}
               {/* ========================================================================*/}
               <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
-                <CardImg
+                <CardImg className="cardImg"
                   top
                   width="100%"
                   height="100%"
                   margin-left="auto"
                   margin-right="auto"
                 />
-                <CardBody>
+                <CardBody className="cards">
                   <CardTitle>Chain Vote</CardTitle>
                   <CardSubtitle>Block Chain Voting System</CardSubtitle>
-                  <Button value="chainvote" onClick={this.handleInputChange}>Vote</Button>
+                  <div>
+                  <Button value="chainvote" onClick={this.handleInputChange}>SELECT</Button>
+                  </div>
+                  
                 </CardBody>
               </Card>
 
@@ -140,36 +143,39 @@ class Vote extends Component {
               {/* SECOND CANDIDATE =======================================================*/}
               {/* ========================================================================*/}
               <Card body inverse style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}>
-                <CardImg
+                <CardImg className="cardImg"
                   top
                   width="100%"
                   src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
                   alt="Card image cap"
                 />
-                <CardBody>
+                <CardBody className="cards">
                   <CardTitle>Chores</CardTitle>
                   <CardSubtitle>Organize you todo list</CardSubtitle>
-                  <Button value="chores" onClick={this.handleInputChange}>Vote</Button>
+                  <Button value="chores" onClick={this.handleInputChange}>SELECT</Button>
                 </CardBody>
               </Card>
 
 
               {/* THIRD CANDIDATE =======================================================*/}
               {/* =======================================================================*/}
+          
               <Card body inverse style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}>
-                <CardImg
+                <CardImg className="cardImg"
                   top
                   width="100%"
                   src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
                   alt="Card image cap"
                 />
-                <CardBody>
+                <CardBody className="cards">
                   <CardTitle>Eat Neat</CardTitle>
                   <CardSubtitle>Eat healthy and delicious. Eat Neat!</CardSubtitle>
-                  <Button value="eatneat" onClick={this.handleInputChange}>Vote</Button>
-                </CardBody>
+                  <Button value="eatneat" onClick={this.handleInputChange}>SELECT</Button>
+                </CardBody>                
               </Card>
+           
             </CardDeck>
+           
 
             {/*  ========================================================================================================== */}
             {/*  ========================================================================================================== */}
@@ -178,16 +184,17 @@ class Vote extends Component {
               {/* FOURTH CANDIDATE =======================================================*/}
               {/* ========================================================================*/}
               <Card body inverse style={{ backgroundColor: '#171f32', borderColor: '#FF611D' }}>
-                <CardImg className="cards"
+                <CardImg className="cardImg"
                   top
                   width="100%"
+                  height="100%"
                   src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
                   alt="Card image cap"
                 />
                 <CardBody className="cards">
                   <CardTitle value="helloworld">Hello World</CardTitle>
                   <CardSubtitle>Travel to interesting places!</CardSubtitle>
-                  <Button value="helloworld" onClick={this.handleInputChange}>Vote</Button>
+                  <Button value="helloworld" onClick={this.handleInputChange}>SELECT</Button>
                 </CardBody>
               </Card>
 
@@ -208,7 +215,7 @@ class Vote extends Component {
                 <CardBody className="cards">
                   <CardTitle value="snippets">Snippets</CardTitle>
                   <CardSubtitle>Search & Post Tutorials</CardSubtitle>
-                  <Button value="snippets" onClick={this.handleInputChange}>Vote</Button>
+                  <Button value="snippets" onClick={this.handleInputChange}>SELECT</Button>
                 </CardBody>
               </Card>
 
@@ -229,7 +236,7 @@ class Vote extends Component {
                 <CardBody className="cards">
                   <CardTitle value="vibez">Vibez</CardTitle>
                   <CardSubtitle>Make friends with the same music taste.</CardSubtitle>
-                  <Button value="vibez" onClick={this.handleInputChange}>Vote</Button>
+                  <Button value="vibez" onClick={this.handleInputChange}>SELECT</Button>
                 </CardBody>
               </Card>
             </CardDeck>

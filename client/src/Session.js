@@ -207,7 +207,8 @@ export default class Session extends React.Component {
               />) : 
             (<Route exact path="/vote" 
                 render={() =>
-                    <Login
+                    // Change to Login
+                    <Vote
                         handleInputChange2={this.handleInputChange2}
                         isLoggedIn={this.state.isLoggedIn}
                         UserEmail={this.state.UserEmail}
