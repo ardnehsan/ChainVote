@@ -20,9 +20,12 @@ class Landing extends Component {
       <div className="container">
 
         <div className="content">
-          <h2>ChainVote is a voting system application with Block Chain Technology at is core.</h2>
+          <h2>VoteChain is a voting system application with Block Chain Technology at is core.</h2>
           <h2>It allows users to vote on a campaign or create their own.</h2>
-          <h2>ChainVote is SECURE, FAST, AND ACURATE!</h2>
+          <h2>VoteChain is SECURE, FAST, AND ACURATE!</h2>
+          <br />
+          <h2>Click on Vote to start voting on a campaign.</h2>
+          <h2>Click on Report to see the election's results as a block chain.</h2>
         </div>
 
 
