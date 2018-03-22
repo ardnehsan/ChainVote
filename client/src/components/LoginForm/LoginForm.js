@@ -30,7 +30,7 @@ class LoginForm extends Component {
             <Label for="email" sm={2}>
               Email
             </Label>
-            <Col sm={10}>
+            <Col sm={12}>
               <Input
                 type="email"
                 name="email"
@@ -43,10 +43,10 @@ class LoginForm extends Component {
             </Col>
           </FormGroup>
           <FormGroup row>
-            <Label for="password" sm={2}>
+          <Label for="password" sm={2}>
               Password
             </Label>
-            <Col sm={10}>
+            <Col sm={12}>
               <Input
                 type="password"
                 name="password"

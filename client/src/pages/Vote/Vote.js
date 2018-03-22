@@ -121,7 +121,7 @@ class Vote extends Component {
     ) : (
       <div>
         <Jumbotron>
-          <h1 className="text-center">Projects' Election</h1>
+          <h1 className="text-center">PROJECT'S ELECTION</h1>
         </Jumbotron>
 
         <FormGroup>
@@ -248,10 +248,6 @@ class Vote extends Component {
               style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
             >
               <CardImg width="80%" height="80%" />
-              <CardBody className="cards">
-                <CardTitle value="" />
-                <CardSubtitle />
-              </CardBody>
             </Card>
 
             <Card
@@ -274,10 +270,6 @@ class Vote extends Component {
               style={{ backgroundColor: "#171f32", borderColor: "#FF611D" }}
             >
               <CardImg width="80%" height="80%" />
-              <CardBody className="cards">
-                <CardTitle value="" />
-                <CardSubtitle />
-              </CardBody>
             </Card>
           </CardDeck>
         </FormGroup>

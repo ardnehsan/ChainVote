@@ -2,12 +2,19 @@
     font-size: 50px;
 } */
 
-.card-deck .card {
-    margin-bottom: 0;
+.jumbotron{
+    border-style: solid;
+    border-width: 20px;
+    border-color: #FF611D;
+    font-size: 30px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: bolder;
+    letter-spacing: 12px;
 }
 
 .bottomDeck{
     margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .btn-danger{
