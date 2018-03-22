@@ -4,7 +4,8 @@
     margin-right: 10px;
     width: 150px;
     height: 40px;
-    font-weight: 800;   
+    font-weight: 800;
+    border-radius: 10px   
 }
 
 .btn-secondary {
@@ -12,4 +13,5 @@
     float: right;
     width: 150px;
     height: 40px;
+    border-radius: 10px
 }

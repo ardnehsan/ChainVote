@@ -5,13 +5,13 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 // IMPORT GLOBAL COMPONENTS ========================
 import Header from "./components/Header";
-// import Footer from "./components/Footer";
+import Footer from "./components/Footer";
 
 // IMPORT PAGES ====================================
 import Login from "./pages/Login";
 import Vote from "./pages/Vote";
 import History from "./pages/History";
- import Report from "./pages/Report";
+import Report from "./pages/Report";
 import Landing from "./pages/Landing";
 import About from "./pages/About";
 import Four04 from "./pages/Four04";
@@ -19,7 +19,7 @@ import "./App.css"
 
 const App = () => {
   return (
-    <div className="container">
+    <div className="">
       {/* REACT COMPONENT */}
       <BrowserRouter>
         {/* COLLECTION OF ROUTES */}
@@ -34,7 +34,7 @@ const App = () => {
             <Route exact path="/about" component={About} />
             <Route component={Four04} />
           </Switch>
-          {/* <Footer /> */}
+          <Footer />
         </div>
       </BrowserRouter>
     </div>
