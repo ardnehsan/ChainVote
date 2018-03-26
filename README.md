@@ -1,3 +1,3 @@
-# ChainVote
+# VoteChain
 
-junk
+For guests, use email: guest@votechain.com password: votechain
