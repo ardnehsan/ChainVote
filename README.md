@@ -3,9 +3,10 @@ VoteChain is a web app that uses blockchain technology to try and emulate what a
 
 ## Web Link
 https://vote-chain.herokuapp.com/
+
 Login credentials for guests: 
-	* Email: guest@votechain.com
-	* Password: votechain
+* Email: guest@votechain.com
+* Password: votechain
 
 ## Table of Contents
 * [How Blockchains Work](#how-blockchains-work)
